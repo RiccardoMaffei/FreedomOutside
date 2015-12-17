@@ -7,7 +7,9 @@
 
 #ifndef ROOM_HPP
 #define	ROOM_HPP
+
 #include <list>
+#include "Action.hpp"
 
 /**
  * A simple game room with 4 doors.
