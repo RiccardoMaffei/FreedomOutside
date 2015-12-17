@@ -11,6 +11,8 @@
 #include <list>
 #include "Action.hpp"
 
+using namespace std;
+
 /**
  * A simple game room with 4 doors.
  */
