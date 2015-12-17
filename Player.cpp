@@ -7,7 +7,7 @@
 
 #include "Player.hpp"
 
-Player::Player() {
+Player::Player(char username[]) {
 }
 
 Player::Player(const Player& orig) {
