@@ -13,6 +13,11 @@ public:
     Game();
     Game(const Game& orig);
     virtual ~Game();
+    
+    /**
+     * Runs the game. This methoc contains the main game loop functionalities.
+     */
+    void play();
 private:
 
 };
