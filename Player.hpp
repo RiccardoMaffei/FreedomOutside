@@ -20,7 +20,7 @@ using namespace std;
 class Player {
 public:
     /**
-     * 
+     * Construct a Player with the given username
      * @param username
      */
     Player(char username[]);
