@@ -11,6 +11,7 @@
 #include <list>
 #include "Item.hpp"
 #include "Action.hpp"
+#include "ItemArmor.hpp"
 
 using namespace std;
 
@@ -62,6 +63,19 @@ public:
     list<Item*>* getInventory();
     
     /**
+     * Get the  the Player's armor.
+     * @return ItemArmor*: returns the Player's armor.
+     */
+    ItemArmor* getArmor();
+
+    /**
+     * Set the given armor as the Player's armor.
+     * @param armor ItemArmor*: the armor to set
+     */
+    void setArmor(ItemArmor* armor);
+
+    
+    /**
      * Get the Player's username.
      * @param dest char[]: an array big enought to store the username string.
      */
@@ -75,6 +89,8 @@ protected:
     int health;
     //the player inventory
     list<Item*> inventory;
+    //the player armor
+    ItemArmor* armor;
 };
 
 #endif	/* PLAYER_HPP */
