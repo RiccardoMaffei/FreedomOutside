@@ -5,6 +5,7 @@ dist/
 nbdist/
 nbactions.xml
 .nb-gradle/
+.dep.inc
 Makefile
 
 # Compiled Object files
