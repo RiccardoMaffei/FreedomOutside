@@ -94,11 +94,6 @@ public:
      */
     int getY();
     
-    /**
-     * Returns a lisf of possible actions for the room.
-     * @return list&ltAction*&gt*: a list of possible actions for the room.
-     */
-    list<Action*>* getActions();
 private:
 
 protected:

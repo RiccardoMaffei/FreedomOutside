@@ -25,3 +25,52 @@ Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west) {
 Room::~Room() {
 }
 
+Room::setNorth(Room* north){
+    //set the north room pointer
+    this -> north = north;
+}
+
+Room::setSouth(Room* south){
+    //set the south room pointer
+    this -> south = south;
+}
+
+Room::setEast(Room* east){
+    //set the east room pointer
+    this -> east = east;
+}
+
+Room::setWest(Room* west){
+    //set the west room pointer
+    this -> west = west;
+}
+
+Room::getNorth(){
+    //return the north room pointer
+    return this -> north;
+}
+
+Room::getSouth(){
+    //return the south room pointer
+    return this -> south;
+}
+
+Room::getEast(){
+    //return the east room pointer
+    return this -> east;
+}
+
+Room::getWest(){
+    //return the west room pointer
+    return this -> west;
+}
+
+Room::getX(){
+    //return the x coordinate
+    return this -> x;
+}
+
+Room::getY(){
+    //return the y coordinate
+    return this -> y;
+}
