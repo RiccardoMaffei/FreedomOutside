@@ -22,9 +22,6 @@ Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west) {
     this -> west = west;
 }
 
-Room::Room(const Room& orig) {
-}
-
 Room::~Room() {
 }
 
