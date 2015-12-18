@@ -30,12 +30,6 @@ public:
     Room(int x, int y, Room* north, Room* south, Room* east, Room* west);
     
     /**
-     * Clone the given room.
-     * @param orig Room&: room to clone.
-     */
-    Room(const Room& orig);
-    
-    /**
      * Room destructor.
      */
     virtual ~Room();
