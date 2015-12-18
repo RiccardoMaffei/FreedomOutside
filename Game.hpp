@@ -15,9 +15,10 @@ public:
     virtual ~Game();
     
     /**
-     * Runs the game. This methoc contains the main game loop functionalities.
+     * Runs the game. This method contains the main game loop functionalities.
+     * @param nPlayers int: number of players.
      */
-    void play();
+    void play(int nPlayers);
 private:
 
 };
