@@ -1,6 +1,7 @@
 /* 
  * File:   Map.hpp
  * Author: Riccardo Maffei
+ * Author: Federico Bertani
  *
  * Created on 16 dicembre 2015, 14.58
  */
