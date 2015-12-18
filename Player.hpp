@@ -57,7 +57,7 @@ public:
 
     /**
      * Get the Player's inventory.
-     * @return list<Item*>*: returns a pointer to the Player's inventory.
+     * @return list&ltItem*&gt*: returns a pointer to the Player's inventory.
      */
     list<Item*>* getInventory();
     
