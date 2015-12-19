@@ -16,3 +16,13 @@ Map::Map(const Map& orig) {
 Map::~Map() {
 }
 
+Map* Map::getInstance() {
+    //if the instance pointer is null
+    if (Map::instance == NULL){
+        Map::instance = new Map();
+    }
+    //return the instance pointer
+    return Map::instance;
+}
+
+

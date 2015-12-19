@@ -9,6 +9,7 @@
 #ifndef MAP_HPP
 #define	MAP_HPP
 
+#include <stddef.h>
 #include <list>
 #include "Room.hpp"
 
@@ -54,14 +55,14 @@ public:
      * @return Room*: the created room.
      */
     Room* createRoom(int x,int y);
-protected:
-    
+
+protected:    
     /**
      * Creates a map with only the entry room.
      */
     Map();
     //the singleton instance
-    static Map* instance;
+    static Map* instance = NULL;
     //the room where the map starts (coordinates 0,0)
     Room* entryPoint;
     //the list of room of a Map
