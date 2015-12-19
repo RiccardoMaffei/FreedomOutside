@@ -74,3 +74,8 @@ Room::getY(){
     //return the y coordinate
     return this -> y;
 }
+
+Room::getItemList(){
+    //return a pointer to the list
+    return &(this -> items);
+}

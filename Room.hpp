@@ -10,6 +10,7 @@
 
 #include <list>
 #include "Action.hpp"
+#include "Item.hpp"
 
 using namespace std;
 
@@ -94,6 +95,13 @@ public:
      */
     int getY();
     
+    /**
+     * Get the item list.
+     * @return list&lt;Item*&gt;*: a pointer to the room's list of items.
+     */
+    list<Item*>* getItemList();
+
+    
 private:
 
 protected:
@@ -109,6 +117,8 @@ protected:
     Room* east;
     //west room pointer (aka west door)
     Room* west;
+    //the list of items in the room (E.g.: on the ground)
+    list<Item*> items;
 };
 
 #endif	/* ROOM_HPP */
