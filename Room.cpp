@@ -5,9 +5,10 @@
  * Created on 16 dicembre 2015, 14.57
  */
 
+#include <stddef.h>
 #include "Room.hpp"
 
-Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west) {
+Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<Item*>* items) {
     //save the given x
     this -> x = x;
     //save the given y
@@ -20,6 +21,16 @@ Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west) {
     this -> east = east;
     //save the given west pointer
     this -> west = west;
+    //if the given item list pointer is not null
+    if(items != NULL){
+        //save the given pointer
+        this -> items = items;
+    }
+    //otherwise
+    else{
+        //construct and save a new empty list
+        this -> items = new list<Item*>();
+    }
 }
 
 Room::~Room() {

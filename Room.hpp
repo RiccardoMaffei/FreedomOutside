@@ -20,15 +20,16 @@ using namespace std;
 class Room {
 public:
     /**
-     * Construct an empty room w/ the given doors (room pointers).
+     * Construct an empty room w/ the given doors (room pointers), coordinates and items list.
      * @param x int: the x coordinate.
      * @param y int: the x coordinate.
      * @param north Room*: the northern room.
      * @param south Room*: the southern room.
      * @param east Room*: the eastern room.
      * @param west Room*: the western room.
+     * @param items list&lt;Item*&gt;*: a pointer to the room's list of items. If null, an empty list will be added.
      */
-    Room(int x, int y, Room* north, Room* south, Room* east, Room* west);
+    Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<Item*>* items);
     
     /**
      * Room destructor.
@@ -118,7 +119,7 @@ protected:
     //west room pointer (aka west door)
     Room* west;
     //the list of items in the room (E.g.: on the ground)
-    list<Item*> items;
+    list<Item*>* items;
 };
 
 #endif	/* ROOM_HPP */
