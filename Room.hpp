@@ -10,6 +10,7 @@
 
 #include <list>
 #include "Action.hpp"
+#include "Item.hpp"
 
 using namespace std;
 
@@ -28,12 +29,6 @@ public:
      * @param west Room*: the western room.
      */
     Room(int x, int y, Room* north, Room* south, Room* east, Room* west);
-    
-    /**
-     * Clone the given room.
-     * @param orig Room&: room to clone.
-     */
-    Room(const Room& orig);
     
     /**
      * Room destructor.
@@ -101,10 +96,12 @@ public:
     int getY();
     
     /**
-     * Returns a lisf of possible actions for the room.
-     * @return list&ltAction*&gt*: a list of possible actions for the room.
+     * Get the item list.
+     * @return list&lt;Item*&gt;*: a pointer to the room's list of items.
      */
-    list<Action*>* getActions();
+    list<Item*>* getItemList();
+
+    
 private:
 
 protected:
@@ -120,6 +117,8 @@ protected:
     Room* east;
     //west room pointer (aka west door)
     Room* west;
+    //the list of items in the room (E.g.: on the ground)
+    list<Item*> items;
 };
 
 #endif	/* ROOM_HPP */
