@@ -16,19 +16,16 @@ using namespace std;
 
 /**
  * A grid of rooms where players move and make actions.
+ * It's a singleton.
  */
 class Map {
 public:
-    /**
-     * Creates a map with only the entry room.
-     */
-    Map();
     
     /**
-     * Clone the given map.
-     * @param orig Map&: the map to clone
+     * 
+     * @return 
      */
-    Map(const Map& orig);
+    static virtual Map* getInstance();
     
     /**
      * Map destructor
@@ -60,6 +57,12 @@ public:
      */
     Room* createRoom(int x,int y);
 protected:
+    
+     /**
+     * Creates a map with only the entry room.
+     */
+    Map();
+    
     //the room where the map starts
     Room* entryPoint;
     //the list of room of a Map
