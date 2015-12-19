@@ -19,6 +19,7 @@ Map::~Map() {
 Map* Map::getInstance() {
     //if the instance pointer is null
     if (Map::instance == NULL){
+        //construct a new map and save it to the static instance
         Map::instance = new Map();
     }
     //return the instance pointer
