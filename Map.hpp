@@ -15,15 +15,15 @@
 using namespace std;
 
 /**
- * A grid of rooms where players move and make actions.
- * It's a singleton.
+ * The game map. An expandable grid of rooms.
+ * This class is singleton.
  */
 class Map {
 public:
     
     /**
-     * 
-     * @return 
+     * Get the singleton instance of the map.
+     * @return Map*: the map instance
      */
     static virtual Map* getInstance();
     
@@ -33,7 +33,7 @@ public:
     virtual ~Map();
     
     /**
-     * Finds a room by searching it with its coordinates.
+     * Finds a room by its coordinates.
      * @param x int: the x coordinate.
      * @param y int: the y coordinate.
      * @return Room*: the found room or null if it doesn't exist.
@@ -47,23 +47,22 @@ public:
     Room* getEntryPoint();
     
     /**
-     * Create a Room in the position given.
-     * 
-     * warning: don't call this function to create an existing room.
-     * 
+     * Create a Room in the given position.
+     * warning: calling this function with coordinates of an existing room may lead to an unexpected behaviour.
      * @param x int: the x coordinate of the room.
      * @param y int: the y coordinate of the room.
-     * @return the room created .
+     * @return Room*: the created room.
      */
     Room* createRoom(int x,int y);
 protected:
     
-     /**
+    /**
      * Creates a map with only the entry room.
      */
     Map();
-    
-    //the room where the map starts
+    //the singleton instance
+    static Map* instance;
+    //the room where the map starts (coordinates 0,0)
     Room* entryPoint;
     //the list of room of a Map
     list<Room*> roomList;
