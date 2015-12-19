@@ -61,6 +61,12 @@ protected:
      * Creates a map with only the entry room.
      */
     Map();
+    
+    /**
+     * Clone the given map. Must not be used.
+     * @param orig Map: original map.
+     */
+    Map(const Map& orig);
     //the singleton instance
     static Map* instance = NULL;
     //the room where the map starts (coordinates 0,0)
