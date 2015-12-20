@@ -42,3 +42,6 @@ Room* Map::getEntryPoint() {
     return this -> entryPoint;
 }
 
+Room* Map::geneateRoom(int x,int y){
+    
+}

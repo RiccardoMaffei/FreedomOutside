@@ -73,6 +73,10 @@ protected:
     Room* entryPoint;
     //the list of room of a Map
     list<Room*> roomList;
+    //the left side of the list
+    int sideLeft;
+    //the top side of the list
+    int sideTop;
 };
 
 #endif	/* MAP_HPP */
