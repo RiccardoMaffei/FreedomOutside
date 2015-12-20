@@ -38,12 +38,6 @@ public:
     virtual ~Player();
     
     /**
-     * Returns a lisf of possible actions for the player.
-     * @return list&ltAction*&gt*: a list of possible actions for the player.
-     */
-    list<Action*>* getActions();
-    
-    /**
      * Inflicts given damages to the player.
      * @param damage int: damage to inflict.
      * @return int: the inflicted damages. Inclicted damages may be less than give damages in case of protections or death.
