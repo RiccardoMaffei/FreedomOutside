@@ -38,7 +38,7 @@ public:
     virtual ~Player();
     
     /**
-     * Inflicts given damages to the player.
+     * Inflicts given damages to the Player.
      * @param damage int: damage to inflict.
      * @return int: the inflicted damages. Inclicted damages may be less than give damages in case of protections or death.
      */
@@ -64,34 +64,40 @@ public:
 
     /**
      * Set the given armor as the Player's armor.
-     * @param armor ItemArmor*: the armor to set
+     * @param armor ItemArmor*: the armor to set.
      */
     void setArmor(ItemArmor* armor);
 
     /**
-     * Get the Player agility
-     * @return double: player agility
+     * Get the Player's agility.
+     * @return double: Player's agility.
      */
     double getAgility();
 
     /**
-     * Set the given agility to the player
-     * @param agility double: the agility
+     * Set the given agility to the Player.
+     * @param agility double: the agility.
      */
     void setAgility(double agility);
 
     /**
-     * Get the Player strength
-     * @return double: player strength
+     * Get the Player's strength.
+     * @return double: Player's strength.
      */
     double getStrength();
 
     /**
-     * Set the given strength to the player
-     * @param strength double: the strength
+     * Set the given strength to the player.
+     * @param strength double: the strength.
      */
     void setStrength(double strength);
-
+    
+    /**
+     * Get the Player's id.
+     * @return int: the Player's id.
+     */
+    int getId();
+    
     /**
      * Get the Player's username.
      * @param dest char[]: an array big enought to store the username string.
@@ -102,6 +108,8 @@ private:
 protected:
     //the static idCounter
     static int idCounter;
+    //the player id
+    int id;
     //the player username
     char username[50];
     //the player health
