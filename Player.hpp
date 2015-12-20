@@ -74,7 +74,30 @@ public:
      */
     void setArmor(ItemArmor* armor);
 
-    
+    /**
+     * Get the Player agility
+     * @return double: player agility
+     */
+    double getAgility();
+
+    /**
+     * Set the given agility to the player
+     * @param agility double: the agility
+     */
+    void setAgility(double agility);
+
+    /**
+     * Get the Player strength
+     * @return double: player strength
+     */
+    double getStrength();
+
+    /**
+     * Set the given strength to the player
+     * @param strength double: the strength
+     */
+    void setStrength(double strength);
+
     /**
      * Get the Player's username.
      * @param dest char[]: an array big enought to store the username string.
@@ -91,6 +114,10 @@ protected:
     list<Item*> inventory;
     //the player armor
     ItemArmor* armor;
+    //player strength
+    double strength;
+    //player agility
+    double agility;
 };
 
 #endif	/* PLAYER_HPP */
