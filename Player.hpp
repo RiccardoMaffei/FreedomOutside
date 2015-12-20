@@ -100,6 +100,8 @@ public:
 private:
 
 protected:
+    //the static idCounter
+    static int idCounter;
     //the player username
     char username[50];
     //the player health
