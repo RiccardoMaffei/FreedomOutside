@@ -47,3 +47,7 @@ Room* Map::getEntryPoint() {
 Room* Map::geneateRoom(int x,int y){
     
 }
+
+Room* Map::findRoomByCoordinates(int x, int y) {
+
+}
