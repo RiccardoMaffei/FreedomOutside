@@ -37,4 +37,8 @@ Map* Map::getInstance() {
     return Map::instance;
 }
 
+Room* Map::getEntryPoint() {
+    //return the entry point
+    return this -> entryPoint;
+}
 
