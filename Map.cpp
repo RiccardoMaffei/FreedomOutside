@@ -19,6 +19,8 @@ Map::Map() {
     this -> entryPoint = main;
     //add the main room to the room list
     this -> roomList.push_back(main);
+    //set the side left and side top to 0
+    this -> sideLeft = this -> sideTop = 0;
 }
 
 Map::Map(const Map& orig) {
