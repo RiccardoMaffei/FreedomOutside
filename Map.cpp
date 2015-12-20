@@ -7,6 +7,7 @@
 
 #include "Map.hpp"
 
+//initialize the instance
 Map* Map::instance = NULL;
 
 Map::Map() {
