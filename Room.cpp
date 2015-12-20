@@ -88,5 +88,5 @@ int Room::getY(){
 
 list<Item*>* Room::getItemList(){
     //return a pointer to the list
-    return &(this -> items);
+    return this -> items;
 }

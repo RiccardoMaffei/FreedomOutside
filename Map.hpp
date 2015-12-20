@@ -26,7 +26,7 @@ public:
      * Get the singleton instance of the map.
      * @return Map*: the map instance
      */
-    static virtual Map* getInstance();
+    static Map* getInstance();
     
     /**
      * Map destructor
@@ -48,15 +48,15 @@ public:
     Room* getEntryPoint();
     
     /**
-     * Create a Room in the given position.
+     * Generate a Room in the given position.
      * warning: calling this function with coordinates of an existing room may lead to an unexpected behaviour.
      * @param x int: the x coordinate of the room.
      * @param y int: the y coordinate of the room.
      * @return Room*: the created room.
      */
-    Room* createRoom(int x,int y);
+    Room* geneateRoom(int x,int y);
 
-protected:    
+protected:
     /**
      * Creates a map with only the entry room.
      */
@@ -68,7 +68,7 @@ protected:
      */
     Map(const Map& orig);
     //the singleton instance
-    static Map* instance = NULL;
+    static Map* instance;
     //the room where the map starts (coordinates 0,0)
     Room* entryPoint;
     //the list of room of a Map
