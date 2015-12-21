@@ -8,6 +8,10 @@
 #ifndef GAME_HPP
 #define	GAME_HPP
 
+#include <list>
+#include "ConsoleView.hpp"
+using namespace std;
+
 class Game {
 public:
     /**
@@ -30,8 +34,16 @@ public:
      * Runs the game. This method contains the main game loop functionalities.
      */
     void play();
+protected:
+    //the number of player
+    int nPlayer;
+    //the game map
+    Map* map;
+    //the list of players
+    list<Player*>* playerList;
+    //the view
+    ConsoleView* view;
 private:
-
 };
 
 #endif	/* GAME_HPP */
