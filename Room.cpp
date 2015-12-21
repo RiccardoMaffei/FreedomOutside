@@ -21,6 +21,26 @@ Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<
     this -> east = east;
     //save the given west pointer
     this -> west = west;
+    //if the northern room is not NULL
+    if (this -> north != NULL){
+        //set this room as its southern (we can use the setter or directly access members)
+        this -> north -> south = this;
+    }
+    //if the southern room is not NULL
+    if (this -> south != NULL){
+        //set this room as its northern (we can use the setter or directly access members)
+        this -> south -> north = this;
+    }
+    //if the eastern room is not NULL
+    if (this -> east != NULL){
+        //set this room as its western (we can use the setter or directly access members)
+        this -> east -> west = this;
+    }
+    //if the western room is not NULL
+    if (this -> west != NULL){
+        //set this room as its eastern (we can use the setter or directly access members)
+        this -> west -> east = this;
+    }
     //if the given item list pointer is not null
     if(items != NULL){
         //save the given pointer
