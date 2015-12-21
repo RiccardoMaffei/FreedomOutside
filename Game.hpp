@@ -21,9 +21,9 @@ public:
     
     /**
      * Construct a game with a given number of players.
-     * @param nPlayers int: number of players.
+     * @param nPlayer int: number of players.
      */
-    Game(int nPlayers);
+    Game(int nPlayer);
     
     /**
      * Destruct the game.
