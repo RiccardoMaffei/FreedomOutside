@@ -21,8 +21,8 @@ class Room {
 public:
     /**
      * Construct an empty room w/ the given doors (room pointers), coordinates and items list.
-     * @param x int: the x coordinate.
-     * @param y int: the x coordinate.
+     * @param x int: the x coordinate (increased going rightwards).
+     * @param y int: the x coordinate (increased going downwards).
      * @param north Room*: the northern room.
      * @param south Room*: the southern room.
      * @param east Room*: the eastern room.
