@@ -67,6 +67,12 @@ protected:
      * @param orig Map: original map.
      */
     Map(const Map& orig);
+    
+    /**
+     * Inserts the room in the map taking care of ordering and coherence.
+     * @param r Room*. the room to insert
+     */
+    void insertRoom(Room* r);
     //the singleton instance
     static Map* instance;
     //the room where the map starts (coordinates 0,0)
