@@ -49,7 +49,7 @@ public:
     
     /**
      * Generate a Room in the given position.
-     * warning: calling this function with coordinates of an existing room may lead to an unexpected behaviour.
+     * warning: calling this function with coordinates of an existing room may lead to an unexpected behaviour. (It doesent check for existence)
      * @param x int: the x coordinate of the room.
      * @param y int: the y coordinate of the room.
      * @return Room*: the created room.
