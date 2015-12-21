@@ -10,6 +10,8 @@
 
 #include <list>
 #include "ConsoleView.hpp"
+#include "Map.hpp"
+#include "Player.hpp"
 using namespace std;
 
 /**

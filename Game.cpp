@@ -6,7 +6,6 @@
  */
 
 #include "Game.hpp"
-#include "Map.hpp"
 
 Game::Game() {
     //call the constructor with number of player = 4
