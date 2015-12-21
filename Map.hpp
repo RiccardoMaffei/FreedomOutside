@@ -70,7 +70,7 @@ protected:
     Map(const Map& orig);
     
     /**
-     * Inserts the room in the map taking care of ordering and coherence.
+     * Inserts the room in the map taking care of ordering and consistency.
      * @param r Room*. the room to insert
      */
     void insertRoom(Room* r);
