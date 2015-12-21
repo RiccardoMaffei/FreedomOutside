@@ -19,23 +19,16 @@ using namespace std;
  */
 
 int main(int argc, char* argv[]) {
-    
     //set the number of players to 4 as default
     int nPlayer = 4;
-    
     //flag that determinate if the game should start or not
     bool shouldStart = false;
-    
-    //the game
-    Game* g = NULL;
-            
     //if there is only one argument, i.e. user wants the game to run with the default number of players.
     if(argc == 1){
         //game runs with the default number of players
+        //set the shouls start as true
         shouldStart = true;
-        g = new Game(nPlayer);
     }
-
     //if the number of args is equal to 3 (argc > 3)
     else if(argc == 3){
         //if user types "-n" or "--number-of-players" parameter correctly
@@ -44,23 +37,26 @@ int main(int argc, char* argv[]) {
             if(isdigit(argv[2])){
                 //if user types a valid number
                 if(atoi(argv[2])>1){
+                    //set the should start as true
                     shouldStart = true;
-                    g = new Game(atoi(argv[2]));
+                    //set the number of player given in console
+                    nPlayer = atoi(argv[2]);
                 }
             }   
         }   
     }
-    
     //if user invokes the game correctly
     if(shouldStart){
+        //instance a game with the number of player
+        Game* g = new Game(nPlayer);
+        //play the game
         g->play();
     }
-    
     //if user made some mistakes during invocation
     else{
-        cout << "Usage: " << argv[0] << "[(-n | --number-of-players) <number of player (>1)>] \n";
+        //print an error and show usage
+        cout << "Usage: " << argv[0] << "[(-n | --number-of-players) <number of player (greater than 1)>] \n";
     }
-    
     return 0;
 }
 
