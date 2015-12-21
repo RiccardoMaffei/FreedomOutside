@@ -7,6 +7,9 @@
 
 #include "Player.hpp"
 
+//initialize the static idCounter
+int Player::idCounter = 1;
+
 Player::Player(char username[]) {
 }
 

@@ -10,15 +10,26 @@
 
 class Game {
 public:
+    /**
+     * Construct a game with 4 players.
+     */
     Game();
-    Game(const Game& orig);
+    
+    /**
+     * Construct a game with a given number of players.
+     * @param nPlayers int: number of players.
+     */
+    Game(int nPlayers);
+    
+    /**
+     * Destruct the game.
+     */
     virtual ~Game();
     
     /**
      * Runs the game. This method contains the main game loop functionalities.
-     * @param nPlayers int: number of players.
      */
-    void play(int nPlayers);
+    void play();
 private:
 
 };
