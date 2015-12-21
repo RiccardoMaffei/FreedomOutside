@@ -8,9 +8,19 @@
 #ifndef CONSOLEVIEW_HPP
 #define CONSOLEVIEW_HPP
 
+/**
+ * Console view for the game.
+ */
 class ConsoleView {
 public:
+    /**
+     * Construct a console view
+     */
     ConsoleView();
+    
+    /**
+     * Console view destructor
+     */
     virtual ~ConsoleView();
 private:
 
