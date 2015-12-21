@@ -8,8 +8,8 @@
  */
 
 #include <iostream>
+#include <stdlib.h>
 #include <cstring>
-#include <cctype>
 #include "Game.hpp"
 
 using namespace std;
@@ -33,8 +33,8 @@ int main(int argc, char* argv[]) {
     else if(argc == 3){
         //if user types "-n" or "--number-of-players" parameter correctly
         if(strcmp(argv[1], "-n")==0 || strcmp(argv[1], "--number-of-players")==0){
-            //if user types a number after the "-n" or "--number-of-players" parameter
-            if(isdigit(argv[2])){
+            //if user types a number after the "-n" or "--number-of-players" parameter (123abc is accepted as 123))
+            if(isdigit(argv[2][0])){
                 //if user types a valid number
                 if(atoi(argv[2])>1){
                     //set the should start as true
