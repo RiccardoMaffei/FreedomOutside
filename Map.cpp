@@ -45,9 +45,31 @@ Room* Map::getEntryPoint() {
 }
 
 Room* Map::geneateRoom(int x,int y){
+    //construct an empty item list
+    list<Item*>* itemList = new list<Item*>();
     
+    //TODO: add item random generation (spawning) logic
+    //NOTE: in this implementation we don't check for existence for performace reasons.
+    
+    //get the northern room (may be NULL)
+    Room* n = findRoomByCoordinates(x, y-1);
+    //get the southern room (may be NULL)
+    Room* s = findRoomByCoordinates(x, y+1);
+    //get the eastern room (may be NULL)
+    Room* e = findRoomByCoordinates(x+1, y);
+    //get the weastern room (may be NULL)
+    Room* w = findRoomByCoordinates(x-1, y);
+    //construct a room
+    Room* roomToInsert = new Room(x, y, n, s, e, w, itemList);
+    //insert it in the map taking care of ordering and consistency
+    this -> insertRoom(roomToInsert);
 }
 
 Room* Map::findRoomByCoordinates(int x, int y) {
 
 }
+
+void Map::insertRoom(Room* r) {
+
+}
+
