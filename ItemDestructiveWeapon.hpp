@@ -7,8 +7,9 @@
 
 #ifndef ITEMDESTRUCTIVEWEAPON_HPP
 #define ITEMDESTRUCTIVEWEAPON_HPP
+#include "Item.hpp"
 
-class ItemDestructiveWeapon {
+class ItemDestructiveWeapon: public Item{
 public:
     ItemDestructiveWeapon();
     virtual ~ItemDestructiveWeapon();

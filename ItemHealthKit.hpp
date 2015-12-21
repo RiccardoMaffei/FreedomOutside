@@ -7,8 +7,9 @@
 
 #ifndef ITEMHEALTHKIT_HPP
 #define ITEMHEALTHKIT_HPP
+#include "Item.hpp"
 
-class ItemHealthKit {
+class ItemHealthKit: public Item{
 public:
     ItemHealthKit();
     virtual ~ItemHealthKit();
