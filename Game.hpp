@@ -12,6 +12,9 @@
 #include "ConsoleView.hpp"
 using namespace std;
 
+/**
+ * The game main class.
+ */
 class Game {
 public:
     /**
