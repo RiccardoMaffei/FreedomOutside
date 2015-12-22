@@ -72,7 +72,7 @@ public:
 
     /**
      * Get the Player's agility.
-     * @return double: Player's agility.
+     * @return double: Player's agility. Greater than zero (if not will be set as 1).
      */
     double getAgility();
 
@@ -90,7 +90,7 @@ public:
 
     /**
      * Set the given strength to the player.
-     * @param strength double: the strength.
+     * @param strength double: the strength. Greater than zero (if not will be set as 1).
      */
     void setStrength(double strength);
     

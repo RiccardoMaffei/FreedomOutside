@@ -57,6 +57,11 @@ int Player::getId() {
 }
 
 void Player::setStrength(double strength) {
+    //check if is not valid !(strength > 0)
+    if (strength <= 0){
+        //set as 1
+        strength = 1;
+    }
     //set the given strength
     this -> strength = strength;
 }
@@ -67,6 +72,11 @@ double Player::getStrength() {
 }
 
 void Player::setAgility(double agility) {
+    //check if is not valid !(agility > 0)
+    if (agility <= 0){
+        //set as 1
+        agility = 1;
+    }
     //set the given agility
     this -> agility = agility;
 }
