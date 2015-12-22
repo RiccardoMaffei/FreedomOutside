@@ -6,6 +6,7 @@
  */
 
 #include <stdlib.h>
+#include <ctime>
 #include "ItemDestructiveWeapon.hpp"
 
 ItemDestructiveWeapon::ItemDestructiveWeapon(char name[], int min, int max): Item(name){
@@ -30,7 +31,7 @@ ItemDestructiveWeapon::~ItemDestructiveWeapon() {
 
 int ItemDestructiveWeapon::getDamageValue() {
     //set random seed with current time
-    srand(time());
+    srand(time(NULL));
     //compute the random damage between min and max
     int randDamage = rand()%((this ->maxDamage) - (this -> minDamage) + 1) + (this -> minDamage);
     //return the computed value
