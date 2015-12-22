@@ -11,7 +11,6 @@
 Item::Item(char name[]) {
     //copy the given name
     strcpy(this -> name, name);
-    
 }
 
 Item::~Item() {
