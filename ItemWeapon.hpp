@@ -12,10 +12,27 @@
 
 class ItemWeapon: public Item{
 public:
-    ItemWeapon(char name[]);
+    
+    /**
+     * Construct a weapon with the given name and base value of damage.
+     * @param name char[]: name of the wapon (max 49 char).
+     * @param damageValue int: base value of damage greater than 0.
+     */
+    ItemWeapon(char name[], int damageValue);
+    
+    /**
+     * Itemaweapon destructor
+     */
     virtual ~ItemWeapon();
+    
+    /**
+     * Get the base value of damage.
+     * @return int: base damage value.
+     */
+    int getDamageValue();
 private:
-
+    //the damage base value
+    int damageValue;
 };
 
 #endif /* ITEMWEAPON_HPP */
