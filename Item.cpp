@@ -16,3 +16,7 @@ Item::Item(char name[]) {
 Item::~Item() {
 }
 
+void Item::getName(char dest[]) {
+    //copy the name in the destination array
+    strcpy (this -> name, name);
+}

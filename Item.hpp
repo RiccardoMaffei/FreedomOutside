@@ -24,6 +24,13 @@ public:
      * Item destructor
      */
     virtual ~Item();
+    
+    /**
+     * Get the Item name.
+     * @param dest char[]: destination array. Must be big enought (max string length 49).
+     */
+    void getName(char dest[]);
+
 private:
     //the name of the item
     char name[50];
