@@ -131,7 +131,7 @@ protected:
     //the player health
     int health;
     //the player inventory
-    list<Item*> inventory;
+    list<Item*>* inventory;
     //the player armor
     ItemArmor* armor;
     //player strength
