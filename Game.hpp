@@ -9,7 +9,7 @@
 #define	GAME_HPP
 
 #include <list>
-#include "ConsoleView.hpp"
+#include "View.hpp"
 #include "Map.hpp"
 #include "Player.hpp"
 using namespace std;
@@ -47,7 +47,7 @@ protected:
     //the list of players
     list<Player*>* playerList;
     //the view
-    ConsoleView* view;
+    View* view;
 private:
 };
 

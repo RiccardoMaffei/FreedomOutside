@@ -8,10 +8,11 @@
 #ifndef CONSOLEVIEW_HPP
 #define CONSOLEVIEW_HPP
 
+#include "View.hpp"
 /**
  * Console view for the game.
  */
-class ConsoleView {
+class ConsoleView: public View{
 public:
     /**
      * Construct a console view
