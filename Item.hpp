@@ -16,7 +16,7 @@ public:
     
     /**
      * Construct an Item with the given name.
-     * @param name
+     * @param name char[]: the Item's name max 49 char.
      */
     Item(char name[]);
     
