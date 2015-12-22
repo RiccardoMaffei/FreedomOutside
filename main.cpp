@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
     //if there is only one argument, i.e. user wants the game to run with the default number of players.
     if(argc == 1){
         //game runs with the default number of players
-        //set the shouls start as true
+        //set the should start as true
         shouldStart = true;
     }
     //if the number of args is equal to 3 (argc > 3)
