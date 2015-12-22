@@ -13,3 +13,7 @@ ConsoleView::ConsoleView() {
 ConsoleView::~ConsoleView() {
 }
 
+void ConsoleView::getUsername(char dest[]) {
+
+}
+
