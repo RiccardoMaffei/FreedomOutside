@@ -13,10 +13,7 @@
 
 #include "ItemArmor.hpp"
 
-ItemArmor::ItemArmor() {
-}
-
-ItemArmor::ItemArmor(const ItemArmor& orig) {
+ItemArmor::ItemArmor(char name[]): Item(name){
 }
 
 ItemArmor::~ItemArmor() {

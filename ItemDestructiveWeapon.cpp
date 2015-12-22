@@ -7,7 +7,7 @@
 
 #include "ItemDestructiveWeapon.hpp"
 
-ItemDestructiveWeapon::ItemDestructiveWeapon() {
+ItemDestructiveWeapon::ItemDestructiveWeapon(char name[]): Item(name){
 }
 
 ItemDestructiveWeapon::~ItemDestructiveWeapon() {

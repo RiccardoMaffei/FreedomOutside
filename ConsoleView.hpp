@@ -23,6 +23,12 @@ public:
      * Console view destructor
      */
     virtual ~ConsoleView();
+    
+    /**
+     * Ask the username and copies it in dest.
+     * @param dest char[]: an array big enought to hold the username.
+     */
+    void getUsername(char dest[]);
 private:
 
 };

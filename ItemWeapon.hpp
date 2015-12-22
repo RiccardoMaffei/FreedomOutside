@@ -12,7 +12,7 @@
 
 class ItemWeapon: public Item{
 public:
-    ItemWeapon();
+    ItemWeapon(char name[]);
     virtual ~ItemWeapon();
 private:
 

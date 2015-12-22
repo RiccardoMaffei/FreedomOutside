@@ -7,7 +7,7 @@
 
 #include "ItemHealthKit.hpp"
 
-ItemHealthKit::ItemHealthKit() {
+ItemHealthKit::ItemHealthKit(char name[]): Item(name){
 }
 
 ItemHealthKit::~ItemHealthKit() {

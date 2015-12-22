@@ -13,8 +13,7 @@
 
 class ItemArmor : public Item {
 public:
-    ItemArmor();
-    ItemArmor(const ItemArmor& orig);
+    ItemArmor(char name[]);
     virtual ~ItemArmor();
 private:
 

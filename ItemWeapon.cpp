@@ -7,7 +7,7 @@
 
 #include "ItemWeapon.hpp"
 
-ItemWeapon::ItemWeapon() {
+ItemWeapon::ItemWeapon(char name[]): Item(name) {
 }
 
 ItemWeapon::~ItemWeapon() {

@@ -6,6 +6,7 @@
  */
 
 #include "Game.hpp"
+#include "ConsoleView.hpp"
 
 Game::Game() {
     //call the constructor with number of player = 4

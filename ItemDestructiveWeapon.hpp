@@ -11,7 +11,7 @@
 
 class ItemDestructiveWeapon: public Item{
 public:
-    ItemDestructiveWeapon();
+    ItemDestructiveWeapon(char name[]);
     virtual ~ItemDestructiveWeapon();
 private:
 

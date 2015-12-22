@@ -11,7 +11,7 @@
 
 class ItemHealthKit: public Item{
 public:
-    ItemHealthKit();
+    ItemHealthKit(char name[]);
     virtual ~ItemHealthKit();
 private:
 
