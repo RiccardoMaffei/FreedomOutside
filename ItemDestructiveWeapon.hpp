@@ -9,12 +9,36 @@
 #define ITEMDESTRUCTIVEWEAPON_HPP
 #include "Item.hpp"
 
+/**
+ * A destructive weapon that should be applied to every near player.
+ * This weapon has a random damage value between a range. Extension of Item.
+ */
 class ItemDestructiveWeapon: public Item{
 public:
-    ItemDestructiveWeapon(char name[]);
+    
+    /**
+     * Construct a destructive weapon with the given name and damage value.
+     * @param name char[]: the weapon name (max 49 char)
+     * @param min int: the minimum damage (must be greater than 0)
+     * @param max int: the maximum damage (must be greater or equal than the minimum)
+     */
+    ItemDestructiveWeapon(char name[], int min, int max);
+    
+    /**
+     * ItemDestructiveWeapon destructor.
+     */
     virtual ~ItemDestructiveWeapon();
+    
+    /**
+     * Get the random value of damage.
+     * @return int: random damage value.
+     */
+    int getDamageValue();
 private:
-
+    //minimum damage
+    int minDamage;
+    //maximum damage
+    int maxDamage;
 };
 
 #endif /* ITEMDESTRUCTIVEWEAPON_HPP */
