@@ -36,3 +36,62 @@ Player::Player(const Player& orig) {
 Player::~Player() {
 }
 
+void Player::getUsername(char dest[]) {
+    //copy the username in the given dest
+    strcpy(this -> username, dest);
+}
+
+void Player::setCurrentRoom(Room* currentRoom) {
+    //save the given room pointer as the current room
+    this -> currentRoom = currentRoom;
+}
+
+Room* Player::getCurrentRoom() {
+    //return the pointer to the current room
+    return this -> currentRoom;
+}
+
+int Player::getId() {
+    //return the id
+    return this -> id;
+}
+
+void Player::setStrength(double strength) {
+    //set the given strength
+    this -> strength = strength;
+}
+
+double Player::getStrength() {
+    //return the strength
+    return this -> strength;
+}
+
+void Player::setAgility(double agility) {
+    //set the given agility
+    this -> agility = agility;
+}
+
+double Player::getAgility() {
+    //return the agility
+    return this -> agility;
+}
+
+void Player::setArmor(ItemArmor* armor) {
+    //set the given armor
+    this -> armor = armor;
+}
+
+ItemArmor* Player::getArmor() {
+    //return the armor
+    return this -> armor;
+}
+
+list<Item*>* Player::getInventory() {
+    //return the inventory pointer
+    return this -> inventory;
+}
+
+int Player::getHealth() {
+    //return the health
+    return this -> health;
+}
