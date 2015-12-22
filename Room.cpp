@@ -54,6 +54,48 @@ Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<
 }
 
 Room::~Room() {
+    //if the northern room is not null
+    if(this -> north != NULL){
+        //set its back pointer to NULL to avoid deletion loop
+        this -> north -> south = NULL;
+    }
+    //if the southern room is not null
+    if(this -> south != NULL){
+        //set its back pointer to NULL to avoid deletion loop
+        this -> south -> north = NULL;
+    }
+    //if the eastern room is not null
+    if(this -> east != NULL){
+        //set its back pointer to NULL to avoid deletion loop
+        this -> east -> west = NULL;
+    }
+    //if the western room is not null
+    if(this -> west != NULL){
+        //set its back pointer to NULL to avoid deletion loop
+        this -> west -> east = NULL;
+    }
+    //TODO: delete the items in list and the list itself
+    //if the northern room is not null
+    if(this -> north != NULL){
+        //recursively delete northern room
+        delete(this -> north);
+    }
+    //if the southern room is not null
+    if(this -> south != NULL){
+        //recursively delete southern room
+        delete(this -> south);
+    }
+    //if the eastern room is not null
+    if(this -> east != NULL){
+        //recursively delete eastern room
+        delete(this -> east);
+    }
+    //if the western room is not null
+    if(this -> west != NULL){
+        //recursively delete western room
+        delete(this -> west);
+    }
+    //x, y and pointers memory will be automatically deleted
 }
 
 void Room::setNorth(Room* north){
