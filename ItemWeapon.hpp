@@ -10,7 +10,10 @@
 
 #include "Item.hpp"
 
-class ItemWeapon: public Item{
+/**
+ * A standard weapon. Extension of Item.
+ */
+class ItemWeapon: public Item{ 
 public:
     
     /**
