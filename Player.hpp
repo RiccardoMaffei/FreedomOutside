@@ -12,6 +12,7 @@
 #include "Item.hpp"
 #include "Action.hpp"
 #include "ItemArmor.hpp"
+#include "Room.hpp"
 
 using namespace std;
 
@@ -22,9 +23,10 @@ class Player {
 public:
     /**
      * Construct a Player with the given username.
-     * @param username
+     * @param username char[]: the Player's username max 49 char.
+     * @param currentRoom Room*: the current Player's room.
      */
-    Player(char username[]);
+    Player(char username[], Room* currentRoom);
     
     /**
      * Clone the given Player.
@@ -99,6 +101,18 @@ public:
     int getId();
     
     /**
+     * Get the room where the Player currently is.
+     * @return Room*: the current room.
+     */
+    Room* getCurrentRoom();
+
+    /**
+     * Set the room where the Player currently is.
+     * @param currentRoom Room*: the current room
+     */
+    void setCurrentRoom(Room* currentRoom);
+    
+    /**
      * Get the Player's username.
      * @param dest char[]: an array big enought to store the username string.
      */
@@ -112,6 +126,8 @@ protected:
     int id;
     //the player username
     char username[50];
+    //the current player room
+    Room* currentRoom;
     //the player health
     int health;
     //the player inventory
