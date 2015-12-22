@@ -17,7 +17,6 @@ using namespace std;
 /**
  * This is the launch function main. It takes care of the console args and starts the game.
  */
-
 int main(int argc, char* argv[]) {
     //set the number of players to 4 as default
     int nPlayer = 4;
