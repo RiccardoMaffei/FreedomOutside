@@ -106,6 +106,7 @@ class FedeList {
     
      /**
      * Remove from the list the element that is equal to the element given.
+      * NOTE: list type comparison is made through == operator.
      * @param element ListType: the element used for the comparison.
      * @return FedeList*: a pointer to the list object for method chaining.
      */

@@ -179,16 +179,32 @@ FedeList<ListType>* FedeList<ListType>::remove(int position) throw (exception) {
 }
 
 template<class ListType>
-FedeList<ListType>* FedeList<ListType>::removeByElement(ListType element) {
+FedeList<ListType>* FedeList<ListType>::removeByElement(ListType element){
+    //int counter set as 0
     int i = 0;
+    //found element? default: false
     bool found = false;
+    //while not found and the counter is less than the list size
     while ((!found) && (i<listSize)) {
+        //move the cursor to the i position
         moveCursor(i);
-        if (cursor->getValue()==element) {
+        //if the value in the pointed node is equal to the searched element
+        if (cursor->getValue() == element) {
+            //set the found as true
             found = true;
-        } else i++;
+        } 
+        //else
+        else{
+            //increase the counter
+            i++;
+        }
     }
-    remove(i);
+    //if the ites has been found
+    if(found){
+        //remove the element
+        remove(i);
+    }
+    //return this list for method chaining
     return (this);
 }
 
