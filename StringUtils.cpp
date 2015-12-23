@@ -56,6 +56,6 @@ void reverse(char s[]){
     }
 }
 
-void dtoaTwo(int n, char dest[]){
+void dtoaTwo(double n, char dest[]){
 
 }
