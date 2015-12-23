@@ -142,11 +142,11 @@ protected:
     void moveCursor(int position) throw(exception);
     
     /**
-     * Check if the position given is valid throw an exception otherwise.
+     * Check if the position given is valid.
      * @param position int: the position to check.
-     * @return true is the position is valid
+     * @return true is the position is valid, false otherwise.
      */
-    bool checkPosition(int position) throw(exception);
+    bool isValidPosition(int position);
 };
 
 #include "FedeList.cpp"

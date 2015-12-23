@@ -99,7 +99,7 @@ FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position) t
         cursorPosition++;
         listSize++;
     } else {
-        if (checkPosition(position)) { //because it can be >listSize
+        if (isValidPosition(position)) { //because it can be >listSize
             push_back(element);
         }
     }
@@ -217,7 +217,7 @@ void FedeList<ListType>::prepareSearch(int position) {
 
 template<class ListType>
 void FedeList<ListType>::moveCursor(int position) throw (exception) {
-    if (checkPosition(position)) {
+    if (isValidPosition(position)) {
         prepareSearch(position);
         bool isPositionAhead = cursorPosition<position;
         while (cursorPosition != position) {
@@ -233,9 +233,9 @@ void FedeList<ListType>::moveCursor(int position) throw (exception) {
 }
 
 template<class ListType>
-bool FedeList<ListType>::checkPosition(int position) throw (exception) {
-    if ((position >= 0) && (position <= (listSize - 1))) return (true);
-    else throw (exception());
+bool FedeList<ListType>::isValidPosition(int position){
+    //check and return if the position is between and listize-1 (if the size is zero it will always return false)
+    return ((position >= 0) && (position <= (listSize - 1)));
 }
 
 
