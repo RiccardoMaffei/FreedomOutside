@@ -127,9 +127,8 @@ protected:
     int listSize; //the lenght of the list starting from 1
     
     /**
-     * This set the cursor nearest possible to the position to search.
-     * It's called by getNodePointer
-     * @param posizione int: the position of the element to get.
+     * This set the cursor as near as possible to the searched position.
+     * @param position int: the position of the searched element.
      */
     void prepareSearch(int position);
     

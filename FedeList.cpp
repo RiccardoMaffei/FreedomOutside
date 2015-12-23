@@ -200,18 +200,28 @@ int FedeList<ListType>::getSize() const {
 
 template <class ListType>
 void FedeList<ListType>::prepareSearch(int position) {
-#define cursorDistance abs(cursorPosition-position)
-#define headDistance position
-#define tailDistance (listSize-position)   
+    //compute the distance between the current cursor position and the searched position
+    int cursorDistance = abs(cursorPosition-position);
+    //the distance position-head is position
+    int headDistance = position;
+    //the distance position-head is position
+    int tailDistance = (listSize-position);
     //if the distance between the position to get and the head/tail is less thant the distance
     //between cursor and position we can make an optimization.
     if ((headDistance < cursorDistance) && (tailDistance < cursorDistance))
+        //if head distance is less than tail distance
         if (headDistance <= tailDistance) {
+            //set the cursor as the head
             cursor = headCursor;
+            //set cursor position as 0
             cursorPosition = 0;
-        } else {
+        }
+        //else if tail distance is less than head distance
+        else {
+            //set the cursor as the tail
             cursor = tailCursor;
-            cursorPosition = listSize;
+            //set cursor position as list size - 1
+            cursorPosition = (listSize - 1);
         }
 }
 
