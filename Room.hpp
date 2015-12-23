@@ -8,7 +8,7 @@
 #ifndef ROOM_HPP
 #define	ROOM_HPP
 
-#include <list>
+#include "FedeList.hpp"
 #include "Action.hpp"
 #include "Item.hpp"
 
@@ -29,7 +29,7 @@ public:
      * @param west Room*: the western room.
      * @param items list&lt;Item*&gt;*: a pointer to the room's list of items. If null, an empty list will be added.
      */
-    Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<Item*>* items);
+    Room(int x, int y, Room* north, Room* south, Room* east, Room* west, FedeList<Item*>* items);
     
     /**
      * Room destructor.
@@ -100,7 +100,7 @@ public:
      * Get the item list.
      * @return list&lt;Item*&gt;*: a pointer to the room's list of items.
      */
-    list<Item*>* getItemList();
+    FedeList<Item*>* getItemList();
 
     /**
      * Overload != operator.
@@ -160,7 +160,7 @@ protected:
     //west room pointer (aka west door)
     Room* west;
     //the list of items in the room (E.g.: on the ground)
-    list<Item*>* items;
+    FedeList<Item*>* items;
 };
 
 #endif	/* ROOM_HPP */

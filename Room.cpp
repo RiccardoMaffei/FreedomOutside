@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include "Room.hpp"
 
-Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<Item*>* items) {
+Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west, FedeList<Item*>* items) {
     //save the given x
     this -> x = x;
     //save the given y
@@ -49,7 +49,7 @@ Room::Room(int x, int y, Room* north, Room* south, Room* east, Room* west, list<
     //otherwise
     else{
         //construct and save a new empty list
-        this -> items = new list<Item*>();
+        this -> items = new FedeList<Item*>();
     }
 }
 
@@ -148,7 +148,7 @@ int Room::getY(){
     return this -> y;
 }
 
-list<Item*>* Room::getItemList(){
+FedeList<Item*>* Room::getItemList(){
     //return a pointer to the list
     return this -> items;
 }
@@ -169,7 +169,7 @@ bool Room::operator<=(Room& right) {
 }
 
 bool Room::operator==(Room& right) {
-    //compare right and *this here
+    //two rooms are equal if they have the same coordinates.
     return ((this -> x == right . x) && (this -> y == right . y));
 }
 

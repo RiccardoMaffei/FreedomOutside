@@ -6,13 +6,14 @@
  */
 
 #include "Map.hpp"
+#include "FedeList.hpp"
 
 //initialize the instance
 Map* Map::instance = NULL;
 
 Map::Map() {
     //construct an empty list
-    this -> roomList = list<Room*>();
+    this -> roomList = FedeList<Room*>();
     //construct the main room. We can't use generateRoom becaure it generates the items.
     Room* main = new Room(0, 0, NULL, NULL, NULL, NULL, NULL);
     //save the main room pointer to the entry point
@@ -27,6 +28,8 @@ Map::Map(const Map& orig) {
 }
 
 Map::~Map() {
+    //destroy all the room of the map when the map is destroyed
+    roomList.~FedeList();
 }
 
 Map* Map::getInstance() {
@@ -44,9 +47,9 @@ Room* Map::getEntryPoint() {
     return this -> entryPoint;
 }
 
-Room* Map::geneateRoom(int x,int y){
+Room* Map::generateRoom(int x,int y){
     //construct an empty item list
-    list<Item*>* itemList = new list<Item*>();
+    FedeList<Item*>* itemList = new FedeList<Item*>();
     
     //TODO: add item random generation (spawning) logic
     //NOTE: in this implementation we don't check for existence for performace reasons.

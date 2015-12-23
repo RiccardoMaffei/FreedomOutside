@@ -10,7 +10,7 @@
 #define	MAP_HPP
 
 #include <stddef.h>
-#include <list>
+#include "FedeList.hpp"
 #include "Room.hpp"
 
 using namespace std;
@@ -55,7 +55,7 @@ public:
      * @param y int: the y coordinate of the room.
      * @return Room*: the created room.
      */
-    Room* geneateRoom(int x,int y);
+    Room* generateRoom(int x,int y);
 
 protected:
     /**
@@ -79,7 +79,7 @@ protected:
     //the room where the map starts (coordinates 0,0)
     Room* entryPoint;
     //the list of room of a Map
-    list<Room*> roomList;
+    FedeList<Room*> roomList;
     //the left side of the list
     int sideLeft;
     //the top side of the list
