@@ -9,12 +9,33 @@
 #define ITEMHEALTHKIT_HPP
 #include "Item.hpp"
 
+/**
+ * A health kit: it heals Players. Extension of Item.
+ */
 class ItemHealthKit: public Item{
 public:
-    ItemHealthKit(char name[]);
+    
+    /**
+     * Construct an ItemHealtKit with the given name and healing power.
+     * @param name char[]: the health kit name (max 49 char).
+     * @param healingValue int: the healing power measured in health point (greater than 0).
+     */
+    ItemHealthKit(char name[], int healingValue);
+    
+    /**
+     * ItemHealthKit destructor.
+     */
     virtual ~ItemHealthKit();
-private:
+    
+    /**
+     * Get the healing value.
+     * @return int: healing value.
+     */
+    int getHealingValue();
 
+private:
+    //healing power (not a factor but measured in health point).
+    int healingValue;
 };
 
 #endif /* ITEMHEALTHKIT_HPP */
