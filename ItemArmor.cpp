@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   ItemArmor.cpp
  * Author: Riccardo Maffei
@@ -13,9 +7,20 @@
 
 #include "ItemArmor.hpp"
 
-ItemArmor::ItemArmor(char name[]): Item(name){
+ItemArmor::ItemArmor(char name[], double protectionFactor): Item(name){
+    //if the protection factor is less than 1
+    if(protectionFactor < 1){
+        //set the protection factor as 1
+        protectionFactor = 1;
+    }
+    //save the protection factor
+    this -> protectionFactor = protectionFactor;
 }
 
 ItemArmor::~ItemArmor() {
 }
 
+double ItemArmor::getProtectionFactor() {
+    //return the protection factor
+    return this -> protectionFactor;
+}
