@@ -25,11 +25,15 @@ double ItemArmor::getProtectionFactor() {
     return this -> protectionFactor;
 }
 
-void ItemHealthKit::getDescription(char dest[]) {
+void ItemArmor::getDescription(char dest[]) {
+    //the string min value
+    char value[50];
+    //convert the value to string
+    dtoaTwo(this -> protectionFactor, value);
     //copy the description with data
     strcpy(dest, "An armor called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with ");
-    strcat(dest, dtoaTwo(this -> healingValue));
+    strcat(dest, value);
     strcat(dest, " protection factor.");
 }

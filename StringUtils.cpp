@@ -5,7 +5,10 @@
  * Created on 23 dicembre 2015, 2.49
  */
 
+#include <string.h>
+
 #include "StringUtils.hpp"
+using namespace std;
 
 void itoa(int n, char dest[]){
     //the iteration counter i 
@@ -51,4 +54,8 @@ void reverse(char s[]){
         //save temp in s[j]
         s[j] = temp;
     }
+}
+
+void dtoaTwo(int n, char dest[]){
+
 }

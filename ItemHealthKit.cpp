@@ -26,10 +26,14 @@ int ItemHealthKit::getHealingValue() {
 }
 
 void ItemHealthKit::getDescription(char dest[]) {
+    //the string min value
+    char value[50];
+    //convert the value to string
+    itoa(this -> healingValue, value);
     //copy the description with data
     strcpy(dest, "A health kit called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with ");
-    strcat(dest, itoa(this -> healingValue));
+    strcat(dest, value);
     strcat(dest, " of healing value.");
 }

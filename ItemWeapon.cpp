@@ -27,10 +27,14 @@ int ItemWeapon::getDamageValue() {
 }
 
 void ItemWeapon::getDescription(char dest[]) {
+    //the string value
+    char value[50];
+    //convert the value to string
+    itoa(this -> damageValue, value);
     //copy the description with data
     strcpy(dest, "A weapon called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with ");
-    strcat(dest, itoa(this -> damageValue));
+    strcat(dest, value);
     strcat(dest, " base damage value.");
 }
