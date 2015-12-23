@@ -68,24 +68,25 @@ class FedeList {
     FedeList* insert(ListType element,int position) throw (exception);
     
     /**
-     * Remove an element in the head of the list and return it.
+     * Remove an element in the head of the list and returns it.
      * throw exception if the list is empty.
      * @return ListType*: the element in the head of the list.
+     * @throws exception: throw a generic exception if the list is empty.
      */
     ListType pop_front() throw (exception);
     
     /**
      * Remove an element in the tail of the list and return it.
-     * throw exception if the list is empty.
      * @return ListType*: the element in the tail of the list.
+     * @throws exception: throw a generic exception if the list is empty.
      */
     ListType pop_back() throw (exception);
     
     /**
      * Get an element from the list in the given position.
-     * throw exception if the position is not valid.
      * @param position: the position in the list of the element to get.
      * @return ListType*: the element from the list in the given position.
+     * @throws exception: throw a generic exception if the position is not valid.
      */
     ListType get(int position) throw (exception) ;
     
@@ -93,7 +94,7 @@ class FedeList {
      * Remove from the list the element in the given position.
      * @param position int: the position in the list of the element to remove.
      * @return FedeList*: a pointer to the list object for method chaining.
-     * @throws exception. throw a generic exception if the position is not valid.
+     * @throws exception: throw a generic exception if the position is not valid.
      */
     FedeList* remove(int position) throw (exception);  
     
@@ -130,7 +131,7 @@ protected:
      * Move the cursor to the node in the given position.
      * @param position int: the position of the node to get.
      * @return NodePointer: a pointer to the node to get
-     * @throws exception. throw a generic exception if the position is not valid.
+     * @throws exception: throw a generic exception if the position is not valid.
      */
     void moveCursor(int position) throw(exception);
     

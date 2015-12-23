@@ -108,22 +108,42 @@ FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position) t
 
 template <class ListType>
 ListType FedeList<ListType>::pop_front() throw (exception) {
+    //if there is at least 1 element (listSize > 0)
     if (listSize > 0) {
-        ListType valueToReturn = headCursor->getValue();
+        //save the result value
+        ListType result = headCursor->getValue();
+        //save the node to delete
         NodePointer toDelete = headCursor;
+        //if there is more than 1 element
         if (listSize > 1) {
+            //set head cursor as the next of the current head cursor
             headCursor = headCursor->getNext();
-            headCursor->setPrev((Node<ListType>*)NULL);
-        } else {
-            headCursor = NULL;
-            tailCursor = NULL;
+            //set the previous of the head cursor as NULL
+            headCursor->setPrev(NULL);
+            //set the cursor position as 0
+            cursorPosition = 0;
+        } 
+        //else (only one element)
+        else {
+            //set head cursor and tail cursor as NULL
+            headCursor = tailCursor = NULL;
+            //set the cursor position as -1 (empty list)
+            cursorPosition = -1;
         }
+        //delete the node to delete
         delete toDelete;
-        cursor = headCursor; //in this way cursor wil never point to a inexisting node
-        cursorPosition = 0;
+        //set the cursor as the head cursor
+        cursor = headCursor;
+        //decrease the list size
         listSize--;
-        return valueToReturn;
-    } else throw (exception());
+        //return the result
+        return result;
+    }
+    //else (not valid position)
+    else{
+        //throw an exception
+        throw (exception());
+    }
 }
 
 template <class ListType>
