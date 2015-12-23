@@ -79,7 +79,7 @@ protected:
     //the room where the map starts (coordinates 0,0)
     Room* entryPoint;
     //the list of room of a Map
-    FedeList<Room*> roomList;
+    FedeList<Room*>* roomList;
     //the left side of the list
     int sideLeft;
     //the top side of the list
