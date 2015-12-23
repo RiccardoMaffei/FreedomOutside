@@ -102,6 +102,47 @@ public:
      */
     list<Item*>* getItemList();
 
+    /**
+     * Overload != operator.
+     * @param right Room: rhs room.
+     * @return bool: true if lhs != rhs.
+     */
+    bool operator!=(Room& right);
+
+    /**
+     * Overload &lt; operator.
+     * @param right Room: rhs room.
+     * @return bool: true if lhs &lt; rhs.
+     */
+    bool operator<(Room& right);
+
+    /**
+     * Overload &lt;= operator.
+     * @param right Room: rhs room.
+     * @return bool: true if lhs &lt;= rhs.
+     */
+    bool operator<=(Room& right);
+
+    /**
+     * Overload == operator.
+     * @param right Room: rhs room.
+     * @return bool: true if lhs == rhs.
+     */
+    bool operator==(Room& right);
+
+    /**
+     * Overload &gt; operator.
+     * @param right Room: rhs room.
+     * @return bool: true if lhs &gt; rhs.
+     */
+    bool operator>(Room& right);
+
+    /**
+     * Overload &gt;= operator.
+     * @param right Room: rhs room.
+     * @return bool: true if lhs &gt;= rhs.
+     */
+    bool operator>=(Room& right);
     
 private:
 

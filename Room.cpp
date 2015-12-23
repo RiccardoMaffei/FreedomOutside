@@ -152,3 +152,33 @@ list<Item*>* Room::getItemList(){
     //return a pointer to the list
     return this -> items;
 }
+
+bool Room::operator!=(Room& right) {
+    //reuse equals operator
+    return !(*this == right);
+}
+
+bool Room::operator<(Room& right) {
+    //reuse greater than operator
+    return right > *this;
+}
+
+bool Room::operator<=(Room& right) {
+    //reuse greater than operator
+    return !(*this > right);
+}
+
+bool Room::operator==(Room& right) {
+    //compare right and *this here
+    return ((this -> x == right . x) && (this -> y == right . y));
+}
+
+bool Room::operator>(Room& right) {
+    //do the comparison
+    return ((this -> x == right . x) && (this -> y > right . y) || (this -> x > right . x));
+}
+
+bool Room::operator>=(Room& right) {
+    //reuse greater than operator
+    return !(right > *this);
+}
