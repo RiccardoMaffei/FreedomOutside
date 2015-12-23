@@ -1,6 +1,7 @@
 /* 
  * File:   FedeList.cpp
  * Author: Federico Bertani
+ * Author: Riccardo Maffei
  * 
  * Created on 8 novembre 2015, 13.46
  */
