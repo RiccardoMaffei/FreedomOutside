@@ -16,7 +16,6 @@
 class ItemArmor : public Item {
 public:
     
-
     /**
      * Construct an armor with the given name and protection factor.
      * @param name char[]: name (max 49 char).
