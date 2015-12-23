@@ -5,7 +5,10 @@
  * Created on 21 dicembre 2015, 21.37
  */
 
+#include <string.h>
+#include "StringUtils.hpp"
 #include "ItemWeapon.hpp"
+using namespace std;
 
 ItemWeapon::ItemWeapon(char name[], int damageValue): Item(name) {
     //if the damage value is not value (damageValue<=0)
@@ -25,3 +28,10 @@ int ItemWeapon::getDamageValue() {
     return this -> damageValue;
 }
 
+void ItemWeapon::getDescription(char dest[]) {
+    strcpy(dest, "A weapon called ");
+    strcat(dest, this -> name);
+    strcat(dest, " with ");
+    strcat(dest, itoa(this -> damageValue));
+    strcat(dest, " base damage value.");
+}
