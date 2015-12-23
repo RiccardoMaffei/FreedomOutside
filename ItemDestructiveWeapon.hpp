@@ -18,9 +18,9 @@ public:
     
     /**
      * Construct a destructive weapon with the given name and damage value.
-     * @param name char[]: the weapon name (max 49 char)
-     * @param min int: the minimum damage (must be greater than 0)
-     * @param max int: the maximum damage (must be greater or equal than the minimum)
+     * @param name char[]: the weapon name (max 49 char).
+     * @param min int: the minimum damage (must be greater than 0).
+     * @param max int: the maximum damage (must be greater or equal than the minimum).
      */
     ItemDestructiveWeapon(char name[], int min, int max);
     
