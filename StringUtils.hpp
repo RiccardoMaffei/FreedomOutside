@@ -7,6 +7,8 @@
 
 #ifndef STRINGUTILS_HPP
 #define STRINGUTILS_HPP
+
+#include <string>
 /**
  * Utility functions for string
  */
@@ -17,6 +19,13 @@
  * @param dest char[]: the destination array.
  */
 void itoa(int n, char dest[]);
+
+/**
+ * Converts the given double in string using only two decimal digits.
+ * @param n double: the int number.
+ * @param dest char[]: the destination array.
+ */
+void dtoaTwo(double n, char dest[]);
 
 /**
  * Reverses the given string.
