@@ -217,18 +217,34 @@ void FedeList<ListType>::prepareSearch(int position) {
 
 template<class ListType>
 void FedeList<ListType>::moveCursor(int position) throw (exception) {
-    if (isValidPosition(position)) {
+    //if the position is valid
+    if (isValidPosition(position)){
+        //prepare to search
         prepareSearch(position);
+        //check if the position is ahead to the cursor
         bool isPositionAhead = cursorPosition<position;
+        //while the cursor position is not equal than the position
         while (cursorPosition != position) {
+            //if the position is ahead
             if (isPositionAhead) {
+                //move the cursor ahead
                 cursor = cursor->getNext();
+                //increase the cursor position
                 cursorPosition++;
-            } else {
+            } 
+            //else (position is before the cursor)
+            else {
+                //move the cursor back
                 cursor = cursor->getPrev();
+                //decrease the cursor position
                 cursorPosition--;
             }
         }
+    }
+    //else
+    else{
+        //throw an exception
+        throw (exception());
     }
 }
 

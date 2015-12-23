@@ -134,10 +134,10 @@ protected:
     void prepareSearch(int position);
     
     /**
-     * Get a node in the list given a position.
-     * throw an exception if the position is not valid
+     * Move the cursor to the node in the given position.
      * @param position int: the position of the node to get.
      * @return NodePointer: a pointer to the node to get
+     * @throw exception. throw a generic exception if the position is not valid.
      */
     void moveCursor(int position) throw(exception);
     
