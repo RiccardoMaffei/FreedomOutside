@@ -128,24 +128,40 @@ ListType FedeList<ListType>::pop_front() throw (exception) {
 
 template <class ListType>
 ListType FedeList<ListType>::pop_back() throw (exception) {
+    //if there is at least 1 element (listSize > 0)
     if (listSize > 0) {
-        ListType valueToReturn = tailCursor->getValue();
+        //save the result value
+        ListType result = tailCursor->getValue();
+        //save the node to delete
         NodePointer toDelete = tailCursor;
+        //if there is more than 1 element
         if (listSize > 1) {
+            //set tail cursor as the previous of the current tail cursor
             tailCursor = tailCursor->getPrev();
-            tailCursor->setNext((Node<ListType>*)NULL);
-        } else {
-            headCursor = NULL;
-            tailCursor = NULL;
-            cursor = NULL;
-            cursorPosition = 0;
+            //set the next of the tail cursor as NULL
+            tailCursor->setNext(NULL);
         }
+        //else (only one element)
+        else {
+            //set head cursor, tail cursor and cursor as NULL
+            headCursor = tailCursor = cursor = NULL;
+        }
+        //delete the node to delete
         delete toDelete;
-        cursor = tailCursor; //in this way cursor will never point to a inexisting node
-        cursorPosition = listSize-1;
+        //set the cursor as the tail cursor
+        cursor = tailCursor;
+        //decrease the list size
         listSize--;
-        return valueToReturn;
-    } else throw (exception());
+        //set the cursor position as the last element position (-1 if empty)
+        cursorPosition = listSize-1;
+        //return the result
+        return result;
+    }
+    //else (not valid position)
+    else{
+        //throw an exception
+        throw (exception());
+    }
 }
 
 template <class ListType>
