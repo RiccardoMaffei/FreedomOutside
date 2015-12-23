@@ -90,13 +90,6 @@ class FedeList {
     ListType get(int position) throw (exception) ;
     
     /**
-     * Get an element from the list that is equal to the element given.
-     * @param element ListType: the element for the comparison.
-     * @return ListType*: the element from the list that is equal to the element given null if not found.
-     */
-    ListType getByElement(ListType element);
-    
-    /**
      * Remove from the list the element in the given position.
      * @param position int: the position in the list of the element to remove.
      * @return FedeList*: a pointer to the list object for method chaining.
