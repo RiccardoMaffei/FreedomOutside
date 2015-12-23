@@ -150,7 +150,9 @@ ListType FedeList<ListType>::pop_back() throw (exception) {
 
 template <class ListType>
 ListType FedeList<ListType>::get(int position) throw (exception) {
+    //move the cursor to the position if exists. It throws an exception otherwise.
     moveCursor(position);
+    //return the value in the given position
     return cursor->getValue();
 }
 

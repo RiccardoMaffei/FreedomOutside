@@ -98,7 +98,6 @@ class FedeList {
     
     /**
      * Remove from the list the element in the given position.
-     * throw exception if the position is not valid.
      * @param position int: the position in the list of the element to remove.
      * @return FedeList*: a pointer to the list object for method chaining.
      * @throws exception. throw a generic exception if the position is not valid.
@@ -107,7 +106,7 @@ class FedeList {
     
      /**
      * Remove from the list the element that is equal to the element given.
-      * NOTE: list type comparison is made through == operator.
+     * NOTE: list type comparison is made through == operator.
      * @param element ListType: the element used for the comparison.
      * @return FedeList*: a pointer to the list object for method chaining.
      */
