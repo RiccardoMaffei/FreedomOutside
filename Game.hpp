@@ -8,7 +8,7 @@
 #ifndef GAME_HPP
 #define	GAME_HPP
 
-#include <list>
+#include "FedeList.hpp"
 #include "View.hpp"
 #include "Map.hpp"
 #include "Player.hpp"
@@ -45,7 +45,7 @@ protected:
     //the game map
     Map* map;
     //the list of players
-    list<Player*>* playerList;
+    FedeList<Player*>* playerList;
     //the view
     View* view;
 private:

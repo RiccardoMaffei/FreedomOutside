@@ -23,7 +23,7 @@ Player::Player(char username[], Room* currentRoom) {
     //set the armor as NULL
     this -> armor = NULL;
     //instance an empty inventory
-    this -> inventory = new list<Item*>();
+    this -> inventory = new FedeList<Item*>();
     //set the strength as 1.00
     this -> strength = 1.00;
     //set the agility as 1.00
@@ -96,7 +96,7 @@ ItemArmor* Player::getArmor() {
     return this -> armor;
 }
 
-list<Item*>* Player::getInventory() {
+FedeList<Item*>* Player::getInventory() {
     //return the inventory pointer
     return this -> inventory;
 }

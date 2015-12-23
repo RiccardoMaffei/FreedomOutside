@@ -27,7 +27,7 @@ public:
      * @param south Room*: the southern room.
      * @param east Room*: the eastern room.
      * @param west Room*: the western room.
-     * @param items list&lt;Item*&gt;*: a pointer to the room's list of items. If null, an empty list will be added.
+     * @param items FedeList&lt;Item*&gt;*: a pointer to the room's list of items. If null, an empty list will be added.
      */
     Room(int x, int y, Room* north, Room* south, Room* east, Room* west, FedeList<Item*>* items);
     
@@ -98,7 +98,7 @@ public:
     
     /**
      * Get the item list.
-     * @return list&lt;Item*&gt;*: a pointer to the room's list of items.
+     * @return FedeList&lt;Item*&gt;*: a pointer to the room's list of items.
      */
     FedeList<Item*>* getItemList();
 

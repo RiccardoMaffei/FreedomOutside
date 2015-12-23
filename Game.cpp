@@ -18,6 +18,7 @@ Game::~Game() {
 }
 
 Game::Game(int nPlayer) {
+    //TODO create players
     //save the number of player
     this -> nPlayer = nPlayer;
     //get the map singleton instance

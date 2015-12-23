@@ -8,7 +8,7 @@
 #ifndef PLAYER_HPP
 #define	PLAYER_HPP
 
-#include <list>
+#include "FedeList.hpp"
 #include "Item.hpp"
 #include "Action.hpp"
 #include "ItemArmor.hpp"
@@ -54,9 +54,9 @@ public:
 
     /**
      * Get the Player's inventory.
-     * @return list&ltItem*&gt*: returns a pointer to the Player's inventory.
+     * @return FedeList&ltItem*&gt*: returns a pointer to the Player's inventory.
      */
-    list<Item*>* getInventory();
+    FedeList<Item*>* getInventory();
     
     /**
      * Get the  the Player's armor.
@@ -131,7 +131,7 @@ protected:
     //the player health
     int health;
     //the player inventory
-    list<Item*>* inventory;
+    FedeList<Item*>* inventory;
     //the player armor
     ItemArmor* armor;
     //player strength
