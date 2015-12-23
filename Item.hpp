@@ -37,7 +37,7 @@ public:
      */
     virtual void getDescription(char dest[]) = 0;
 
-private:
+protected:
     //the name of the item
     char name[50];
 };

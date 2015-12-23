@@ -33,7 +33,14 @@ public:
      * @return int: base damage value.
      */
     int getDamageValue();
-private:
+    
+    /**
+     * Get the weapon description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    void getDescription(char dest[]);
+    
+protected:
     //the damage base value
     int damageValue;
 };

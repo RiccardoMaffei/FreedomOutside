@@ -34,7 +34,7 @@ public:
      */
     double getProtectionFactor();
 
-private:
+protected:
     //armor protection factor
     double protectionFactor;
 };

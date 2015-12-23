@@ -34,7 +34,8 @@ public:
      * @return int: random damage value.
      */
     int getDamageValue();
-private:
+    
+protected:
     //minimum damage
     int minDamage;
     //maximum damage

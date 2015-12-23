@@ -33,7 +33,7 @@ public:
      */
     int getHealingValue();
 
-private:
+protected:
     //healing power (not a factor but measured in health point).
     int healingValue;
 };
