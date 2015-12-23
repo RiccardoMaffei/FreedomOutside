@@ -30,6 +30,12 @@ public:
      * @param dest char[]: destination array. Must be big enough (max string length 49).
      */
     void getName(char dest[]);
+    
+    /**
+     * Get the Item description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    virtual void getDescription(char dest[]) = 0;
 
 private:
     //the name of the item
