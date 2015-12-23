@@ -5,8 +5,6 @@
  * Created on 21 dicembre 2015, 21.37
  */
 
-#include <string.h>
-#include "StringUtils.hpp"
 #include "ItemWeapon.hpp"
 using namespace std;
 
@@ -29,9 +27,10 @@ int ItemWeapon::getDamageValue() {
 }
 
 void ItemWeapon::getDescription(char dest[]) {
-    strcpy(dest, "A weapon called ");
+    //copy the description with data
+    strcpy(dest, "A weapon called \"");
     strcat(dest, this -> name);
-    strcat(dest, " with ");
+    strcat(dest, "\" with ");
     strcat(dest, itoa(this -> damageValue));
     strcat(dest, " base damage value.");
 }

@@ -34,6 +34,12 @@ public:
      */
     double getProtectionFactor();
 
+    /**
+     * Get the armor description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    void getDescription(char dest[]);
+    
 protected:
     //armor protection factor
     double protectionFactor;

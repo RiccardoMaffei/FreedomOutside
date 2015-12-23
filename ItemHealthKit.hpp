@@ -33,6 +33,12 @@ public:
      */
     int getHealingValue();
 
+    /**
+     * Get the health kit description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    void getDescription(char dest[]);
+    
 protected:
     //healing power (not a factor but measured in health point).
     int healingValue;

@@ -8,6 +8,9 @@
 #ifndef ITEM_HPP
 #define	ITEM_HPP
 
+#include <string.h>
+#include "StringUtils.hpp"
+
 /**
  * An abstract Item. It can be on the ground or held.
  */

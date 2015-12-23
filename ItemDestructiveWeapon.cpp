@@ -33,7 +33,18 @@ int ItemDestructiveWeapon::getDamageValue() {
     //set random seed with current time
     srand(time(NULL));
     //compute the random damage between min and max
-    int randDamage = rand()%((this ->maxDamage) - (this -> minDamage) + 1) + (this -> minDamage);
+    int randDamage = rand()%((this -> maxDamage) - (this -> minDamage) + 1) + (this -> minDamage);
     //return the computed value
     return randDamage;
+}
+
+void ItemDestructiveWeapon::getDescription(char dest[]) {
+    //copy the description with data
+    strcpy(dest, "A destruptive weapon called \"");
+    strcat(dest, this -> name);
+    strcat(dest, "\" with damage value between ");
+    strcat(dest, itoa(this -> minDamage));
+    strcat(dest, " and ");
+    strcat(dest, itoa(this -> maxDamage));
+    strcat(dest, ".");
 }

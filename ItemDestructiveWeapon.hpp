@@ -35,6 +35,12 @@ public:
      */
     int getDamageValue();
     
+    /**
+     * Get the destructive weapon description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    void getDescription(char dest[]);
+    
 protected:
     //minimum damage
     int minDamage;

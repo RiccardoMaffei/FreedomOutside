@@ -24,3 +24,12 @@ int ItemHealthKit::getHealingValue() {
     //return the healing value
     return this -> healingValue;
 }
+
+void ItemHealthKit::getDescription(char dest[]) {
+    //copy the description with data
+    strcpy(dest, "A health kit called \"");
+    strcat(dest, this -> name);
+    strcat(dest, "\" with ");
+    strcat(dest, itoa(this -> healingValue));
+    strcat(dest, " of healing value.");
+}
