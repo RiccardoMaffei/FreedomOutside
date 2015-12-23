@@ -156,25 +156,50 @@ ListType FedeList<ListType>::get(int position) throw (exception) {
 
 template <class ListType>
 FedeList<ListType>* FedeList<ListType>::remove(int position) throw (exception) {
-    const int lastElement = listSize - 1;
-    //needed to use nested if instead of switch because switch can't be used with values that changes at run-time
-    //like listSize
-    if (position == 0) {
-        pop_front();
-    } else if (position == lastElement) {
-        pop_back();
-    } else {
-        moveCursor(position);
-        NodePointer toDelete = cursor;
-        //doing bypass of node to delete
-        NodePointer previus = cursor->getPrev();
-        NodePointer next = cursor->getNext();
-        previus->setNext(next);
-        next->setPrev(previus);
-        cursor = next; //can't use moveCursor because cursorPosition must remain the same.
-        delete toDelete;
-        listSize--;
+    //if the position is valid
+    if (isValidPosition(position)) {
+        //if the given position is 0 (first element)
+        if (position == 0) {
+            //pop from the front
+            pop_front();
+        }
+        //else if the position is listSize - 1 (last element)
+        else if (position == (listSize - 1)) {
+            //pop from the back
+            pop_back();
+        }
+        //else (internal position)
+        else {
+            //move the cursor to the position
+            moveCursor(position);
+            //the node to delete
+            NodePointer toDelete = cursor;
+            //---- bypass the node to delete ----
+            //save the previous
+            NodePointer previus = toDelete -> getPrev();
+            //save the next
+            NodePointer next = toDelete -> getNext();
+            //set the next of previous as next
+            previus->setNext(next);
+            //set the previous of next as previous
+            next->setPrev(previus);
+            //---- end bypass ----
+            //set the cursor as next (should not be nullbecause is checked if it is or not the last element)
+            //(can't use moveCursor because cursorPosition must remain the same)
+            cursor = next; 
+            //delete the node to delete
+            delete toDelete;
+            //decrease the list size
+            listSize--;
+        }
     }
+    //else (not valid position)
+    else{
+        //throw an exception
+        throw (exception());
+    }
+
+    //return this list for method chaining
     return (this);
 }
 
@@ -225,7 +250,7 @@ void FedeList<ListType>::prepareSearch(int position) {
     int tailDistance = (listSize-position);
     //if the distance between the position to get and the head/tail is less thant the distance
     //between cursor and position we can make an optimization.
-    if ((headDistance < cursorDistance) && (tailDistance < cursorDistance))
+    if ((headDistance < cursorDistance) && (tailDistance < cursorDistance)){
         //if head distance is less than tail distance
         if (headDistance <= tailDistance) {
             //set the cursor as the head
@@ -240,6 +265,7 @@ void FedeList<ListType>::prepareSearch(int position) {
             //set cursor position as list size - 1
             cursorPosition = (listSize - 1);
         }
+    }
 }
 
 template<class ListType>

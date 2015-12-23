@@ -101,6 +101,7 @@ class FedeList {
      * throw exception if the position is not valid.
      * @param position int: the position in the list of the element to remove.
      * @return FedeList*: a pointer to the list object for method chaining.
+     * @throws exception. throw a generic exception if the position is not valid.
      */
     FedeList* remove(int position) throw (exception);  
     
@@ -137,7 +138,7 @@ protected:
      * Move the cursor to the node in the given position.
      * @param position int: the position of the node to get.
      * @return NodePointer: a pointer to the node to get
-     * @throw exception. throw a generic exception if the position is not valid.
+     * @throws exception. throw a generic exception if the position is not valid.
      */
     void moveCursor(int position) throw(exception);
     
