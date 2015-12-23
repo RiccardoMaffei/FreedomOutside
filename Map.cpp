@@ -28,8 +28,10 @@ Map::Map(const Map& orig) {
 }
 
 Map::~Map() {
-    //destroy all the room of the map when the map is destroyed
-    roomList.~FedeList();
+    //destroy the whole room map recursively
+    delete(this -> entryPoint);
+    //delete the room list
+    delete(this -> roomList);
 }
 
 Map* Map::getInstance() {
