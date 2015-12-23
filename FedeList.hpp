@@ -112,10 +112,10 @@ class FedeList {
     FedeList* removeByElement(ListType element); 
     
     /**
-     * Return the size of the list from 0 to n.
+     * Return the size of the list.
      * @return int: the size of the list.
      */
-    int getSize() const;
+    int getSize();
     
     typedef Node<ListType>* NodePointer; //a type that represent a pointer to a Node
     // i had to put typedef hear otherwise getHeadCursor would't know the typedef

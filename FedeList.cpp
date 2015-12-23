@@ -194,7 +194,8 @@ FedeList<ListType>* FedeList<ListType>::removeByElement(ListType element) {
 
 
 template <class ListType>
-int FedeList<ListType>::getSize() const {
+int FedeList<ListType>::getSize(){
+    //return the list size
     return listSize;
 };
 
