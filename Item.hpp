@@ -9,7 +9,7 @@
 #define	ITEM_HPP
 
 /**
- * An Item. It can be on the ground or held.
+ * An abstract Item. It can be on the ground or held.
  */
 class Item {
 public:
@@ -27,7 +27,7 @@ public:
     
     /**
      * Get the Item name.
-     * @param dest char[]: destination array. Must be big enought (max string length 49).
+     * @param dest char[]: destination array. Must be big enough (max string length 49).
      */
     void getName(char dest[]);
 

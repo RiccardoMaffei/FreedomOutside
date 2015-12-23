@@ -26,7 +26,7 @@ public:
     
     /**
      * Ask the username and copies it in dest.
-     * @param dest char[]: an array big enought to hold the username.
+     * @param dest char[]: an array big enough to hold the username.
      */
     void getUsername(char dest[]);
 private:

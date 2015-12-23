@@ -114,7 +114,7 @@ public:
     
     /**
      * Get the Player's username.
-     * @param dest char[]: an array big enought to store the username string.
+     * @param dest char[]: an array big enough to store the username string.
      */
     void getUsername(char dest[]);
 private:
