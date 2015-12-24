@@ -21,7 +21,7 @@ Map::Map() {
     //add the main room to the room list
     this -> roomList -> push_back(main);
     //set the side left and side top to 0
-    this -> sideLeft = this -> sideTop = 0;
+    this -> sideLeft = 0;
 }
 
 Map::Map(const Map& orig) {
@@ -70,8 +70,30 @@ Room* Map::generateRoom(int x,int y){
     this -> insertRoom(roomToInsert);
 }
 
-Room* Map::findRoomByCoordinates(int x, int y) {
-
+Room* Map::findRoomByCoordinates(int searchedX, int searchedY) {
+    //the found room (NULL by default)
+    Room* foundRoom = NULL;
+    //the position starting from 0
+    int pos = 0;
+    //the should stop searching flag (if passed the searched coordinates)
+    bool shouldStop = false;
+    //while didn't go beyond the target and the position is less than the size
+    while (pos < (this -> roomList -> getSize()) && !shouldStop){
+        //get the room at position pos
+        Room* got = this -> roomList -> get(pos);
+        //if the coordinated are the same as the searched
+        if((got -> getX() == searchedX) && (got -> getY() == searchedY)){
+            //save the got room as found the room
+            foundRoom = got;
+        }
+        //if the got room is at the searched coordinates or ahed them
+        if (((got -> getY() == searchedY) && (got -> getX() >= searchedX)) || (got -> getY() > searchedY)){
+            //set should stot as true
+            shouldStop = true;
+        }
+    }
+    //return the found room (may be NULL if not found)
+    return foundRoom;
 }
 
 void Map::insertRoom(Room* toInsert) {
@@ -105,5 +127,10 @@ void Map::insertRoom(Room* toInsert) {
     }
     //insert the room in the position
     this -> roomList -> insert(toInsert, pos);
+    //if the inserted X coordinate is lower than the lowest in map so far
+    if(toInsert -> getX() < this -> sideLeft){
+        //update the lowest (side)
+        this -> sideLeft = toInsert -> getX();
+    }
 }
 

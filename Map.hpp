@@ -82,8 +82,6 @@ protected:
     FedeList<Room*>* roomList;
     //the left side of the list
     int sideLeft;
-    //the top side of the list
-    int sideTop;
 };
 
 #endif	/* MAP_HPP */
