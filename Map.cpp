@@ -74,7 +74,36 @@ Room* Map::findRoomByCoordinates(int x, int y) {
 
 }
 
-void Map::insertRoom(Room* r) {
-
+void Map::insertRoom(Room* toInsert) {
+    //the position starting from 0
+    int pos = 0;
+    //the found flag
+    bool found = false;
+    //while not found and the position is less than the size
+    while (pos < (this -> roomList -> getSize()) && !found){
+        //get the room at position pos
+        Room* got = this -> roomList -> get(pos);
+        //if the got room is higher or equal to the room to insert
+        //DEBUG NOTE: should never be equal but for debug purpose we put equal rooms
+        //one next to the other so we can easily find out that there are duplicates (error)
+        if(got >= toInsert){
+            //set the found as true
+            found = true;
+        }
+        //increase the posintion
+        pos++;
+    }
+    //if the position has been found
+    if(found){
+        //decrease the position
+        pos--;
+    }
+    //else. (reached the end of the list or never entered (size = 0))
+    else{
+        //overwrite position with the size of the list. (Append. That is pos. 0 if empty or last position+1)
+        pos = this -> roomList -> getSize();
+    }
+    //insert the room in the position
+    this -> roomList -> insert(toInsert, pos);
 }
 
