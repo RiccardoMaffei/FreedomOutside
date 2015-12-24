@@ -34,12 +34,6 @@ class FedeList {
     FedeList(ListType element);
     
     /**
-     * Clone an existing Fedelist
-     * @param orig Fedelist&: the Fedelist to clone
-     */
-    FedeList(const FedeList& orig);
-    
-    /**
      * Destroy a Fedelist.
      */
     virtual ~FedeList(); 

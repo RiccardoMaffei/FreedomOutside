@@ -31,21 +31,6 @@ FedeList<ListType>::FedeList(ListType element){
 }
 
 template <class ListType>
-FedeList<ListType>::FedeList(const FedeList& orig){
-    FedeList();
-    //i can't access orig nodes 'cause it would change orig and it's const for c++ standard.
-    //so i create a tmpCopy that point to same nodes but i can modify it.
-    FedeList<ListType> tmpCopy = FedeList<ListType>();
-    tmpCopy.headCursor = orig.headCursor;
-    tmpCopy.cursor = orig.headCursor;
-    tmpCopy.listSize = orig.listSize;
-    int originSize = orig.getSize();
-    for (int i = 0; i < originSize; i++){
-        this->push_back(*(tmpCopy.get(i)));
-    }
-}
-
-template <class ListType>
 FedeList<ListType>::~FedeList(){
     //set current node as the head
     NodePointer current = headCursor;
