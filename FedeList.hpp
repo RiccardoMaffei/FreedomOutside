@@ -28,7 +28,7 @@ class FedeList {
     FedeList();
     
     /**
-     * Create a FedeList with only a node containg the given element.
+     * Constructs a FedeList with only a node containg the given element.
      * @param element ListType: the element to put as first node
      */
     FedeList(ListType element);
@@ -59,12 +59,12 @@ class FedeList {
     FedeList* push_back(ListType element);
     
     /**
-     * Insert an element in a given position.
-     * The element that previously was in that position shift ahead.
-     * Throw exception if the position is not valid.
+     * Insert an element in the given position.
+     * The element is inserted <b>before</b> the element that may be in the position.
      * @param element ListType: the element to insert.
      * @param position int: the position in the list where insert the element.
      * @return FedeList*: a pointer to the list object for method chaining.
+     * @throws exception: throw a generic exception if the position is invalid.
      */
     FedeList* insert(ListType element,int position) throw (exception);
     
