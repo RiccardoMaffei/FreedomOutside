@@ -56,6 +56,12 @@ public:
      * @return Room*: the created room.
      */
     Room* generateRoom(int x,int y);
+    
+    /**
+     * Get the left side of the map (the smallest x).
+     * @return int: the smallest x.
+     */
+    int getSideLeft();
 
 protected:
     /**

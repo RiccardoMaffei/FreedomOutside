@@ -49,6 +49,11 @@ Room* Map::getEntryPoint() {
     return this -> entryPoint;
 }
 
+int Map::getSideLeft() {
+    //return the left side
+    return sideLeft;
+}
+
 Room* Map::generateRoom(int x,int y){
     //construct an empty item list
     FedeList<Item*>* itemList = new FedeList<Item*>();
