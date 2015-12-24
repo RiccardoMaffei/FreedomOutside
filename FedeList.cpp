@@ -27,7 +27,7 @@ FedeList<ListType>::FedeList(ListType element){
     //call the default constructor
     FedeList();
     //push the element
-    this->push_back(element);
+    this -> push_back(element);
 }
 
 template <class ListType>
@@ -53,7 +53,7 @@ FedeList<ListType>* FedeList<ListType>::push_front(ListType element){
         //create the node to add with the given element and the current head as next
         NodePointer toAdd = new Node<ListType>(element, NULL, headCursor);
         //set the node to add as the previous of the current head node
-        headCursor->setPrev(toAdd);
+        headCursor -> setPrev(toAdd);
         //set the node to add as the head cursor
         headCursor = toAdd;
     }
@@ -84,7 +84,7 @@ FedeList<ListType>* FedeList<ListType>::push_back(ListType element){
         //create the node to add with the given element and the current head as next
         NodePointer toAdd = new Node<ListType>(element, NULL, headCursor);
         //set the node to add as the next of the current tail node
-        tailCursor->setNext(toAdd);
+        tailCursor -> setNext(toAdd);
         //set the node to add as the tail cursor
         tailCursor = toAdd;
     }
@@ -113,11 +113,11 @@ FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position) t
         //move the cursor over the position
         moveCursor(position);
         //create a new node with the given element, the previous and the current (future next) node
-        NodePointer nodeToInsert = new Node<ListType>(element, cursor->getPrev(), cursor);
+        NodePointer nodeToInsert = new Node<ListType>(element, cursor -> getPrev(), cursor);
         //set the node to insert as the next of the previous
-        cursor->getPrev()->setNext(nodeToInsert);
+        cursor -> getPrev() -> setNext(nodeToInsert);
         //set the node to insert as the previous
-        cursor->setPrev(nodeToInsert);
+        cursor -> setPrev(nodeToInsert);
         //increase the cursor position
         cursorPosition++;
         //increase the list size
@@ -147,15 +147,15 @@ ListType FedeList<ListType>::pop_front() throw (exception){
     //if there is at least 1 element (listSize > 0)
     if (listSize > 0){
         //save the result value
-        ListType result = headCursor->getValue();
+        ListType result = headCursor -> getValue();
         //save the node to delete
         NodePointer toDelete = headCursor;
         //if there is more than 1 element
         if (listSize > 1){
             //set head cursor as the next of the current head cursor
-            headCursor = headCursor->getNext();
+            headCursor = headCursor -> getNext();
             //set the previous of the head cursor as NULL
-            headCursor->setPrev(NULL);
+            headCursor -> setPrev(NULL);
             //set the cursor position as 0
             cursorPosition = 0;
         } 
@@ -187,15 +187,15 @@ ListType FedeList<ListType>::pop_back() throw (exception){
     //if there is at least 1 element (listSize > 0)
     if (listSize > 0){
         //save the result value
-        ListType result = tailCursor->getValue();
+        ListType result = tailCursor -> getValue();
         //save the node to delete
         NodePointer toDelete = tailCursor;
         //if there is more than 1 element
         if (listSize > 1){
             //set tail cursor as the previous of the current tail cursor
-            tailCursor = tailCursor->getPrev();
+            tailCursor = tailCursor -> getPrev();
             //set the next of the tail cursor as NULL
-            tailCursor->setNext(NULL);
+            tailCursor -> setNext(NULL);
         }
         //else (only one element)
         else {
@@ -225,7 +225,7 @@ ListType FedeList<ListType>::get(int position) throw (exception){
     //move the cursor to the position if exists. It throws an exception otherwise.
     moveCursor(position);
     //return the value in the given position
-    return cursor->getValue();
+    return cursor -> getValue();
 }
 
 template <class ListType>
@@ -254,9 +254,9 @@ FedeList<ListType>* FedeList<ListType>::remove(int position) throw (exception){
             //save the next
             NodePointer next = toDelete -> getNext();
             //set the next of previous as next
-            previus->setNext(next);
+            previus -> setNext(next);
             //set the previous of next as previous
-            next->setPrev(previus);
+            next -> setPrev(previus);
             //---- end bypass ----
             //set the cursor as next (should not be nullbecause is checked if it is or not the last element)
             //(can't use moveCursor because cursorPosition must remain the same)
@@ -287,7 +287,7 @@ FedeList<ListType>* FedeList<ListType>::removeByElement(ListType element){
         //move the cursor to the i position
         moveCursor(i);
         //if the value in the pointed node is equal to the searched element
-        if (cursor->getValue() == element){
+        if (cursor -> getValue() == element){
             //set the found as true
             found = true;
         } 
@@ -354,14 +354,14 @@ void FedeList<ListType>::moveCursor(int position) throw (exception){
             //if the position is ahead
             if (isPositionAhead){
                 //move the cursor ahead
-                cursor = cursor->getNext();
+                cursor = cursor -> getNext();
                 //increase the cursor position
                 cursorPosition++;
             } 
             //else (position is before the cursor)
             else {
                 //move the cursor back
-                cursor = cursor->getPrev();
+                cursor = cursor -> getPrev();
                 //decrease the cursor position
                 cursorPosition--;
             }
