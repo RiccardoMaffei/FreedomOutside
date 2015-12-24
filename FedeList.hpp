@@ -29,7 +29,7 @@ class FedeList {
     
     /**
      * Constructs a FedeList with only a node containg the given element.
-     * @param element ListType: the element to put as first node
+     * @param element ListType: the element to put as first node.
      */
     FedeList(ListType element);
     
@@ -107,14 +107,20 @@ class FedeList {
      */
     int getSize();
     
-    typedef Node<ListType>* NodePointer; //a type that represent a pointer to a Node
-    // i had to put typedef hear otherwise getHeadCursor would't know the typedef
+    //define Node<ListType>* as NodePointer
+    typedef Node<ListType>* NodePointer; 
+    
 protected:
-    NodePointer headCursor; //a pointer that always point to the head of the list
-    NodePointer tailCursor; //a pointer that always point to the tail of the list
-    NodePointer cursor; //a pointer to a node that read the list up and down
-    int cursorPosition; //the position of the cursor inside of the list, 0 based
-    int listSize; //the lenght of the list starting from 1
+    //a pointer that always point to the head of the list
+    NodePointer headCursor;
+    //a pointer that always point to the tail of the list
+    NodePointer tailCursor;
+    //a sliding cursor
+    NodePointer cursor;
+    //the position of the cursor inside of the list, 0 based (-1 in case of empty list)
+    int cursorPosition;
+    //the lenght of the list
+    int listSize;
     
     /**
      * This set the cursor as near as possible to the searched position.
@@ -125,7 +131,7 @@ protected:
     /**
      * Move the cursor to the node in the given position.
      * @param position int: the position of the node to get.
-     * @return NodePointer: a pointer to the node to get
+     * @return NodePointer: a pointer to the node to get.
      * @throws exception: throw a generic exception if the position is not valid.
      */
     void moveCursor(int position) throw(exception);
