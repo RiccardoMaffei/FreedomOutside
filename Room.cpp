@@ -175,7 +175,7 @@ bool Room::operator==(Room& right) {
 
 bool Room::operator>(Room& right) {
     //do the comparison
-    return ((this -> y == right . y) && (this -> x > right . x) || (this -> y > right . y));
+    return (((this -> y == right . y) && (this -> x > right . x)) || (this -> y > right . y));
 }
 
 bool Room::operator>=(Room& right) {
