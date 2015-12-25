@@ -29,9 +29,11 @@ Map::Map(const Map& orig) {
 
 Map::~Map() {
     //destroy the whole room map recursively
-    delete(this -> entryPoint);
+    delete (this -> entryPoint);
     //delete the room list
-    delete(this -> roomList);
+    delete (this -> roomList);
+    //set the static instance pointer as NULL
+    Map::instance = NULL;
 }
 
 Map* Map::getInstance() {
