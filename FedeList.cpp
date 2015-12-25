@@ -87,8 +87,8 @@ template <class ListType>
 FedeList<ListType>* FedeList<ListType>::push_back(ListType element){
     //if tail cursor is not NULL
     if (tailCursor != NULL){
-        //create the node to add with the given element and the current head as next
-        NodePointer toAdd = new Node<ListType>(element, NULL, headCursor);
+        //create the node to add with the given element and the current tail as prev
+        NodePointer toAdd = new Node<ListType>(element, tailCursor, NULL);
         //set the node to add as the next of the current tail node
         tailCursor -> setNext(toAdd);
         //set the node to add as the tail cursor
@@ -101,6 +101,8 @@ FedeList<ListType>* FedeList<ListType>::push_back(ListType element){
         //set the head as the tail
         headCursor = tailCursor;
     }
+    //increase the list size
+    listSize++;
     //if the list was empty (listsize == 1)
     if(listSize == 1){
         //manually set the cursor to the head
