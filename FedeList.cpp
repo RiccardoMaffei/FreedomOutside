@@ -136,7 +136,7 @@ FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position){
     //else (not valid position)
     else{
         //throw an exception
-        throw (std::out_of_range("position out of range");
+        throw (std::out_of_range("position out of range"));
     }
     //return this list for method chaining
     return (this);
@@ -178,7 +178,7 @@ ListType FedeList<ListType>::pop_front(){
     //else (not valid position)
     else{
         //throw an exception
-        throw (std::out_of_range("the list is empty");
+        throw (std::out_of_range("the list is empty"));
     }
 }
 
@@ -216,7 +216,7 @@ ListType FedeList<ListType>::pop_back(){
     //else (not valid position)
     else{
         //throw an exception
-        throw (std::out_of_range("the list is empty");
+        throw (std::out_of_range("the list is empty"));
     }
 }
 
@@ -270,7 +270,7 @@ FedeList<ListType>* FedeList<ListType>::remove(int position){
     //else (not valid position)
     else{
         //throw an exception
-        throw (std::out_of_range("position out of range");
+        throw (std::out_of_range("position out of range"));
     }
     //return this list for method chaining
     return (this);
@@ -370,7 +370,7 @@ void FedeList<ListType>::moveCursor(int position){
     //else (not valid position)
     else{
         //throw an exception
-        throw (std::out_of_range("position out of range");
+        throw (std::out_of_range("position out of range"));
     }
 }
 
