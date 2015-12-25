@@ -17,3 +17,6 @@ void ConsoleView::getUsername(char dest[]) {
 
 }
 
+void ConsoleView::showSplash() {
+
+}
