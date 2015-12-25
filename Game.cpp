@@ -15,6 +15,17 @@ Game::Game() {
 
 
 Game::~Game() {
+    //destruct the map
+    delete (this -> map);
+    //delete the view
+    delete (this -> view);
+    //for the list size
+    for (int i = 0; i < (this -> playerList -> getSize()); i++) {
+        //delete the player
+        delete (this -> playerList -> get(i));
+    }
+    //delete the list
+    delete (this -> playerList);
 }
 
 Game::Game(int nPlayer) {
@@ -27,5 +38,5 @@ Game::Game(int nPlayer) {
 }
 
 void Game::play() {
-
+    
 }
