@@ -31,7 +31,7 @@ public:
     void getUsername(char dest[]);
     
     /**
-     * Show the game splash screen.
+     * Show the game splash screen as ascii art.
      */
     virtual void showSplash();
 private:
