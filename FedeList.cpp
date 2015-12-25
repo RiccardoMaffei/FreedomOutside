@@ -73,6 +73,12 @@ FedeList<ListType>* FedeList<ListType>::push_front(ListType element){
         //manually set the cursor position as 0
         cursorPosition = 0;
     }
+    //else (the cursor was already on an element and now it has been shifted)
+    else{
+        //leave the curso where it is
+        //increase the cursor position
+        cursorPosition++;
+    }
     //return this list for method chaining
     return (this);
 };
