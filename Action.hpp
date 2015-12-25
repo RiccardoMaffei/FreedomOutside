@@ -21,6 +21,12 @@ public:
      */
     virtual void execute() = 0;
     
+    /**
+     * Get the Action escription. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    virtual void getDescription(char dest[]) = 0;
+    
 private:
 
 };
