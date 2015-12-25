@@ -39,27 +39,27 @@ void ActionMovement::getDescription(char dest[]) {
     //if the target is the north of the current room
     if(this -> playerToMove -> getCurrentRoom() -> getNorth() == this -> targetRoom){
         //concat "north"
-        strcat(dest, "north");
+        strcat(dest, "north.");
     }
     //else if the target is the south of the current room
     else if(this -> playerToMove -> getCurrentRoom() -> getSouth() == this -> targetRoom){
         //concat "south"
-        strcat(dest, "south");
+        strcat(dest, "south.");
     }
     //else if the target is the east of the current room
     else if(this -> playerToMove -> getCurrentRoom() -> getEast() == this -> targetRoom){
         //concat "east"
-        strcat(dest, "east");
+        strcat(dest, "east.");
     }
     //else if the target is the west of the current room
     else if(this -> playerToMove -> getCurrentRoom() -> getWest() == this -> targetRoom){
         //concat "west"
-        strcat(dest, "west");
+        strcat(dest, "west.");
     }
     //else (room far away)
     else{
         //concat "somewhere"
-        strcat(dest, "somewhere");
+        strcat(dest, "somewhere.");
     }
     //this is the "relative" implemetation.
     //the "absolute" implementation returns the coordinates.
