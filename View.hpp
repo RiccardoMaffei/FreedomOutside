@@ -9,7 +9,7 @@
 #define VIEW_HPP
 
 /**
- * The view abstract class.
+ * The view interface.
  */
 class View {
 public:
