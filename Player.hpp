@@ -42,9 +42,8 @@ public:
     /**
      * Inflicts given damages to the Player.
      * @param damage int: damage to inflict.
-     * @return int: the inflicted damages. Inclicted damages may be less than give damages in case of protections or death.
      */
-    int damage(int damage);
+    void damage(int damage);
     
     /**
      * Get the Player's health.

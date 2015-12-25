@@ -6,6 +6,7 @@
  */
 
 #include <string.h>
+#include <math.h>
 #include "Player.hpp"
 
 //initialize the static idCounter
@@ -114,3 +115,28 @@ int Player::getHealth() {
     //return the health
     return this -> health;
 }
+
+void Player::damage(int damage) {
+    //the damage to inflict
+    int toInflict;
+    //the armor protection factor. default 1 (1 = no further protection)
+    double armorProtFact = 1;
+    //if there is an armor
+    if(this -> armor != NULL){
+        //get the protection factor
+        armorProtFact = (this -> armor -> getProtectionFactor());
+    }
+    //compute damage to inflict (use double and then ceil)
+    toInflict = ceil(((double) toInflict) / (((double) this -> agility) * armorProtFact));
+    //if the damage to inflict are greater or equal to the health (will die)
+    if(toInflict >= this -> health){
+        //set the health as 0
+        this -> health = 0;
+    }
+    //else (will not die)
+    else{
+        //subtract the damage to inflict from the health
+        this -> health -= toInflict;
+    }
+}
+
