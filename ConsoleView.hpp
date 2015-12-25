@@ -29,6 +29,11 @@ public:
      * @param dest char[]: an array big enough to hold the username.
      */
     void getUsername(char dest[]);
+    
+    /**
+     * Show the game splash screen.
+     */
+    virtual void showSplash();
 private:
 
 };
