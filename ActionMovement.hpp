@@ -14,9 +14,7 @@
 #include <stdexcept>
 
 /**
- * 
- * @param playerToMove
- * @param targetRoom
+ * The action of a player movement between rooms.
  */
 class ActionMovement: public Action {
 public:
