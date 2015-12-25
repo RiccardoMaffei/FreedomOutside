@@ -8,6 +8,8 @@
 #ifndef ACTION_HPP
 #define	ACTION_HPP
 
+#include <string.h>
+
 /**
  * Executable Action interface.
  */
