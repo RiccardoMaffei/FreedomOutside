@@ -107,7 +107,7 @@ FedeList<ListType>* FedeList<ListType>::push_back(ListType element){
 };
 
 template <class ListType>
-FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position) throw (exception){
+FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position){
     //if the position is between 0 and the size of the list (internal))
     if ((position > 0) && (position < listSize)){
         //move the cursor over the position
@@ -136,14 +136,14 @@ FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position) t
     //else (not valid position)
     else{
         //throw an exception
-        throw (exception());
+        throw (std::out_of_range("position out of range");
     }
     //return this list for method chaining
     return (this);
 };
 
 template <class ListType>
-ListType FedeList<ListType>::pop_front() throw (exception){
+ListType FedeList<ListType>::pop_front(){
     //if there is at least 1 element (listSize > 0)
     if (listSize > 0){
         //save the result value
@@ -178,12 +178,12 @@ ListType FedeList<ListType>::pop_front() throw (exception){
     //else (not valid position)
     else{
         //throw an exception
-        throw (exception());
+        throw (std::out_of_range("the list is empty");
     }
 }
 
 template <class ListType>
-ListType FedeList<ListType>::pop_back() throw (exception){
+ListType FedeList<ListType>::pop_back(){
     //if there is at least 1 element (listSize > 0)
     if (listSize > 0){
         //save the result value
@@ -216,12 +216,12 @@ ListType FedeList<ListType>::pop_back() throw (exception){
     //else (not valid position)
     else{
         //throw an exception
-        throw (exception());
+        throw (std::out_of_range("the list is empty");
     }
 }
 
 template <class ListType>
-ListType FedeList<ListType>::get(int position) throw (exception){
+ListType FedeList<ListType>::get(int position){
     //move the cursor to the position if exists. It throws an exception otherwise.
     moveCursor(position);
     //return the value in the given position
@@ -229,7 +229,7 @@ ListType FedeList<ListType>::get(int position) throw (exception){
 }
 
 template <class ListType>
-FedeList<ListType>* FedeList<ListType>::remove(int position) throw (exception){
+FedeList<ListType>* FedeList<ListType>::remove(int position){
     //if the position is valid
     if (isValidPosition(position)){
         //if the given position is 0 (first element)
@@ -270,7 +270,7 @@ FedeList<ListType>* FedeList<ListType>::remove(int position) throw (exception){
     //else (not valid position)
     else{
         //throw an exception
-        throw (exception());
+        throw (std::out_of_range("position out of range");
     }
     //return this list for method chaining
     return (this);
@@ -342,7 +342,7 @@ void FedeList<ListType>::prepareSearch(int position){
 }
 
 template<class ListType>
-void FedeList<ListType>::moveCursor(int position) throw (exception){
+void FedeList<ListType>::moveCursor(int position){
     //if the position is valid
     if (isValidPosition(position)){
         //prepare to search
@@ -367,10 +367,10 @@ void FedeList<ListType>::moveCursor(int position) throw (exception){
             }
         }
     }
-    //else
+    //else (not valid position)
     else{
         //throw an exception
-        throw (exception());
+        throw (std::out_of_range("position out of range");
     }
 }
 

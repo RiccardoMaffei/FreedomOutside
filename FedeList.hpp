@@ -9,7 +9,7 @@
 #ifndef FEDELIST_H
 #define	FEDELIST_H
 
-#include <exception>
+#include <stdexcept>
 #include "Node.hpp"
 
 using namespace std;
@@ -58,40 +58,40 @@ class FedeList {
      * @param element ListType: the element to insert.
      * @param position int: the position in the list where insert the element.
      * @return FedeList*: a pointer to the list object for method chaining.
-     * @throws exception: throw a generic exception if the position is invalid.
+     * @throws out_of_range: throw a out of range exception if the position is invalid.
      */
-    FedeList* insert(ListType element,int position) throw (exception);
+    FedeList* insert(ListType element,int position);
     
     /**
      * Remove an element in the head of the list and returns it.
      * throw exception if the list is empty.
      * @return ListType*: the element in the head of the list.
-     * @throws exception: throw a generic exception if the list is empty.
+     * @throws out_of_range: throw a out of range exception if the list is empty.
      */
-    ListType pop_front() throw (exception);
+    ListType pop_front();
     
     /**
      * Remove an element in the tail of the list and return it.
      * @return ListType*: the element in the tail of the list.
-     * @throws exception: throw a generic exception if the list is empty.
+     * @throws out_of_range: throw a out of range exception if the list is empty.
      */
-    ListType pop_back() throw (exception);
+    ListType pop_back();
     
     /**
      * Get an element from the list in the given position.
      * @param position: the position in the list of the element to get.
      * @return ListType*: the element from the list in the given position.
-     * @throws exception: throw a generic exception if the position is not valid.
+     * @throws out_of_range: throw a out of range exception if the position is invalid.
      */
-    ListType get(int position) throw (exception) ;
+    ListType get(int position);
     
     /**
      * Remove from the list the element in the given position.
      * @param position int: the position in the list of the element to remove.
      * @return FedeList*: a pointer to the list object for method chaining.
-     * @throws exception: throw a generic exception if the position is not valid.
+     * @throws out_of_range: throw a out of range exception if the position is invalid.
      */
-    FedeList* remove(int position) throw (exception);  
+    FedeList* remove(int position);  
     
      /**
      * Remove from the list the element that is equal to the element given.
@@ -132,9 +132,9 @@ protected:
      * Move the cursor to the node in the given position.
      * @param position int: the position of the node to get.
      * @return NodePointer: a pointer to the node to get.
-     * @throws exception: throw a generic exception if the position is not valid.
+     * @throws out_of_range: throw a out of range exception if the position is invalid.
      */
-    void moveCursor(int position) throw(exception);
+    void moveCursor(int position);
     
     /**
      * Check if the position given is valid.
