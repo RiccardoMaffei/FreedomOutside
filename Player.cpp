@@ -34,6 +34,15 @@ Player::Player(const Player& orig) {
 }
 
 Player::~Player() {
+    //for the list size
+    for (int i = 0; i < (this -> inventory -> getSize()); i++) {
+        //delete the item
+        delete (this -> inventory -> get(i));
+    }
+    //delete the list
+    delete (this -> inventory);
+    //delete the armor
+    delete (this -> armor);
 }
 
 void Player::getUsername(char dest[]) {
