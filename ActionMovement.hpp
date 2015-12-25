@@ -43,7 +43,7 @@ public:
      */
     void getDescription(char dest[]);
 
-private:
+protected:
     //the player
     Player* playerToMove;
     //the target room
