@@ -10,9 +10,6 @@
 Action::Action() {
 }
 
-Action::Action(const Action& orig) {
-}
-
 Action::~Action() {
 }
 

@@ -8,11 +8,19 @@
 #ifndef ACTION_HPP
 #define	ACTION_HPP
 
+/**
+ * Action interface.
+ */
 class Action {
 public:
     Action();
-    Action(const Action& orig);
     virtual ~Action();
+    
+    /**
+     * Execute the action.
+     */
+    virtual void execute() = 0;
+    
 private:
 
 };
