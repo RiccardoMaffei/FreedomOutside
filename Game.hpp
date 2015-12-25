@@ -26,7 +26,7 @@ public:
     
     /**
      * Construct a game with a given number of players.
-     * @param nPlayer int: number of players.
+     * @param nPlayer int: number of players greater than 1.
      */
     Game(int nPlayer);
     

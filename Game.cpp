@@ -29,6 +29,11 @@ Game::~Game() {
 }
 
 Game::Game(int nPlayer) {
+    //if nPlayer is less than 2
+    if(nPlayer < 2){
+        //set as 2
+        nPlayer = 2;
+    }
     //save the number of player
     this -> nPlayer = nPlayer;
     //get the map singleton instance
