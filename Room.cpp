@@ -74,7 +74,13 @@ Room::~Room() {
         //set its back pointer to NULL to avoid deletion loop
         this -> west -> east = NULL;
     }
-    //TODO: delete the items in list and the list itself
+    //for the list size
+    for (int i = 0; i < (this -> items -> getSize()); i++) {
+        //delete the item
+        delete (this -> items -> get(i));
+    }
+    //delete the list
+    delete (this -> items);
     //if the northern room is not null
     if(this -> north != NULL){
         //recursively delete northern room
