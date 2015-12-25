@@ -38,7 +38,7 @@ public:
     void execute();
     
     /**
-     * Get the Action escription. 
+     * Get the Action description. 
      * @param dest char[]: destination array. Must be big enough (max string length 255).
      */
     void getDescription(char dest[]);
