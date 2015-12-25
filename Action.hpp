@@ -9,7 +9,7 @@
 #define	ACTION_HPP
 
 /**
- * Action interface.
+ * Executable Action interface.
  */
 class Action {
 public:

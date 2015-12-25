@@ -8,8 +8,10 @@
 #include "Action.hpp"
 
 Action::Action() {
+    //this is an interface, do nothing
 }
 
 Action::~Action() {
+    //do nothing
 }
 
