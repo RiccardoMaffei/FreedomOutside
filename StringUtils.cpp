@@ -6,6 +6,7 @@
  */
 
 #include <string.h>
+#include <stdlib.h>
 
 #include "StringUtils.hpp"
 using namespace std;
@@ -57,5 +58,25 @@ void reverse(char s[]){
 }
 
 void dtoaTwo(double n, char dest[]){
-
+    //get n as a int number, (we want 2 digit precision).
+    n = n * 100;
+    //convert the int to a string troncating the bigger precision digits.
+    itoa(n,dest);
+    int dimension;
+    //add 0 if the string is smaller than 3 character
+    while ((dimension = strlen(dest))<3) {
+        //allocate a buffer of 37 character.
+        //37 is because the max double can be written with 37 character
+        char* prefix = new char[37];
+        strcpy(prefix,"0");
+        strcat(prefix,dest);
+        strcpy(dest,prefix);
+    }
+    //don't want to use a cicle for 2 character
+    //copy the string ending
+    dest[dimension+1] = dest[dimension]; 
+    dest[dimension] = dest[dimension-1];
+    dest[dimension-1] = dest[dimension-2];
+    //ad the point to separate int part to decimal.
+    dest[dimension-2] = '.';
 }
