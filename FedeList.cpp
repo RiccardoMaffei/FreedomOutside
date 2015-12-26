@@ -201,10 +201,20 @@ ListType FedeList<ListType>::pop_front(){
 
 template <class ListType>
 ListType FedeList<ListType>::pop_back(){
+    //the result
+    ListType result;
     //if there is at least 1 element (listSize > 0)
     if (listSize > 0){
+        //if the cursor is pointing to the tail
+        if(cursor == tailCursor){
+            //move the cursor to the future tail
+            cursor = cursor -> getPrev();
+            //decrease the cursor position
+            cursorPosition--;
+        }
+        //else (the cursor is behind): do nothing
         //save the result value
-        ListType result = tailCursor -> getValue();
+        result = tailCursor -> getValue();
         //save the node to delete
         NodePointer toDelete = tailCursor;
         //if there is more than 1 element
@@ -218,23 +228,20 @@ ListType FedeList<ListType>::pop_back(){
         else {
             //set head cursor, tail cursor and cursor as NULL
             headCursor = tailCursor = cursor = NULL;
+            //cursor position is already set as -1
         }
         //delete the node to delete
         delete toDelete;
-        //set the cursor as the tail cursor
-        cursor = tailCursor;
         //decrease the list size
         listSize--;
-        //set the cursor position as the last element position (-1 if empty)
-        cursorPosition = listSize-1;
-        //return the result
-        return result;
     }
     //else (not valid position)
     else{
         //throw an exception
         throw (std::out_of_range("the list is empty"));
     }
+    //return the result
+    return result;
 }
 
 template <class ListType>
