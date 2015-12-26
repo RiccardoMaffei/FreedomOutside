@@ -152,42 +152,51 @@ FedeList<ListType>* FedeList<ListType>::insert(ListType element, int position){
 
 template <class ListType>
 ListType FedeList<ListType>::pop_front(){
+    //the result
+    ListType result;
     //if there is at least 1 element (listSize > 0)
     if (listSize > 0){
         //save the result value
-        ListType result = headCursor -> getValue();
+        result = headCursor -> getValue();
         //save the node to delete
         NodePointer toDelete = headCursor;
         //if there is more than 1 element
         if (listSize > 1){
+            //if the cursor is pointing to the head
+            if(cursor == headCursor){
+                //move the cursor to the future head
+                cursor = cursor -> getNext();
+                //do not change cursor position
+            }
+            //else (the cursor is ahead)
+            else{
+                //decrease the cursor position
+                cursorPosition--;
+            }
             //set head cursor as the next of the current head cursor
             headCursor = headCursor -> getNext();
             //set the previous of the head cursor as NULL
             headCursor -> setPrev(NULL);
-            //set the cursor position as 0
-            cursorPosition = 0;
         } 
         //else (only one element)
         else {
-            //set head cursor and tail cursor as NULL
-            headCursor = tailCursor = NULL;
+            //set head cursor, cursor and tail cursor as NULL
+            cursor = headCursor = tailCursor = NULL;
             //set the cursor position as -1 (empty list)
             cursorPosition = -1;
         }
         //delete the node to delete
         delete toDelete;
-        //set the cursor as the head cursor
-        cursor = headCursor;
         //decrease the list size
         listSize--;
-        //return the result
-        return result;
     }
     //else (not valid position)
     else{
         //throw an exception
         throw (std::out_of_range("the list is empty"));
     }
+    //return the result
+    return result;
 }
 
 template <class ListType>
