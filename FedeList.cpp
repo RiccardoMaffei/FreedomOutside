@@ -344,7 +344,7 @@ void FedeList<ListType>::prepareSearch(int position){
     //the distance position-head is position
     int headDistance = position;
     //the distance position-head is position
-    int tailDistance = (listSize-position);
+    int tailDistance = (listSize - 1 - position);
     //if the distance between the position to get and the head/tail is less thant the distance
     //between cursor and position we can make an optimization.
     if ((headDistance < cursorDistance) || (tailDistance < cursorDistance)){
