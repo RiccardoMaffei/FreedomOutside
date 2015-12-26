@@ -36,7 +36,12 @@ class FedeList {
     /**
      * Destroy a Fedelist.
      */
-    virtual ~FedeList(); 
+    virtual ~FedeList();
+    
+    /**
+     * Initialize FedeList internal state.
+     */
+    void init();
     
     /**
      * Add an element in head of the list.

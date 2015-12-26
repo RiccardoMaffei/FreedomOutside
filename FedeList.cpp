@@ -14,18 +14,14 @@
 
 template <class ListType>
 FedeList<ListType>::FedeList(){
-    //set all cursors to NULL
-    headCursor = tailCursor = cursor = NULL;
-    //in this way at the first push the cursor will point to the head/tail
-    cursorPosition = -1;
-    //set the size of the list as 0
-    listSize = 0;
+    //call the init
+    this -> init();
 };
 
 template <class ListType>
 FedeList<ListType>::FedeList(ListType element){
-    //call the default constructor
-    FedeList();
+    //call the init
+    this -> init();
     //push the element
     this -> push_back(element);
 }
@@ -45,6 +41,17 @@ FedeList<ListType>::~FedeList(){
     }
     
 }
+
+template <class ListType>
+void FedeList<ListType>::init(){
+    //set all cursors to NULL
+    headCursor = tailCursor = cursor = NULL;
+    //in this way at the first push the cursor will point to the head/tail
+    cursorPosition = -1;
+    //set the size of the list as 0
+    listSize = 0;
+}
+
 
 template <class ListType>
 FedeList<ListType>* FedeList<ListType>::push_front(ListType element){
