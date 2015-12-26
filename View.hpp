@@ -9,7 +9,7 @@
 #define VIEW_HPP
 
 /**
- * The view interface.
+ * The view interface.It has the methods that every view(console,2d,3d,...) should have.
  */
 class View {
 public:
