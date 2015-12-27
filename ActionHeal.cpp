@@ -7,7 +7,7 @@
 
 #include "ActionHeal.hpp"
 
-ActionHeal::ActionHeal(ItemHealthKit kit, Player* playerToHeal) {
+ActionHeal::ActionHeal(ItemHealthKit* kit, Player* playerToHeal) {
     //save the player
     this -> playerToHeal = playerToHeal;
     //save the kit

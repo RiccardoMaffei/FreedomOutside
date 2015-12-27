@@ -20,7 +20,7 @@ public:
      * @param kit ItemHealthKit: the health kit.
      * @param playerToHeal Player*: the player to heal (the kit must be in player's inventory).
      */
-    ActionHeal(ItemHealthKit kit, Player* playerToHeal);
+    ActionHeal(ItemHealthKit* kit, Player* playerToHeal);
     
     /**
      * ActionHeal destructor.
@@ -36,7 +36,7 @@ protected:
     //the player to heal
     Player* playerToHeal;
     //the health kit
-    ItemHealthKit kit;
+    ItemHealthKit* kit;
 };
 
 #endif /* ACTIONHEAL_HPP */
