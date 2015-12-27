@@ -10,8 +10,8 @@
 #include "ActionRelativeMovement.hpp"
 
 Game::Game() {
-    //call the constructor with number of player = 4
-    Game(4);
+    //call the init with number of player = 4
+    this -> init(4);
 }
 
 
@@ -30,6 +30,11 @@ Game::~Game() {
 }
 
 Game::Game(int nPlayer) {
+    //call the init with the give number of player
+    this -> init(nPlayer);
+}
+
+void Game::init(int nPlayer) {
     //if nPlayer is less than 2
     if(nPlayer < 2){
         //set as 2
@@ -42,6 +47,7 @@ Game::Game(int nPlayer) {
     //instance the view
     this -> view = new ConsoleView();
 }
+
 
 void Game::play() {
     

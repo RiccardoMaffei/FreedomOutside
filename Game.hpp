@@ -58,6 +58,12 @@ protected:
     //the view
     View* view;
 private:
+        
+    /**
+     * Initialize the game with the given number of player.
+     * @param nPlayer int: number of players greater than 1.
+     */
+    void init(int nPlayer);
 };
 
 #endif	/* GAME_HPP */
