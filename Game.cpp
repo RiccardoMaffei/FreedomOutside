@@ -50,6 +50,8 @@ void Game::init(int nPlayer) {
 
 
 void Game::play() {
+    //show the splash screen
+    this -> view -> showSplash();
     
 }
 
