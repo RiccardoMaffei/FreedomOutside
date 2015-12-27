@@ -12,6 +12,7 @@
 #include "View.hpp"
 #include "Map.hpp"
 #include "Player.hpp"
+#include "Action.hpp"
 using namespace std;
 
 /**
@@ -39,6 +40,14 @@ public:
      * Runs the game. This method contains the main game loop functionalities.
      */
     void play();
+    
+    /**
+     * Generate a list of possible actions for the given player.
+     * @param currentPlayer Player*: the current player.
+     * @return FedeList&lt;Action*&gt;*: the list of actions.
+     */
+    FedeList<Action*>* computePlayerActions(Player* currentPlayer);
+    
 protected:
     //the number of player
     int nPlayer;
