@@ -26,6 +26,11 @@ public:
      * Show the game splash screen.
      */
     virtual void showSplash() = 0;
+    
+    /**
+     * Show the game intro/prologue.
+     */
+    virtual void showPrologue();
 private:
 
 };

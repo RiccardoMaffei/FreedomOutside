@@ -60,3 +60,10 @@ void ConsoleView::showSplash() {
     //print an empty line
     cout << endl;
 }
+
+/**
+ * Show the game intro/prologue.
+ */
+virtual void showPrologue(){
+    
+}

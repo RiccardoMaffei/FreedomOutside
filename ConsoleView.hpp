@@ -37,6 +37,12 @@ public:
      * Show the game splash screen as ascii art.
      */
     virtual void showSplash();
+    
+    /**
+     * Show the game intro/prologue.
+     */
+    virtual void showPrologue();
+    
 private:
 
 };
