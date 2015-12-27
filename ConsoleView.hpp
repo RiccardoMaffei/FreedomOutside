@@ -9,6 +9,9 @@
 #define CONSOLEVIEW_HPP
 
 #include "View.hpp"
+#include <iostream>
+using namespace std;
+
 /**
  * Console view for the game.
  */

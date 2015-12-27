@@ -75,6 +75,8 @@ Room* Map::generateRoom(int x,int y){
     Room* roomToInsert = new Room(x, y, n, s, e, w, itemList);
     //insert it in the map taking care of ordering and consistency
     this -> insertRoom(roomToInsert);
+    //return the inserted room
+    return roomToInsert;
 }
 
 Room* Map::findRoomByCoordinates(int searchedX, int searchedY) {
