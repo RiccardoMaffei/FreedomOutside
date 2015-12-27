@@ -65,15 +65,12 @@ void ConsoleView::showSplash() {
 void ConsoleView::frameText(FedeList<char*>* list){
     //variable "max" inizialized to zero
     int max = 0;
-    //auxiliary string to evaluate lenght
-    char s[512];
     //loop that find the lenght of the longest string
     for (int i = 0; i < list -> getSize(); i++){
-        //the description of the object in the list is copied to the auxiliary string
-        strcpy(s, list -> get(i));
+        int length = strlen(list -> get(i));
         //evaluating s lenght, comparing it to the lenght of the previus longest string
-        if(strlen(s) > max){
-            max = strlen(s);
+        if(length > max){
+            max = length;
         }
     }
     //print the top of the frame, being beware of corners
@@ -94,12 +91,10 @@ void ConsoleView::frameText(FedeList<char*>* list){
     cout << endl;   
     //print the content of the frame, beetween two "║"
     for(int i = 0; i < list -> getSize(); i++){
-        //inizialize s to the description of the item number "i"
-        strcpy(s, list -> get(i));
         //print a piece of left-side border and the description
-        cout << "║ " << s;
+        cout << "║ " << list -> get(i);
         //determinate if an addictional blank space is needed to adjust the frame's right-side border
-        for(int n_spazi = strlen(s); n_spazi < max; n_spazi++){
+        for(int n_spazi = strlen(list -> get(i)); n_spazi < max; n_spazi++){
             cout << " ";
         }
         //print a piece of right-side border
@@ -121,6 +116,7 @@ void ConsoleView::frameText(FedeList<char*>* list){
             cout << "═";            
         }
     }
+    cout << endl;
 }
 /**
  * Show the game intro/prologue.
