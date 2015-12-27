@@ -64,6 +64,12 @@ private:
      * @param nPlayer int: number of players greater than 1.
      */
     void init(int nPlayer);
+    
+    /**
+     * Returns true if should run.
+     * @return bool: true if there are at least two players alive.
+     */
+    bool shouldRun();
 };
 
 #endif	/* GAME_HPP */

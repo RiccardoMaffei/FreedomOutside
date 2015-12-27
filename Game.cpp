@@ -46,13 +46,51 @@ void Game::init(int nPlayer) {
     this -> map = Map::getInstance();
     //instance the view
     this -> view = new ConsoleView();
+    //instance the player list
+    this -> playerList = new FedeList<Player*>();
 }
 
 
 void Game::play() {
     //show the splash screen
     this -> view -> showSplash();
+    //show the prologue
+    this -> view -> showPrologue();
+    //for the number of player
+    for (int i = 0; i < this -> nPlayer; i++) {
+        //the username
+        char username[50];
+        //get the username
+        this -> view -> getUsername(username);
+        //instance a new player
+        Player* player = new Player(username, this -> map -> getEntryPoint());
+        //add the player to the player list
+        this -> playerList -> push_back(player);
+    }
+    //while should run
+    while(shouldRun()){
+        //TODO: implement
+    }
     
+}
+
+bool Game::shouldRun() {
+    //player alive
+    int pAlive = 0;
+    //counter
+    int i = 0;
+    //while player alive are less than 2 and the list is not finished
+    while (pAlive < 2 && i < (this -> playerList -> getSize())){
+        //if the health is greater than 0
+        if(this -> playerList -> get(i) -> getHealth() > 0){
+            //increase the alive player counter
+            pAlive++;
+        }
+        //increase the counter
+        i++;
+    }
+    //return true if pAlive is greater than 1
+    return (pAlive > 1);
 }
 
 FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
