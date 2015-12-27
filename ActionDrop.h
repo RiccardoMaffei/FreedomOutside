@@ -40,7 +40,7 @@ public:
      */
     virtual void getDescription(char dest[]);
 
-private:
+protected:
     Player* player;
     Item* itemToDrop;
 };
