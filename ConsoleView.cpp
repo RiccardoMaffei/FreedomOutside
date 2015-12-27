@@ -121,3 +121,9 @@ void ConsoleView::frameText(FedeList<char*> list){
         }
     }
 }
+/**
+ * Show the game intro/prologue.
+ */
+void ConsoleView::showPrologue(){
+    
+}
