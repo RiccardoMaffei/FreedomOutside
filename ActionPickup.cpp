@@ -26,10 +26,9 @@ void ActionPickup::execute() {
 void ActionPickup::getDescription(char dest[]) {
     //copy the description of the action and then concat the descption of the item
     strcpy(dest,"Pickup ");
-    char* itemDescription = new char[256];
+    char itemDescription[256];
     itemToPickup->getDescription(itemDescription);
     strcpy(dest,itemDescription);
-    delete itemDescription;
 }
 
 
