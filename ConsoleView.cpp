@@ -14,9 +14,12 @@ ConsoleView::~ConsoleView() {
 }
 
 void ConsoleView::getUsername(char dest[]) {
-
+    //print the prompt
+    cout << "Prisoner! What's your name?\n";
+    //get the destination
+    cin >> dest;
 }
 
 void ConsoleView::showSplash() {
-
+    
 }
