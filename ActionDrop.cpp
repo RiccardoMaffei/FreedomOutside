@@ -12,7 +12,6 @@ ActionDrop::ActionDrop(Player* player, Item* itemToDrop) {
     this->itemToDrop = itemToDrop;
 }
 
-
 ActionDrop::~ActionDrop() {
     //do nothing beacuse pointers are automatically deleted.
 }
@@ -25,11 +24,12 @@ void ActionDrop::execute() {
 }
 
 void ActionDrop::getDescription(char dest[]) {
-    //copy the description and then concat the descption of the item
-    strcpy(dest,"Drop ");
-    char itemDescription[] = new char[255];
+    //copy the description of the action and then concat the descption of the item
+    strcpy(dest, "Drop ");
+    char* itemDescription = new char[256];
     itemToDrop->getDescription(itemDescription);
-    strcpy(dest,itemToDrop);
+    strcpy(dest, itemDescription);
+    delete itemDescription;
 }
 
 
