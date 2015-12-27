@@ -1,6 +1,6 @@
 /* 
  * File:   ActionDrop.cpp
- * Author: fede
+ * Author: Federico Bertani
  * 
  * Created on 27 dicembre 2015, 14.36
  */
