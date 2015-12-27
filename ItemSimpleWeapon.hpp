@@ -1,19 +1,19 @@
 /* 
- * File:   ItemWeapon.hpp
+ * File:   ItemSimpleWeapon.hpp
  * Author: Riccardo Maffei
  *
  * Created on 21 dicembre 2015, 21.37
  */
 
-#ifndef ITEMWEAPON_HPP
-#define ITEMWEAPON_HPP
+#ifndef ITEMSIMPLEWEAPON_HPP
+#define ITEMSIMPLEWEAPON_HPP
 
-#include "Item.hpp"
+#include "ItemWeapon.hpp"
 
 /**
  * A standard weapon. Extension of Item.
  */
-class ItemSimpleWeapon: public Item{ 
+class ItemSimpleWeapon: public ItemWeapon{ 
 public:
     
     /**
@@ -24,7 +24,7 @@ public:
     ItemSimpleWeapon(char name[], int damageValue);
     
     /**
-     * Itemaweapon destructor
+     * ItemSimpleWeapon destructor
      */
     virtual ~ItemSimpleWeapon();
     
@@ -45,5 +45,5 @@ protected:
     int damageValue;
 };
 
-#endif /* ITEMWEAPON_HPP */
+#endif /* ITEMSIMPLEWEAPON_HPP */
 

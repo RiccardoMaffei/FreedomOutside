@@ -1,5 +1,5 @@
 /* 
- * File:   ItemWeapon.cpp
+ * File:   ItemSimpleWeapon.cpp
  * Author: Riccardo Maffei
  * 
  * Created on 21 dicembre 2015, 21.37
@@ -8,7 +8,7 @@
 #include "ItemSimpleWeapon.hpp"
 using namespace std;
 
-ItemSimpleWeapon::ItemSimpleWeapon(char name[], int damageValue): Item(name) {
+ItemSimpleWeapon::ItemSimpleWeapon(char name[], int damageValue): ItemWeapon(name) {
     //if the damage value is not value (damageValue<=0)
     if (damageValue <= 0){
         //set as 1
