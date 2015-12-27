@@ -5,7 +5,7 @@
  * Created on 27 dicembre 2015, 14.36
  */
 
-#include "ActionDrop.h"
+#include "ActionDrop.hpp"
 
 ActionDrop::ActionDrop(Player* player, Item* itemToDrop) {
 
