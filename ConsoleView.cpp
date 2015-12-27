@@ -60,3 +60,64 @@ void ConsoleView::showSplash() {
     //print an empty line
     cout << endl;
 }
+
+void ConsoleView::frameText(FedeList<char*> list){
+    //variable "max" inizialized to zero
+    int max = 0;
+    //auxiliary string to evaluate lenght
+    char s[512];
+    //loop that find the lenght of the longest string
+    for (int i = 0; i < list.getSize(); i++){
+        //the description of the object in the list is copied to the auxiliary string
+        strcpy(s, list.get(i));
+        //evaluating s lenght, comparing it to the lenght of the previus longest string
+        if(strlen(s) > max){
+            max = strlen(s);
+        }
+    }
+    //print the top of the frame, being beware of corners
+    for(int i = 0; i < max+4; i++){
+        //determinate if we need a top-left corner or not
+        if(i==0){
+            cout << "╔";
+        }
+        //determinate if we need a top-right corner or not
+        else if(i==max+3){
+            cout << "╗";             
+        }
+        //determinate if we need a top border or not
+        else{
+            cout << "═";            
+        }  
+    }
+    cout << endl;   
+    //print the content of the frame, beetween two "║"
+    for(int i = 0; i < list.getSize(); i++){
+        //inizialize s to the description of the item number "i"
+        strcpy(s, list.get(i));
+        //print a piece of left-side border and the description
+        cout << "║ " << s;
+        //determinate if an addictional blank space is needed to adjust the frame's right-side border
+        for(int n_spazi = strlen(s); n_spazi < max; n_spazi++){
+            cout << " ";
+        }
+        //print a piece of right-side border
+        cout << " ║";
+        cout << endl;
+    }
+    //print the bottom of the frame, being beware of corners
+    for(int i = 0; i < max+4; i++){
+        //determinate if we need a bottom-left corner or not
+        if(i==0){
+            cout << "╚";
+        }
+        //determinate if we need a bottom-right corner or not
+        else if(i==max+3){
+            cout << "╝";             
+        }
+        //determinate if we need a bottom border or not
+        else{
+            cout << "═";            
+        }
+    }
+}

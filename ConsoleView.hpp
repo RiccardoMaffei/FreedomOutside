@@ -9,6 +9,7 @@
 #define CONSOLEVIEW_HPP
 
 #include "View.hpp"
+#include "FedeList.hpp"
 #include <iostream>
 using namespace std;
 
@@ -37,8 +38,13 @@ public:
      * Show the game splash screen as ascii art.
      */
     virtual void showSplash();
+    
 private:
-
+    /**
+     * Print text in a frame made with ascii character.
+     * @param FedeList<char*>: a list that contain strings.
+     */
+    void frameText(FedeList<char*> list);
 };
 
 #endif /* CONSOLEVIEW_HPP */
