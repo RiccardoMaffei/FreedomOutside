@@ -131,6 +131,24 @@ int Player::getHealth() {
     return this -> health;
 }
 
+void Player::heal(int health) {
+    //check if "overflows"
+    if ((this -> health + health) > 100){
+        //set as 100
+        this -> health = 100;
+    }
+    //else if 
+    else if(health >= 0){
+        //increase the health
+        this -> health += health;
+    }
+    //else invalid
+    else{
+        //do not throw an exception.
+        //do nothing
+    }
+}
+
 void Player::damage(int damage) {
     //the damage to inflict
     int toInflict;

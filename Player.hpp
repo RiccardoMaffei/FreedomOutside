@@ -46,6 +46,12 @@ public:
     void damage(int damage);
     
     /**
+     * Heal the player.
+     * @param health int: the health points (greater than 0).
+     */
+    void heal(int health);
+    
+    /**
      * Get the Player's health.
      * @return int: health.
      */
