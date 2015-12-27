@@ -30,7 +30,7 @@ public:
     /**
      * Show the game intro/prologue.
      */
-    virtual void showPrologue();
+    virtual void showPrologue() = 0;
 private:
 
 };

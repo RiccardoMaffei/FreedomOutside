@@ -64,6 +64,6 @@ void ConsoleView::showSplash() {
 /**
  * Show the game intro/prologue.
  */
-virtual void showPrologue(){
+void ConsoleView::showPrologue(){
     
 }
