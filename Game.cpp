@@ -7,6 +7,7 @@
 
 #include "Game.hpp"
 #include "ConsoleView.hpp"
+#include "ActionRelativeMovement.hpp"
 
 Game::Game() {
     //call the constructor with number of player = 4
@@ -44,4 +45,26 @@ Game::Game(int nPlayer) {
 
 void Game::play() {
     
+}
+
+FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
+    //TODO: complete implementation.
+    
+    //the result list
+    FedeList<Action*>* result = new FedeList<Action*>();
+    //add the north relative movement
+    result -> push_back(new ActionRelativeMovement(currentPlayer, TO_NORTH, this -> map));
+    //add the south relative movement
+    result -> push_back(new ActionRelativeMovement(currentPlayer, TO_SOUTH, this -> map));
+    //add the east relative movement
+    result -> push_back(new ActionRelativeMovement(currentPlayer, TO_EAST, this -> map));
+    //add the west relative movement
+    result -> push_back(new ActionRelativeMovement(currentPlayer, TO_WEST, this -> map));
+    
+    //TODO: add combat
+    //TODO: add item pickup/drop
+    //TODO: add armor wear/unwear
+    
+    //return the result list
+    return result;
 }
