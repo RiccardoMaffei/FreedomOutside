@@ -1,6 +1,7 @@
 /* 
  * File:   ConsoleView.hpp
  * Author: Riccardo Maffei
+ * Author: Danilo Branca
  *
  * Created on 21 dicembre 2015, 1.52
  */
@@ -47,9 +48,9 @@ public:
 private:
     /**
      * Print text in a frame made with ascii character.
-     * @param FedeList<char*>: a list that contain strings.
+     * @param FedeList&lt;char*&gt;: a list that contain strings.
      */
-    void frameText(FedeList<char*> list);
+    void frameText(FedeList<char*>* list);
 };
 
 #endif /* CONSOLEVIEW_HPP */

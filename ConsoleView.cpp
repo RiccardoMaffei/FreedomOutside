@@ -1,6 +1,7 @@
 /* 
  * File:   ConsoleView.cpp
  * Author: Riccardo Maffei
+ * Author: Danilo Branca
  * 
  * Created on 21 dicembre 2015, 1.52
  */
@@ -61,15 +62,15 @@ void ConsoleView::showSplash() {
     cout << endl;
 }
 
-void ConsoleView::frameText(FedeList<char*> list){
+void ConsoleView::frameText(FedeList<char*>* list){
     //variable "max" inizialized to zero
     int max = 0;
     //auxiliary string to evaluate lenght
     char s[512];
     //loop that find the lenght of the longest string
-    for (int i = 0; i < list.getSize(); i++){
+    for (int i = 0; i < list -> getSize(); i++){
         //the description of the object in the list is copied to the auxiliary string
-        strcpy(s, list.get(i));
+        strcpy(s, list -> get(i));
         //evaluating s lenght, comparing it to the lenght of the previus longest string
         if(strlen(s) > max){
             max = strlen(s);
@@ -92,9 +93,9 @@ void ConsoleView::frameText(FedeList<char*> list){
     }
     cout << endl;   
     //print the content of the frame, beetween two "║"
-    for(int i = 0; i < list.getSize(); i++){
+    for(int i = 0; i < list -> getSize(); i++){
         //inizialize s to the description of the item number "i"
-        strcpy(s, list.get(i));
+        strcpy(s, list -> get(i));
         //print a piece of left-side border and the description
         cout << "║ " << s;
         //determinate if an addictional blank space is needed to adjust the frame's right-side border
