@@ -7,6 +7,7 @@
 
 #include "Game.hpp"
 #include "ConsoleView.hpp"
+#include "ActionMovement.hpp"
 
 Game::Game() {
     //call the constructor with number of player = 4
@@ -45,3 +46,21 @@ Game::Game(int nPlayer) {
 void Game::play() {
     
 }
+
+FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
+    //create an empy list of action
+    FedeList<Action*>* playerActions = new FedeList<Action*>();
+    //get the room where the player is located and save it in a local variable
+    Room* currentPlayerRoom = currentPlayer->getCurrentRoom();
+    //add to the list the action to move east
+    playerActions->push_back(new ActionMovement(currentPlayer,currentPlayerRoom->getEast()));
+    //add to the list the action to move north
+    playerActions->push_back(new ActionMovement(currentPlayer,currentPlayerRoom->getNorth()));
+    //add to the list the action to move south
+    playerActions->push_back(new ActionMovement(currentPlayer,currentPlayerRoom->getSouth()));
+    //add to the list the action to move west
+    playerActions->push_back(new ActionMovement(currentPlayer,currentPlayerRoom->getWest()));
+    //return the list of action that the player can do
+    return playerActions;
+}
+
