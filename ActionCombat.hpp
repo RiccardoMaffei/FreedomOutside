@@ -36,7 +36,12 @@ public:
      * Execute the action.
      */
     virtual void execute();
-
+    
+    /**
+     * Get the action description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    virtual void getDescription(char dest[]);
 private:
     //the list of attacked players
     FedeList<Player*>* attackedPlayers;

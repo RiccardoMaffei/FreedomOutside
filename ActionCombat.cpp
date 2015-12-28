@@ -36,3 +36,28 @@ void ActionCombat::execute(){
         this -> attackedPlayers -> get(i) -> damage(damage);
     }
 }
+
+void ActionCombat::getDescription(char dest[]) {
+    //copy the first part
+    strcpy(dest, "Combat with ");
+    //a temporary buffer
+    char buffer[50];
+    //get the weapon description
+    this -> weapon -> getDescription(buffer);
+    //concatenate the description
+    strcat(dest, buffer);
+    //concat. the 2nd part of the message
+    strcat(dest, " angainst:");
+    for(int i = 0; i < this -> attackedPlayers -> getSize(); i++){
+        //get the player name description
+        this -> attackedPlayers -> get(i) -> getUsername(buffer);
+        //concatenate the name
+        strcat(dest, buffer);
+        //if not last loop
+        if(i < (this -> attackedPlayers -> getSize() -1)){
+            //concatenate a comma
+            strcat(dest, ", ");
+        }
+    }
+    
+}

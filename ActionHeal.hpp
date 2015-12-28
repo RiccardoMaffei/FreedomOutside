@@ -31,6 +31,12 @@ public:
      * Execute the action.
      */
     virtual void execute();
+    
+    /**
+     * Get the action description. 
+     * @param dest char[]: destination array. Must be big enough (max string length 255).
+     */
+    virtual void getDescription(char dest[]);
 
 protected:
     //the player to heal
