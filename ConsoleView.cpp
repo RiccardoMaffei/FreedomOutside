@@ -181,6 +181,61 @@ void ConsoleView::showPlayerInfo(Player* player) {
 }
 
 void ConsoleView::showShortInfo(FedeList<Player*>* players) {
-
+    //the prompt
+    char* prompt = new char[60];
+    //if the list size is greater than 0
+    if(players -> getSize() > 0){
+        //copy the prompt
+        strcpy(prompt, "There are some other prisoners here. Combat or die!");
+    }
+    //else (empty)
+    else{
+        //copy the prompt
+        strcpy(prompt, "Don't be scared of being alone!");
+    }
+    //the list of description
+    FedeList<char*>* list = new FedeList<char*>(prompt);
+    //for the list
+    for(int i = 0; i < players -> getSize(); i++){
+        //the player
+        Player* p = players -> get(i);
+        //a string buffer
+        char* buffer = new char[256];
+        //concat the first part
+        strcpy(buffer, "Prisoner #");
+        //the number
+        char number[10];
+        //save the number in buffer
+        itoa((15687 + p -> getId()), number);
+        //concat the number
+        strcat(buffer, number);
+        //concat "("
+        strcat(buffer, "(");
+        //the name
+        char name[50];
+        //get the description
+        p -> getUsername(name);
+        //concat the name
+        strcat(buffer, name);
+        //concat "): health="
+        strcat(buffer, "): health=");
+        //the health
+        char health[10];
+        //save the number in buffer
+        itoa(p -> getHealth(), health);
+        //concat the number
+        strcat(buffer, health);
+        //add to the list
+        list -> push_back(buffer);
+    }
+    //print framed
+    frameText(list);
+    //fro all strings in list
+    for(int i = 0; i < list -> getSize(); i++){
+        //delete the string
+        delete[](list -> get(i));
+    }
+    //delete the list
+    delete list;
 }
 
