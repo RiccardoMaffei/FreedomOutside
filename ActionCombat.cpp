@@ -6,6 +6,7 @@
  */
 
 #include <math.h>
+#include <list>
 
 #include "ActionCombat.hpp"
 
@@ -19,7 +20,8 @@ ActionCombat::ActionCombat(Player* attacker, ItemWeapon* weapon, FedeList<Player
 }
 
 ActionCombat::~ActionCombat() {
-    //do nothing
+    //delete the list
+    delete (this -> attackedPlayers);
 }
 
 void ActionCombat::execute(){
