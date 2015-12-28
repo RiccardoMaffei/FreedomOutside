@@ -205,28 +205,7 @@ void ConsoleView::showPlayerInfo(Player* player) {
     double agility = player -> getAgility();
     //get the strength
     double strength = player -> getStrength();
-    //the buffer of the prompt
-    char prompt[256];
-    //concat the first part
-    strcpy(prompt, "Prisoner #");
-    //the buffer for the number of the prisoner
-    char number[10];
-    //add 15687 for fiction and trasform it to string
-    itoa((15687 + player -> getId()), number);
-    //concat the number of the prisoner
-    strcat(prompt, number);
-    //concat "("
-    strcat(prompt, "(");
-    //the buffer for the name of the prisoner
-    char name[50];
-    //get the description
-    player -> getUsername(name);
-    //concat the name
-    strcat(prompt, name);
-    //concat "):i'ts your turn"
-    strcat(prompt, ") it's your turn!");
-    //cout the prompt
-    cout << prompt << endl;
+    showPromptForTurn(player);
     //the list of texts to display
     FedeList<char*>* list = new FedeList<char*>();
     //the temp array for converted number
@@ -387,4 +366,30 @@ void ConsoleView::showShortInfo(FedeList<Player*>* players) {
     //delete the list
     delete list;
 }
+
+void ConsoleView::showPromptForTurn(Player* player) {
+    //the buffer of the prompt
+    char prompt[256];
+    //concat the first part
+    strcpy(prompt, "Prisoner #");
+    //the buffer for the number of the prisoner
+    char number[10];
+    //add 15687 for fiction and trasform it to string
+    itoa((15687 + player -> getId()), number);
+    //concat the number of the prisoner
+    strcat(prompt, number);
+    //concat "("
+    strcat(prompt, "(");
+    //the buffer for the name of the prisoner
+    char name[50];
+    //get the description
+    player -> getUsername(name);
+    //concat the name
+    strcat(prompt, name);
+    //concat "):i'ts your turn"
+    strcat(prompt, ") it's your turn!");
+    //cout the prompt
+    cout << prompt << endl;
+}
+
 

@@ -77,6 +77,12 @@ private:
      * @param FedeList&lt;char*&gt;: a list that contain strings.
      */
     void frameText(FedeList<char*>* list);
+    
+    /**
+     * Show a prompt tha inform the player that is his turn.
+     * @param player Player*: the player that have the turn.
+     */
+    void showPromptForTurn(Player* player);
 };
 
 #endif /* CONSOLEVIEW_HPP */
