@@ -2,6 +2,7 @@
  * File:   ConsoleView.cpp
  * Author: Riccardo Maffei
  * Author: Danilo Branca
+ * Author: Federico Bertani
  * 
  * Created on 21 dicembre 2015, 1.52
  */
