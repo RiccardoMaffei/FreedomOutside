@@ -6,7 +6,6 @@
  */
 
 #include <math.h>
-#include <list>
 
 #include "ActionCombat.hpp"
 
