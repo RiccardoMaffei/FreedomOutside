@@ -48,6 +48,8 @@ void Game::init(int nPlayer) {
     this -> view = new ConsoleView();
     //instance the player list
     this -> playerList = new FedeList<Player*>();
+    //init cur player
+    this -> currPlayer = 0;
 }
 
 
