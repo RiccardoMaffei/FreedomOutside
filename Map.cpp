@@ -100,6 +100,8 @@ Room* Map::findRoomByCoordinates(int searchedX, int searchedY) {
             //set should stot as true
             shouldStop = true;
         }
+        //increase the counter
+        pos++;
     }
     //return the found room (may be NULL if not found)
     return foundRoom;
