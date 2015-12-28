@@ -172,3 +172,15 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
     return actions -> get(selection);
 }
 
+void ConsoleView::showMap(Map* map, Player* player) {
+
+}
+
+void ConsoleView::showPlayerInfo(Player* player) {
+
+}
+
+void ConsoleView::showShortInfo(FedeList<Player*>* players) {
+
+}
+

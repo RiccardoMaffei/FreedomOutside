@@ -10,6 +10,8 @@
 
 #include "Action.hpp"
 #include "FedeList.hpp"
+#include "Map.hpp"
+#include "Player.hpp"
 /**
  * The view interface.It has the methods that every view(console,2d,3d,...) should have.
  */
@@ -40,6 +42,25 @@ public:
      * @return Action*: the action selected by the user.
      */
     virtual Action* selectAction(FedeList<Action*>* actions) = 0;
+    
+    /**
+     * Show the map from the perspective of the given player.
+     * @param map Map*: the map.
+     * @param player Player*: the player.
+     */
+    virtual void showMap(Map* map, Player* player) = 0;
+    
+    /**
+     * Show the player's information.
+     * @param player Player*: the player.
+     */
+    virtual void showPlayerInfo(Player* player) = 0;
+    
+    /**
+     * Show synthetic information of a given list of player (used for roommates).
+     * @param players FedeList&lt;Player*&gt;*: the list of players.
+     */
+    virtual void showShortInfo(FedeList<Player*>* players) = 0;
 private:
 
 };

@@ -52,6 +52,25 @@ public:
      * @return Action*: the action selected by the user.
      */
     virtual Action* selectAction(FedeList<Action*>* actions);
+    
+    /**
+     * Show the map from the perspective of the given player.
+     * @param map Map*: the map.
+     * @param player Player*: the player.
+     */
+    virtual void showMap(Map* map, Player* player);
+    
+    /**
+     * Show the player's information.
+     * @param player Player*: the player.
+     */
+    virtual void showPlayerInfo(Player* player);
+    
+    /**
+     * Show synthetic information of a given list of player (used for roommates).
+     * @param players FedeList&lt;Player*&gt;*: the list of players.
+     */
+    virtual void showShortInfo(FedeList<Player*>* players);
 private:
     /**
      * Print text in a frame made with ascii character.
