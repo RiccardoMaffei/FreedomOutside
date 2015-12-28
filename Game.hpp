@@ -76,6 +76,12 @@ private:
      * @return FedeList&lt;Action*&gt;*: the list of actions.
      */
     FedeList<Action*>* computePlayerActions(Player* currentPlayer);
+    
+    /**
+     * Get the next alive player.
+     * @return Player*: the next alive player.
+     */
+    Player* getNextPlayer();
 };
 
 #endif	/* GAME_HPP */
