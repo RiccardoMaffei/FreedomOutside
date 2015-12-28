@@ -205,28 +205,7 @@ void ConsoleView::showPlayerInfo(Player* player) {
     }
     addInventoryInfoToOutput(outputList,player);
     addEmptyLineToOutput(outputList);
-    //get the armor
-    ItemArmor* armor = player -> getArmor();
-    //a string for the armor text
-    char* armorText = new char[512];
-    //if the player is wearing an armor
-    if (armor != NULL){
-        //copy the text
-        strcpy(armorText, "You are wearing ");
-        //description
-        char description[256];
-        //get the description
-        armor -> getDescription(description);
-        //concate the description
-        strcat(armorText, description);
-    }
-    //else (no armor)
-    else{
-        //copy the text
-        strcpy(armorText, "You are not wearing any armor... You'll probably die soon!");
-    }
-    //insert the armor text in the list
-    outputList -> push_back(armorText);
+    addArmorInfoToOutput(outputList,player);
     //print framed
     frameText(outputList);
     //fro all strings in list
@@ -397,4 +376,29 @@ void ConsoleView::addInventoryInfoToOutput(FedeList<char*>* outputList, Player* 
         //add to the list
         outputList -> push_back(buffer);
     }
+}
+
+void ConsoleView::addArmorInfoToOutput(FedeList<char*>* outputList, Player* player) {
+    //get the armor
+    ItemArmor* armor = player -> getArmor();
+    //a string for the armor text
+    char* armorText = new char[512];
+    //if the player is wearing an armor
+    if (armor != NULL){
+        //copy the text
+        strcpy(armorText, "You are wearing ");
+        //description
+        char description[256];
+        //get the description
+        armor -> getDescription(description);
+        //concate the description
+        strcat(armorText, description);
+    }
+    //else (no armor)
+    else{
+        //copy the text
+        strcpy(armorText, "You are not wearing any armor... You'll probably die soon!");
+    }
+    //insert the armor text in the list
+    outputList -> push_back(armorText);
 }

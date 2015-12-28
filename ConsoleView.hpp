@@ -103,6 +103,13 @@ private:
      * @param player Player*: the player whose inventory are shown.
      */
     void addInventoryInfoToOutput(FedeList<char*>* outputList,Player* player);
+    
+    /**
+     * Add lines that describe the armor situation of the player.
+     * @param outputList FedeList&lt;char*&gt: the list of string to give in output.
+     * @param player Player*: the player to display the armor.
+     */
+    void addArmorInfoToOutput(FedeList<char*>* outputList,Player* player);
 };
 
 #endif /* CONSOLEVIEW_HPP */
