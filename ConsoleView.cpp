@@ -6,6 +6,8 @@
  * Created on 21 dicembre 2015, 1.52
  */
 
+#include <list>
+
 #include "ConsoleView.hpp"
 #include "StringUtils.hpp"
 
@@ -179,7 +181,7 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
 
 void ConsoleView::showMap(Map* map, Player* player) {
     //TODO: implement.
-    cout << "HERE THE MAP WILL BE SHOWN WITH THE PLAYER IN THE CENTER" << endl;
+    cout << "THE MAP WILL BE SHOWN HERE, WITH THE PLAYER IN THE CENTER" << endl;
 }
 
 void ConsoleView::showPlayerInfo(Player* player) {
@@ -187,6 +189,8 @@ void ConsoleView::showPlayerInfo(Player* player) {
     FedeList<Item*>* inventory = player -> getInventory();
     //get the armor
     ItemArmor* armor = player -> getArmor();
+    //get the health
+    int health = player -> getHealth();
     //get the agility
     double agility = player -> getAgility();
     //get the strength
@@ -213,20 +217,73 @@ void ConsoleView::showPlayerInfo(Player* player) {
     strcat(prompt, ") it's your turn!");
     //cout the prompt
     cout << prompt << endl;
-    //the text
-    char* text = new char[60];
+    //the temp array for converted number
+    char tempConverted[50];
+    //the text for the health
+    char* textH = new char[60];
+    //copy the first part
+    strcpy(textH, "Your health is ");
+    //convert the health
+    itoa(health, tempConverted);   
+    //concat the converted health
+    strcat(textH, tempConverted);
+    //the text for the agility
+    char* textA = new char[60];
+    //copy the first part
+    strcpy(textA, "Your agility is ");
+    //convert the agility
+    dtoaTwo(agility, tempConverted);   
+    //concat the converted agility
+    strcat(textA, tempConverted);
+    //the text for the strength
+    char* textS = new char[60];
+    //copy the first part
+    strcpy(textS, "Your strength is ");
+    //convert the strength
+    dtoaTwo(agility, tempConverted);   
+    //concat the converted strength
+    strcat(textS, tempConverted);
+    //the text for the inventory
+    char* textI = new char[60];
+    //the list of texts
+    FedeList<char*>* list = new FedeList<char*>();
+    //the empty line
+    char* emptyLine;
+    //instance an empty line
+    emptyLine = new char[1];
+    //copy the empty line
+    strcpy(emptyLine, "");
+    //push the health
+    list -> push_back(textH);
+    //push an empty line
+    list -> push_back(emptyLine);
+    //instance an empty line
+    emptyLine = new char[1];
+    //copy the empty line
+    strcpy(emptyLine, "");
+    //push the agility
+    list -> push_back(textA);
+    //push an empty line
+    list -> push_back(emptyLine);
+    //instance an empty line
+    emptyLine = new char[1];
+    //copy the empty line
+    strcpy(emptyLine, "");
+    //push the strength
+    list -> push_back(textS);
+    //push an empty line
+    list -> push_back(emptyLine);
     //if the inventory is not empty
     if(inventory -> getSize() > 0){
         //copy the text
-        strcpy(text, "In your inventory there is:");
+        strcpy(textI, "In your inventory there is:");
     }
     //else (the inventory is empty)
     else{
         //copy the text
-        strcpy(text, "Your inventory is empty.");
+        strcpy(textI, "Your inventory is empty.");
     }
-    //the list of description
-    FedeList<char*>* list = new FedeList<char*>(text);
+    list -> push_back(textI);
     //for the list
     for(int i = 0; i < inventory -> getSize(); i++){
         //a string buffer
@@ -236,6 +293,12 @@ void ConsoleView::showPlayerInfo(Player* player) {
         //add to the list
         list -> push_back(buffer);
     }
+    //instance an empty line
+    emptyLine = new char[1];
+    //copy the empty line
+    strcpy(emptyLine, "");
+    //push an empty line
+    list -> push_back(emptyLine);
     //a string for the armor text
     char* armorText = new char[512];
     //if the player is wearing an armor
@@ -273,7 +336,7 @@ void ConsoleView::showShortInfo(FedeList<Player*>* players) {
     //if the list size is greater than 0
     if(players -> getSize() > 0){
         //copy the prompt
-        strcpy(prompt, "There are some other prisoners here. Combat or die!");
+        strcpy(prompt, "There are some other prisoners here. Combat, run or die!");
     }
     //else (empty)
     else{
