@@ -51,6 +51,9 @@ protected:
     FedeList<Player*>* playerList;
     //the view
     View* view;
+    //index of the current Player
+    int currPlayer = 0;
+    
 private:
         
     /**
