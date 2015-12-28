@@ -46,6 +46,12 @@ public:
      */
     virtual void showPrologue();
     
+    /**
+     * Show actions and retriever the selected action.
+     * @param actions FedeList&lt;Action*&gt;*: the action list.
+     * @return Action*: the action selected by the user.
+     */
+    virtual Action* selectAction(FedeList<Action*>* actions);
 private:
     /**
      * Print text in a frame made with ascii character.

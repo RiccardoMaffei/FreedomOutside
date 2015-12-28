@@ -7,6 +7,7 @@
  */
 
 #include "ConsoleView.hpp"
+#include "StringUtils.hpp"
 
 ConsoleView::ConsoleView() {
 }
@@ -44,7 +45,7 @@ void ConsoleView::showSplash() {
     cout << "M:   +MMN smNMMMMMMMMMMMMMMMMMMMMMNds/hosMM/M" << endl;
     cout << "M:   +MMMhMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM/M" << "                       Riccardo Maffei" << endl;
     cout << "M:   +MMMMMMMMMMMMMMMMMMMMMMMMMmmddmMMMNNNM/M" << endl;
-    cout << "M:   +::ddmy//NMMMMMMMMMMMMMMMM +/ `-:y.-`:M" << "                       Danilo Branca" << endl;
+    cout << "M:   +::ddmy//NMMMMMMMMMMMMMMMM +/  `-:y.-`:M" << "                       Danilo Branca" << endl;
     cout << "M:   +: ``+/  /MMMMMMMMMMMMMMMM +/    s/   :M" << endl;
     cout << "M:   +:   +/   mMMMMMMMMMMMMMMM +/    s/   :M" << "                       Federico Bertani" << endl;
     cout << "M:   +:   +/   yMMMMMMMMMMMMMMMh+/    s/   :M" << endl;
@@ -124,3 +125,50 @@ void ConsoleView::frameText(FedeList<char*>* list){
 void ConsoleView::showPrologue(){
     
 }
+
+Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
+    //the prompt
+    char* prompt = new char[60];
+    //copy the prompt
+    strcpy(prompt, "Hey prisoner! What's your next move? (write the number)");
+    //the list of description
+    FedeList<char*>* list = new FedeList<char*>(prompt);
+    //for the list
+    for(int i = 0; i < actions -> getSize(); i++){
+        //a string buffer
+        char* buffer = new char[512];
+        //save the number in buffer
+        itoa(i, buffer);
+        //concat a dot and a space
+        strcat(buffer, ". ");
+        //the description
+        char descr[256];
+        //get the description
+        actions -> get(i) -> getDescription(descr);
+        //concat the description
+        strcat(buffer, descr);
+        //add to the list
+        list -> push_back(buffer);
+    }
+    //print framed
+    frameText(list);
+    //fro all strings in list
+    for(int i = 0; i < list -> getSize(); i++){
+        //delete the string
+        delete[](list -> get(i));
+    }
+    //delete the list
+    delete list;
+    //int selection
+    int selection = 0;
+    //get the selected value
+    cin >> selection;
+    //if selection is greater thal listsize-1
+    if (selection > (actions -> getSize() - 1)){
+        //set as the last
+        selection = actions -> getSize() - 1;
+    }
+    //return the actionn at th selected position
+    return actions -> get(selection);
+}
+

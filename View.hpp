@@ -8,6 +8,8 @@
 #ifndef VIEW_HPP
 #define VIEW_HPP
 
+#include "Action.hpp"
+#include "FedeList.hpp"
 /**
  * The view interface.It has the methods that every view(console,2d,3d,...) should have.
  */
@@ -31,6 +33,13 @@ public:
      * Show the game intro/prologue.
      */
     virtual void showPrologue() = 0;
+    
+    /**
+     * Show actions and retriever the selected action.
+     * @param actions FedeList&lt;Action*&gt;*: the action list.
+     * @return Action*: the action selected by the user.
+     */
+    virtual Action* selectAction(FedeList<Action*>* actions) = 0;
 private:
 
 };
