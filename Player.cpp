@@ -63,7 +63,7 @@ Player::~Player() {
 
 void Player::getUsername(char dest[]) {
     //copy the username in the given dest
-    strcpy(this -> username, dest);
+    strcpy(dest, this -> username);
 }
 
 void Player::setCurrentRoom(Room* currentRoom) {
