@@ -44,7 +44,7 @@ public:
     /**
      * Show the game intro/prologue.
      */
-    virtual void showPrologue();
+    virtual void showPrologue(int numberOfPlayer);
     
     /**
      * Show actions and retriever the selected action.

@@ -56,8 +56,8 @@ void Game::init(int nPlayer) {
 void Game::play() {
     //show the splash screen
     this -> view -> showSplash();
-    //show the prologue
-    this -> view -> showPrologue();
+    //show the prologue with the accurate number of player
+    this -> view -> showPrologue(this->nPlayer);
     //populate the list of player
     populatePlayers();
     //the current player
