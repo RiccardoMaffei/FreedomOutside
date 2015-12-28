@@ -49,7 +49,7 @@ void Game::init(int nPlayer) {
     //instance the player list
     this -> playerList = new FedeList<Player*>();
     //init cur player
-    this -> currPlayer = 0;
+    this -> currPlayer = -1;
 }
 
 
@@ -60,9 +60,33 @@ void Game::play() {
     this -> view -> showPrologue();
     //populate the list of player
     populatePlayers();
+    //the current player
+    Player* curP = NULL;
     //while should run
     while(shouldRun()){
-        //TODO: implement
+        //get the next player
+        curP = getNextPlayer();
+        //show the map
+        this ->view -> showMap(this -> map, curP);
+        //get the roommates
+        FedeList<Player*>* roomMates = this -> getRoomMates(curP);
+        //show player info
+        this -> view -> showPlayerInfo(curP);
+        //show players in this room
+        this -> view -> showShortInfo(roomMates);
+        //copute player actions
+        FedeList<Action*>* actions = this -> computePlayerActions(curP);
+        //get user selection and execute
+        this -> view -> selectAction(actions) -> execute();
+        //for the list of actions
+        for(int i = 0; i < actions -> getSize(); i++){
+            //delete the action at i
+            delete (actions -> get(i));
+        }
+        //delete the list itself
+        delete actions;
+        //delete the list of roommates
+        delete roomMates;
     }
 }
 
@@ -151,4 +175,21 @@ Player* Game::getNextPlayer(){
     }
     //return the pointer to the next alive Player in playerList, if i'ts NULL, all players are dead
     return nextPlayer;
+}
+
+FedeList<Player*>* Game::getRoomMates(Player* player) {
+    //the result list
+    FedeList<Player*>* result = new FedeList<Player*>();
+    //for the player list
+    for(int i = 0; i < this -> playerList -> getSize(); i++){
+        //get the player at i
+        Player* p = this -> playerList -> get(i);
+        //if is not the given player and they are on the same room
+        if(player != p && (p -> getCurrentRoom() == player -> getCurrentRoom())){
+            //add to the list
+            result -> push_back(p);
+        }
+    }
+    //return the rsult
+    return result;
 }

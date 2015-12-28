@@ -85,6 +85,13 @@ private:
      * @return Player*: the next alive player.
      */
     Player* getNextPlayer();
+    
+    /**
+     * Return a list of player with the same current room.
+     * @param player Player* the player.
+     * @return FedeList&lt;Player*&gt;*: the list of roommates.
+     */
+    FedeList<Player*>* getRoomMates(Player* player);
 };
 
 #endif	/* GAME_HPP */
