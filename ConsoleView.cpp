@@ -163,21 +163,108 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
     int selection = 0;
     //get the selected value
     cin >> selection;
-    //if selection is greater thal listsize-1
+    //if selection is greater than listsize-1
     if (selection > (actions -> getSize() - 1)){
         //set as the last
         selection = actions -> getSize() - 1;
+    }
+    //if selection is less than 0
+    if (selection < 0){
+        //set as the first
+        selection = 0;
     }
     //return the actionn at th selected position
     return actions -> get(selection);
 }
 
 void ConsoleView::showMap(Map* map, Player* player) {
-
+    //TODO: implement.
+    cout << "HERE THE MAP WILL BE SHOWN WITH THE PLAYER IN THE CENTER" << endl;
 }
 
 void ConsoleView::showPlayerInfo(Player* player) {
-
+    //the player inventory
+    FedeList<Item*>* inventory = player -> getInventory();
+    //get the armor
+    ItemArmor* armor = player -> getArmor();
+    //get the agility
+    double agility = player -> getAgility();
+    //get the strength
+    double strength = player -> getStrength();
+    //the prompt
+    char prompt[256];
+    //concat the first part
+    strcpy(prompt, "Prisoner #");
+    //the number
+    char number[10];
+    //save the number in number
+    itoa((15687 + player -> getId()), number);
+    //concat the number
+    strcat(prompt, number);
+    //concat "("
+    strcat(prompt, "(");
+    //the name
+    char name[50];
+    //get the description
+    player -> getUsername(name);
+    //concat the name
+    strcat(prompt, name);
+    //concat "):i'ts your turn"
+    strcat(prompt, ") it's your turn!");
+    //cout the prompt
+    cout << prompt << endl;
+    //the text
+    char* text = new char[60];
+    //if the inventory is not empty
+    if(inventory -> getSize() > 0){
+        //copy the text
+        strcpy(text, "In your inventory there is:");
+    }
+    //else (the inventory is empty)
+    else{
+        //copy the text
+        strcpy(text, "Your inventory is empty.");
+    }
+    //the list of description
+    FedeList<char*>* list = new FedeList<char*>(text);
+    //for the list
+    for(int i = 0; i < inventory -> getSize(); i++){
+        //a string buffer
+        char* buffer = new char[512];
+        //get the description
+        inventory -> get(i) -> getDescription(buffer);
+        //add to the list
+        list -> push_back(buffer);
+    }
+    //a string for the armor text
+    char* armorText = new char[512];
+    //if the player is wearing an armor
+    if (armor != NULL){
+        //copy the text
+        strcpy(armorText, "You are wearing ");
+        //description
+        char description[256];
+        //get the description
+        armor -> getDescription(description);
+        //concate the description
+        strcat(armorText, description);
+    }
+    //else (no armor)
+    else{
+        //copy the text
+        strcpy(armorText, "You are not wearing any armor... You'll probably die soon!");
+    }
+    //insert the armor text in the list
+    list -> push_back(armorText);
+    //print framed
+    frameText(list);
+    //fro all strings in list
+    for(int i = 0; i < list -> getSize(); i++){
+        //delete the string
+        delete[](list -> get(i));
+    }
+    //delete the list
+    delete list;
 }
 
 void ConsoleView::showShortInfo(FedeList<Player*>* players) {
@@ -230,7 +317,7 @@ void ConsoleView::showShortInfo(FedeList<Player*>* players) {
     }
     //print framed
     frameText(list);
-    //fro all strings in list
+    //for all strings in list
     for(int i = 0; i < list -> getSize(); i++){
         //delete the string
         delete[](list -> get(i));
