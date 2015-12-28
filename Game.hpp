@@ -41,12 +41,6 @@ public:
      */
     void play();
     
-    /**
-     * Generate a list of possible actions for the given player.
-     * @param currentPlayer Player*: the current player.
-     * @return FedeList&lt;Action*&gt;*: the list of actions.
-     */
-    FedeList<Action*>* computePlayerActions(Player* currentPlayer);
     
 protected:
     //the number of player
@@ -75,6 +69,13 @@ private:
      * Populates the players list.
      */
     void populatePlayers();
+    
+    /**
+     * Generate a list of possible actions for the given player.
+     * @param currentPlayer Player*: the current player.
+     * @return FedeList&lt;Action*&gt;*: the list of actions.
+     */
+    FedeList<Action*>* computePlayerActions(Player* currentPlayer);
 };
 
 #endif	/* GAME_HPP */
