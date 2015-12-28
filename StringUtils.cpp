@@ -66,8 +66,8 @@ void dtoaTwo(double n, char dest[]){
     //add 0 if the string is smaller than 3 character
     while ((dimension = strlen(dest))<3) {
         //allocate a buffer of 37 character.
-        //37 is because the max double can be written with 37 character
-        char* prefix = new char[37];
+        //40 is because the max double can be written with 39 character + /0
+        char* prefix = new char[40];
         strcpy(prefix,"0");
         strcat(prefix,dest);
         strcpy(dest,prefix);
