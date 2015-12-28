@@ -83,6 +83,12 @@ private:
      * @param player Player*: the player that have the turn.
      */
     void showPromptForTurn(Player* player);
+    
+    /**
+     * Add an empty line at the bottom of the ouput list.
+     * @param list FedeList<char*>*: the list of string to give in output
+     */
+    void addEmptyLineToOutput(FedeList<char*>* list);
 };
 
 #endif /* CONSOLEVIEW_HPP */

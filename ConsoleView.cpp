@@ -244,12 +244,7 @@ void ConsoleView::showPlayerInfo(Player* player) {
     char* textI = new char[60];
     //create a for for printing 3 empy lines
     for (int i=0;i<3;i++) {
-        //instance a new empy line
-        char* emptyLine = new char[1];
-        //copy the empty line
-        strcpy(emptyLine, "");
-        //push an empty line
-        list -> push_back(emptyLine);
+        addEmptyLineToOutput(list);
     }
     //if the inventory is not empty
     if(inventory -> getSize() > 0){
@@ -271,12 +266,7 @@ void ConsoleView::showPlayerInfo(Player* player) {
         //add to the list
         list -> push_back(buffer);
     }
-    //instance an empty line
-    char* emptyLine = new char[1];
-    //copy the empty line
-    strcpy(emptyLine, "");
-    //push an empty line
-    list -> push_back(emptyLine);
+    addEmptyLineToOutput(list);
     //a string for the armor text
     char* armorText = new char[512];
     //if the player is wearing an armor
@@ -392,4 +382,12 @@ void ConsoleView::showPromptForTurn(Player* player) {
     cout << prompt << endl;
 }
 
+void ConsoleView::addEmptyLineToOutput(FedeList<char*>* list) {
+        //instance a new empy line
+        char* emptyLine = new char[1];
+        //copy the empty line
+        strcpy(emptyLine, "");
+        //push an empty line
+        list -> push_back(emptyLine);
+}
 
