@@ -197,54 +197,15 @@ void ConsoleView::showMap(Map* map, Player* player) {
 void ConsoleView::showPlayerInfo(Player* player) {
     //the player inventory
     FedeList<Item*>* inventory = player -> getInventory();
-    //get the armor
-    ItemArmor* armor = player -> getArmor();
-    //get the health
-    int health = player -> getHealth();
-    //get the agility
-    double agility = player -> getAgility();
-    //get the strength
-    double strength = player -> getStrength();
     showPromptForTurn(player);
     //the list of texts to display
-    FedeList<char*>* list = new FedeList<char*>();
-    //the temp array for converted number
-    char tempConverted[50];
-    //the text for the health
-    char* textH = new char[60];
-    //copy the first part
-    strcpy(textH, "Your health is ");
-    //convert the health
-    itoa(health, tempConverted);   
-    //concat the converted health
-    strcat(textH, tempConverted);
-    //push the health
-    list -> push_back(textH);
-    //the text for the agility
-    char* textAgility = new char[60];
-    //copy the first part
-    strcpy(textAgility, "Your agility is ");
-    //convert the agility
-    dtoaTwo(agility, tempConverted);   
-    //concat the converted agility
-    strcat(textAgility, tempConverted);
-    //push the agility
-    list -> push_back(textAgility);
-    //the buffer for the strength
-    char* textStrength = new char[60];
-    //copy the first part
-    strcpy(textStrength, "Your strength is ");
-    //convert the strength
-    dtoaTwo(strength, tempConverted);   
-    //concat the converted strength
-    strcat(textStrength, tempConverted);
-    //push the strength
-    list -> push_back(textStrength);
+    FedeList<char*>* outputList = new FedeList<char*>();
+    addPlayerStatsToOutput(outputList,player);
     //the buffer for the inventory
     char* textI = new char[60];
     //create a for for printing 3 empy lines
     for (int i=0;i<3;i++) {
-        addEmptyLineToOutput(list);
+        addEmptyLineToOutput(outputList);
     }
     //if the inventory is not empty
     if(inventory -> getSize() > 0){
@@ -256,7 +217,7 @@ void ConsoleView::showPlayerInfo(Player* player) {
         //copy the text
         strcpy(textI, "Your inventory is empty.");
     }
-    list -> push_back(textI);
+    outputList -> push_back(textI);
     //for the list
     for(int i = 0; i < inventory -> getSize(); i++){
         //a string buffer
@@ -264,9 +225,11 @@ void ConsoleView::showPlayerInfo(Player* player) {
         //get the description
         inventory -> get(i) -> getDescription(buffer);
         //add to the list
-        list -> push_back(buffer);
+        outputList -> push_back(buffer);
     }
-    addEmptyLineToOutput(list);
+    addEmptyLineToOutput(outputList);
+    //get the armor
+    ItemArmor* armor = player -> getArmor();
     //a string for the armor text
     char* armorText = new char[512];
     //if the player is wearing an armor
@@ -286,16 +249,16 @@ void ConsoleView::showPlayerInfo(Player* player) {
         strcpy(armorText, "You are not wearing any armor... You'll probably die soon!");
     }
     //insert the armor text in the list
-    list -> push_back(armorText);
+    outputList -> push_back(armorText);
     //print framed
-    frameText(list);
+    frameText(outputList);
     //fro all strings in list
-    for(int i = 0; i < list -> getSize(); i++){
+    for(int i = 0; i < outputList -> getSize(); i++){
         //delete the string
-        delete[](list -> get(i));
+        delete[](outputList -> get(i));
     }
     //delete the list
-    delete list;
+    delete outputList;
 }
 
 void ConsoleView::showShortInfo(FedeList<Player*>* players) {
@@ -382,12 +345,54 @@ void ConsoleView::showPromptForTurn(Player* player) {
     cout << prompt << endl;
 }
 
-void ConsoleView::addEmptyLineToOutput(FedeList<char*>* list) {
+void ConsoleView::addEmptyLineToOutput(FedeList<char*>* outputList) {
         //instance a new empy line
         char* emptyLine = new char[1];
         //copy the empty line
         strcpy(emptyLine, "");
         //push an empty line
-        list -> push_back(emptyLine);
+        outputList -> push_back(emptyLine);
 }
+
+void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* player) {
+    //get the health
+    int health = player -> getHealth();
+    //get the agility
+    double agility = player -> getAgility();
+    //get the strength
+    double strength = player -> getStrength();
+    //the temp array for converted number
+    char tempConverted[50];
+    //the text for the health
+    char* textH = new char[60];
+    //copy the first part
+    strcpy(textH, "Your health is ");
+    //convert the health
+    itoa(health, tempConverted);   
+    //concat the converted health
+    strcat(textH, tempConverted);
+    //push the health
+    outputList -> push_back(textH);
+    //the text for the agility
+    char* textAgility = new char[60];
+    //copy the first part
+    strcpy(textAgility, "Your agility is ");
+    //convert the agility
+    dtoaTwo(agility, tempConverted);   
+    //concat the converted agility
+    strcat(textAgility, tempConverted);
+    //push the agility
+    outputList -> push_back(textAgility);
+    //the buffer for the strength
+    char* textStrength = new char[60];
+    //copy the first part
+    strcpy(textStrength, "Your strength is ");
+    //convert the strength
+    dtoaTwo(strength, tempConverted);   
+    //concat the converted strength
+    strcat(textStrength, tempConverted);
+    //push the strength
+    outputList -> push_back(textStrength);
+}
+
 

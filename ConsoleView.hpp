@@ -86,9 +86,15 @@ private:
     
     /**
      * Add an empty line at the bottom of the ouput list.
-     * @param list FedeList<char*>*: the list of string to give in output
+     * @param outputList FedeList&lt;char*&gt: the list of string to give in output
      */
-    void addEmptyLineToOutput(FedeList<char*>* list);
+    void addEmptyLineToOutput(FedeList<char*>* outputList);
+    
+    /**
+     * Add lines that describe the player statistics.
+     * @param outputList FedeList&lt;char*&gt: the list of string to give in output.
+     */
+    void addPlayerStatsToOutput(FedeList<char*>* outputList,Player* player);
 };
 
 #endif /* CONSOLEVIEW_HPP */
