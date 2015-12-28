@@ -52,7 +52,7 @@ protected:
     //the view
     View* view;
     //index of the current Player
-    int currPlayer = 0;
+    int currPlayer;
     
 private:
         
