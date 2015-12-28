@@ -93,8 +93,16 @@ private:
     /**
      * Add lines that describe the player statistics.
      * @param outputList FedeList&lt;char*&gt: the list of string to give in output.
+     * @param player Player*: the player whose statitics are shown.
      */
     void addPlayerStatsToOutput(FedeList<char*>* outputList,Player* player);
+    
+    /**
+     * Add lines that describe the content of the player inventory.
+     * @param outputList FedeList&lt;char*&gt: the list of string to give in output.
+     * @param player Player*: the player whose inventory are shown.
+     */
+    void addInventoryInfoToOutput(FedeList<char*>* outputList,Player* player);
 };
 
 #endif /* CONSOLEVIEW_HPP */

@@ -195,38 +195,15 @@ void ConsoleView::showMap(Map* map, Player* player) {
 }
 
 void ConsoleView::showPlayerInfo(Player* player) {
-    //the player inventory
-    FedeList<Item*>* inventory = player -> getInventory();
     showPromptForTurn(player);
     //the list of texts to display
     FedeList<char*>* outputList = new FedeList<char*>();
     addPlayerStatsToOutput(outputList,player);
-    //the buffer for the inventory
-    char* textI = new char[60];
     //create a for for printing 3 empy lines
     for (int i=0;i<3;i++) {
         addEmptyLineToOutput(outputList);
     }
-    //if the inventory is not empty
-    if(inventory -> getSize() > 0){
-        //copy the text
-        strcpy(textI, "In your inventory there is:");
-    }
-    //else (the inventory is empty)
-    else{
-        //copy the text
-        strcpy(textI, "Your inventory is empty.");
-    }
-    outputList -> push_back(textI);
-    //for the list
-    for(int i = 0; i < inventory -> getSize(); i++){
-        //a string buffer
-        char* buffer = new char[512];
-        //get the description
-        inventory -> get(i) -> getDescription(buffer);
-        //add to the list
-        outputList -> push_back(buffer);
-    }
+    addInventoryInfoToOutput(outputList,player);
     addEmptyLineToOutput(outputList);
     //get the armor
     ItemArmor* armor = player -> getArmor();
@@ -395,4 +372,29 @@ void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* pla
     outputList -> push_back(textStrength);
 }
 
-
+void ConsoleView::addInventoryInfoToOutput(FedeList<char*>* outputList, Player* player) {
+    //the player inventory
+    FedeList<Item*>* inventory = player -> getInventory();
+    //the buffer for the inventory
+    char* textI = new char[60];
+    //if the inventory is not empty
+    if(inventory -> getSize() > 0){
+        //copy the text
+        strcpy(textI, "In your inventory there is:");
+    }
+    //else (the inventory is empty)
+    else{
+        //copy the text
+        strcpy(textI, "Your inventory is empty.");
+    }
+    outputList -> push_back(textI);
+    //for the list
+    for(int i = 0; i < inventory -> getSize(); i++){
+        //a string buffer
+        char* buffer = new char[512];
+        //get the description
+        inventory -> get(i) -> getDescription(buffer);
+        //add to the list
+        outputList -> push_back(buffer);
+    }
+}
