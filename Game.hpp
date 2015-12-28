@@ -70,6 +70,11 @@ private:
      * @return bool: true if there are at least two players alive.
      */
     bool shouldRun();
+    
+    /**
+     * Populates the players list.
+     */
+    void populatePlayers();
 };
 
 #endif	/* GAME_HPP */

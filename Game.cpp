@@ -56,22 +56,12 @@ void Game::play() {
     this -> view -> showSplash();
     //show the prologue
     this -> view -> showPrologue();
-    //for the number of player
-    for (int i = 0; i < this -> nPlayer; i++) {
-        //the username
-        char username[50];
-        //get the username
-        this -> view -> getUsername(username);
-        //instance a new player
-        Player* player = new Player(username, this -> map -> getEntryPoint());
-        //add the player to the player list
-        this -> playerList -> push_back(player);
-    }
+    //populate the list of player
+    populatePlayers();
     //while should run
     while(shouldRun()){
         //TODO: implement
     }
-    
 }
 
 bool Game::shouldRun() {
@@ -113,4 +103,18 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
     
     //return the result list
     return result;
+}
+
+void Game::populatePlayers() {
+    //for the number of player
+    for (int i = 0; i < this -> nPlayer; i++) {
+        //the username
+        char username[50];
+        //get the username
+        this -> view -> getUsername(username);
+        //instance a new player
+        Player* player = new Player(username, this -> map -> getEntryPoint());
+        //add the player to the player list
+        this -> playerList -> push_back(player);
+    }
 }
