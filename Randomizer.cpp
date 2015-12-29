@@ -16,370 +16,96 @@
 Randomizer::Randomizer() {
 }
 
-Randomizer::Randomizer(const Randomizer& orig) {
-}
-
 Randomizer::~Randomizer() {
 }
 
 void Randomizer::generateRoomItems(FedeList<Item*>* items) {
-    /* 
-     * For every item reset the seed, generate a ramdom value and if it
-     * is in range, generate and add the item.
-     * Always reset the seed for an even better randomization.
-     */ 
-    //TODO: fix with actual value (probability, damage...)
-    //the number
-    int n = 0;
     //----------------SIMPLE WEAPONS ------------------
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Rotten wooden plank", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Wooden plank", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Sharp wooden plank", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Rotten stick", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("stick", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Rusty iron pipe", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Iron pipe", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Hammer", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Knife", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Sword", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Spear", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Axe", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Iron mace", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Bow", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Hunting Bow", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Slingshot", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Blowgun", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Handgun", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Rifle", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Shotgun", 1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemSimpleWeapon("Ak-47", 1));
-    }
+    generateSimpleWeapon("Rotten wooden plank", 1, 50, items);
+    generateSimpleWeapon("Wooden plank", 2, 49, items);
+    generateSimpleWeapon("Sharp wooden plank", 3, 47, items);
+    generateSimpleWeapon("Rotten stick", 4, 48, items);
+    generateSimpleWeapon("stick", 5, 46, items);
+    generateSimpleWeapon("Rusty iron pipe", 6, 43, items);
+    generateSimpleWeapon("Iron pipe", 7, 40, items);
+    generateSimpleWeapon("Hammer", 8, 39, items);
+    generateSimpleWeapon("Knife", 9, 30, items);
+    generateSimpleWeapon("Sword", 10, 2, items);
+    generateSimpleWeapon("Spear", 15, 1, items);
+    generateSimpleWeapon("Axe", 20, 1, items);
+    generateSimpleWeapon("Iron mace", 30, 7, items);
+    generateSimpleWeapon("Bow", 25, 8, items);
+    generateSimpleWeapon("Hunting Bow", 35, 5, items);
+    generateSimpleWeapon("Slingshot", 30, 6, items);
+    generateSimpleWeapon("Blowgun", 29, 7, items);
+    generateSimpleWeapon("Handgun", 45, 3, items);
+    generateSimpleWeapon("Rifle", 60, 2, items);
+    generateSimpleWeapon("Shotgun", 70, 1, items);
+    generateSimpleWeapon("Ak-47", 90, 1, items);
     //--------------END SIMPLE WEAPONS----------------
     //--------------DESTRUCTIVE WEAPONS----------------
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 6){
-        //generate and add the item
-        items -> push_back(new ItemDestructiveWeapon("Molotov", 30, 80));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 5){
-        //generate and add the item
-        items -> push_back(new ItemDestructiveWeapon("Grenade", 35, 85));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 2){
-        //generate and add the item
-        items -> push_back(new ItemDestructiveWeapon("TNT", 50, 100));
-    }
+    generateDestructiveWeapon("Molotov",30,80,6,items);
+    generateDestructiveWeapon("Granade",35,85,5,items);
+    generateDestructiveWeapon("TNT",50,100,2,items);
     //------------END DESTRUCTIVE WEAPONS--------------
     //--------------------ARMORS----------------------
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 50){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Rags armor", 1.1));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 35){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Leather armor", 1.2));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 27){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Hide armor", 1.3));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 20){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Copper armor", 1.4));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 15){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Bronze armor", 1.5));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 11){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Iron armor", 1.6));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 8){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Steel armor", 1.7));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 4){
-        //generate and add the item
-        items -> push_back(new ItemArmor("Gold armor", 1.8));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 200;
-    //if it is in the probability range
-    if (n < 1){ //NOTE that the number in this case 0 <= n <200 so 1 equals to 0.5% probability
-        //generate and add the item
-        items -> push_back(new ItemArmor("Diamond armor", 1.9));
-    }
+    generateArmorItem("Rags armor",1.1,50,items);
+    generateArmorItem("Leather armor",1.2,35,items);
+    generateArmorItem("Hide armor",1.3,27,items);
+    generateArmorItem("Copper armor",1.4,20,items);
+    generateArmorItem("Bronze armor",1.5,15,items);
+    generateArmorItem("Iron armor",1.6,11,items);
+    generateArmorItem("Steel armor",1.7,8,items);
+    generateArmorItem("Gold armor",1.8,4,items);
+    generateArmorItem("Diamond armor",1.9,1,items);
     //------------------END ARMORS--------------------
     //------------------HEALTH KITS--------------------
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 55){
-        //generate and add the item
-        items -> push_back(new ItemHealthKit("Tiny healing potion", 5));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 45){
-        //generate and add the item
-        items -> push_back(new ItemHealthKit("Small healing potion", 10));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 30){
-        //generate and add the item
-        items -> push_back(new ItemHealthKit("Medium healing potion", 30));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 20){
-        //generate and add the item
-        items -> push_back(new ItemHealthKit("Big healing potion", 50));
-    }
-    //reset the seed
-    srand(time(NULL));
-    //generate the number
-    n = rand() % 100;
-    //if it is in the probability range
-    if (n < 10){
-        //generate and add the item
-        items -> push_back(new ItemHealthKit("Huge healing potion", 100));
-    }
+    generateHealthKit("Tiny healing potion",5,55,items);
+    generateHealthKit("Small healing potion",10,45,items);
+    generateHealthKit("Medium healing potion",30,30,items);
+    generateHealthKit("Big healing potion",50,20,items);
+    generateHealthKit("Huge healing potion",100,10,items);
     //----------------END HEALTH KITS------------------
 }
+
+void Randomizer::generateArmorItem(const char name[], double protectionFactor, int probability, FedeList<Item*>* items) {
+    if (isToGenerate(probability)) {
+        items -> push_back(new ItemArmor(name,protectionFactor));
+    }
+}
+
+
+void Randomizer::generateDestructiveWeapon(const char name[], int damageMin, int damegeMax, int probability, FedeList<Item*>* items) {
+    if (isToGenerate(probability)) {
+        items -> push_back(new ItemDestructiveWeapon(name, damageMin, damegeMax));
+    }
+}
+
+void Randomizer::generateHealthKit(const char name[], int healingValue, int probability, FedeList<Item*>* items) {
+    if (isToGenerate(probability)) {
+        items -> push_back(new ItemHealthKit(name, healingValue));
+    }
+}
+
+
+void Randomizer::generateSimpleWeapon(const char name[], int damage, int probability, FedeList<Item*>* items) {
+    if (isToGenerate(probability)) {
+        items -> push_back(new ItemSimpleWeapon(name, damage));
+    }
+}
+
+bool Randomizer::isToGenerate(int probability) {
+    //reset the seed at every call for maximium randomness.
+    srand(time(NULL));
+    //generate the number
+    int n = rand() % 100;
+    if (n <= probability) return true;
+    else return false;
+}
+
+
+
+
+
+
 
