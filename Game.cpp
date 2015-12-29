@@ -15,6 +15,9 @@
 #include "ActionCombat.hpp"
 #include "ActionHeal.hpp"
 #include "ActionPickup.hpp"
+#include "ActionWear.hpp"
+#include "ActionUnwear.hpp"
+#include "ActionWait.hpp"
 
 Game::Game() {
     //call the init with number of player = 4
@@ -163,7 +166,7 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
         else if (dynamic_cast<ItemArmor*>(curItem)){
             //if the player is not wearing an armor
             if (currentPlayer -> getArmor() == NULL){
-                //TODO: add a wear action (not implemented yet).
+                result->push_back(new ActionWear(currentPlayer,(ItemArmor*)curItem));
             }
         }
     }
@@ -178,9 +181,11 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
         }
         //if the player is wearing an armor
         if (currentPlayer -> getArmor() != NULL){
-            //TODO: add a unwear action (not implemented yet).
+            result->push_back(new ActionUnwear(currentPlayer));
         }
     }
+    //add the action of doing nothing
+    result -> push_back(new ActionWait());
     //return the result list
     return result;
 }
