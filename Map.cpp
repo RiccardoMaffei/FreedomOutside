@@ -8,6 +8,7 @@
 #include "Map.hpp"
 #include "FedeList.hpp"
 #include "Randomizer.hpp"
+#include <iostream>
 
 //initialize the instance
 Map* Map::instance = NULL;
@@ -118,7 +119,7 @@ void Map::insertRoom(Room* toInsert) {
         //if the got room is higher or equal to the room to insert
         //DEBUG NOTE: should never be equal but for debug purpose we put equal rooms
         //one next to the other so we can easily find out that there are duplicates (error)
-        if(got >= toInsert){
+        if(*got >= *toInsert){
             //set the found as true
             found = true;
         }
