@@ -144,3 +144,9 @@ void Map::insertRoom(Room* toInsert) {
     }
 }
 
+FedeList<Room*>* Map::getVisibleRooms(Room* center) {
+    //get the center x
+    int centerX = center -> getX();
+    //get the center y
+    int centerY = center -> getY();
+}

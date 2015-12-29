@@ -62,6 +62,13 @@ public:
      * @return int: the smallest x.
      */
     int getSideLeft();
+    
+    /**
+     * Return an ordered list of visible rooms from the given one. (visibility +/- 2x +/- 2y) 
+     * @param center Room*: the center room.
+     * @return FedeList&lt;Room*&gt;*: the list
+     */
+    FedeList<Room*>* getVisibleRooms(Room* center);
 
 protected:
     /**
