@@ -31,7 +31,7 @@ void ActionHeal::getDescription(char dest[]) {
     //copy the first part
     strcpy(dest, "Heal yourself with ");
     //a temporary buffer
-    char buffer[50];
+    char buffer[100];
     //get the kit description
     this -> kit -> getDescription(buffer);
     //concatenate the description

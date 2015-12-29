@@ -42,7 +42,7 @@ void ActionCombat::getDescription(char dest[]) {
     //copy the first part
     strcpy(dest, "Combat with ");
     //a temporary buffer
-    char buffer[50];
+    char buffer[100];
     //get the weapon description
     this -> weapon -> getDescription(buffer);
     //concatenate the description
