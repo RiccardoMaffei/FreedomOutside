@@ -143,7 +143,7 @@ void Player::damage(int damage) {
         armorProtFact = (this -> armor -> getProtectionFactor());
     }
     //compute damage to inflict (use double and then ceil)
-    toInflict = ceil(((double) toInflict) / (((double) this -> agility) * armorProtFact));
+    toInflict = ceil(((double) damage) / (((double) this -> agility) * armorProtFact));
     //if the damage to inflict are greater or equal to the health (will die)
     if(toInflict >= this -> health){
         //set the health as 0

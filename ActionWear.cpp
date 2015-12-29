@@ -33,7 +33,7 @@ void ActionWear::getDescription(char dest[]) {
     //get the armor description
     armor->getDescription(armorDescription);
     //concat the armor description
-    strcpy(dest,armorDescription);
+    strcat(dest,armorDescription);
 }
 
 

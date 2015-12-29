@@ -15,7 +15,7 @@ ActionCombat::ActionCombat(Player* attacker, ItemWeapon* weapon, FedeList<Player
     //save the weapon
     this -> weapon = weapon;
     //save the list of attacked players
-    this -> attackedPlayers = attackedPlayers;
+    this -> attackedPlayers = listOfPlayers;
 }
 
 ActionCombat::~ActionCombat() {
@@ -26,7 +26,7 @@ ActionCombat::~ActionCombat() {
 void ActionCombat::execute(){
     //for all attacked players
     for (int i = 0; i < (this -> attackedPlayers -> getSize()); i++) {
-        //compute damage (it may vary. E.g.: in destruptive weapon)
+        //compute damage FE(it may vary. E.g.: in destruptive weapon)
         int damage = (this -> attacker -> getStrength()) * (this -> weapon -> getDamageValue());
         //if the attacked is the attacker
         if (this -> attacker == this -> attackedPlayers -> get(i)){
