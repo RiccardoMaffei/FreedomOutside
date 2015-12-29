@@ -28,7 +28,7 @@ void ActionDrop::getDescription(char dest[]) {
     strcpy(dest, "Drop ");
     char itemDescription[256];
     itemToDrop->getDescription(itemDescription);
-    strcpy(dest, itemDescription);
+    strcat(dest, itemDescription);
 }
 
 
