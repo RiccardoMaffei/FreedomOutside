@@ -23,20 +23,24 @@ public:
      * @param armor ItemArmor*: the armor to wear.
      */
     ActionWear(Player* player,ItemArmor* armor);
+    
     /**
      * Destroy ActionWear.
      */
     virtual ~ActionWear();
+    
     /**
      * Wear an armor found on the floor of a room.
      */
     virtual void execute();
+    
     /**
      * return a description of the action.
      * @param dest[] char: the string that will be filled with the description. <br> must be 255 long. 
      */
     virtual void getDescription(char dest[]);
 private:
+    
     //the player that wear the armor.
     Player* player;
     
