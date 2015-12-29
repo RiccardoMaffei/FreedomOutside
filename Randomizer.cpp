@@ -222,7 +222,7 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
         items -> push_back(new ItemSimpleWeapon("Ak-47", 1));
     }
     //--------------END SIMPLE WEAPONS----------------
-    //--------------DESTRUPTIVE WEAPONS----------------
+    //--------------DESTRUCTIVE WEAPONS----------------
     //reset the seed
     srand(time(NULL));
     //generate the number
@@ -250,7 +250,7 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
         //generate and add the item
         items -> push_back(new ItemDestructiveWeapon("TNT", 50, 100));
     }
-    //------------END DESTRUPTIVE WEAPONS--------------
+    //------------END DESTRUCTIVE WEAPONS--------------
     //--------------------ARMORS----------------------
     //reset the seed
     srand(time(NULL));
