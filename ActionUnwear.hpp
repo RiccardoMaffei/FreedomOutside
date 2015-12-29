@@ -40,6 +40,7 @@ public:
 private:
     //the player whose armor will be removed.
     Player* player;
+    //the armor to wear
     ItemArmor* itemArmor;
 };
 
