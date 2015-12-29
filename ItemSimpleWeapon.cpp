@@ -32,7 +32,7 @@ void ItemSimpleWeapon::getDescription(char dest[]) {
     //convert the value to string
     itoa(this -> damageValue, value);
     //copy the description with data
-    strcpy(dest, "A weapon called \"");
+    strcpy(dest, "a weapon called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with ");
     strcat(dest, value);

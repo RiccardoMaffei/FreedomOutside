@@ -31,7 +31,7 @@ void ItemHealthKit::getDescription(char dest[]) {
     //convert the value to string
     itoa(this -> healingValue, value);
     //copy the description with data
-    strcpy(dest, "A health kit called \"");
+    strcpy(dest, "a health kit called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with ");
     strcat(dest, value);

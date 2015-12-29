@@ -31,7 +31,7 @@ void ItemArmor::getDescription(char dest[]) {
     //convert the value to string
     dtoaTwo(this -> protectionFactor, value);
     //copy the description with data
-    strcpy(dest, "An armor called \"");
+    strcpy(dest, "an armor called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with ");
     strcat(dest, value);

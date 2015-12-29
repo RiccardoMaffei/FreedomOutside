@@ -48,7 +48,7 @@ void ItemDestructiveWeapon::getDescription(char dest[]) {
     //convert the value to string
     itoa(this -> maxDamage, maxValue);
     //copy the description with data
-    strcpy(dest, "A destruptive weapon called \"");
+    strcpy(dest, "a destruptive weapon called \"");
     strcat(dest, this -> name);
     strcat(dest, "\" with damage value between ");
     strcat(dest, minValue);
