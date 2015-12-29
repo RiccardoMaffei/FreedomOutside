@@ -8,6 +8,13 @@
 #include "Game.hpp"
 #include "ConsoleView.hpp"
 #include "ActionRelativeMovement.hpp"
+#include "ActionDrop.hpp"
+#include "ItemSimpleWeapon.hpp"
+#include "ItemDestructiveWeapon.hpp"
+#include "ItemHealthKit.hpp"
+#include "ActionCombat.hpp"
+#include "ActionHeal.hpp"
+#include "ActionPickup.hpp"
 
 Game::Game() {
     //call the init with number of player = 4
@@ -122,11 +129,58 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
     result -> push_back(new ActionRelativeMovement(currentPlayer, TO_EAST, this -> map));
     //add the west relative movement
     result -> push_back(new ActionRelativeMovement(currentPlayer, TO_WEST, this -> map));
-    
-    //TODO: add combat
-    //TODO: add item pickup/drop
-    //TODO: add armor wear/unwear
-    
+    //get the player inventory
+    FedeList<Item*>* inventory = currentPlayer -> getInventory();
+    //get the items on the ground
+    FedeList<Item*>* itemsOnGround = currentPlayer -> getCurrentRoom() -> getItemList();
+    //get the room mates
+    FedeList<Player*>* roomMates = this -> getRoomMates(currentPlayer);
+    //for the inventory list
+    for(int i = 0; i < inventory -> getSize(); i++){
+        //current item
+        Item* curItem = inventory -> get(i);
+        //add the drop action for the current item
+        result -> push_back(new ActionDrop(currentPlayer, curItem));
+        //if the item is a simple weapon
+        if (dynamic_cast<ItemSimpleWeapon*>(curItem)){
+            //for all room mates
+            for(int i = 0; i < roomMates -> getSize(); i++){
+                //add the combat action for the current item
+                result -> push_back(new ActionCombat(currentPlayer, (ItemSimpleWeapon*) curItem, new FedeList<Player*>(roomMates -> get(i))));
+            }
+        }
+        //else if the item is a destructive weapon
+        else if (dynamic_cast<ItemDestructiveWeapon*>(curItem)){
+            //get another list with room mates and add myself
+            FedeList<Player*>* fullList = this -> getRoomMates(currentPlayer) -> push_front(currentPlayer);
+            //add the combat action for the current item
+            result -> push_back(new ActionCombat(currentPlayer, (ItemSimpleWeapon*) curItem, fullList));
+        }
+        //else if the item is an health kit
+        else if (dynamic_cast<ItemHealthKit*>(curItem)){
+            //add the heal action for the current item
+            result -> push_back(new ActionHeal((ItemHealthKit*) curItem, currentPlayer));
+        }
+        //else if the item is an armor
+        else if (dynamic_cast<ItemArmor*>(curItem)){
+            //if the player is not wearing an armor
+            if (currentPlayer -> getArmor() == NULL){
+                //TODO: add a wear action (not implemented yet).
+            }
+        }
+    }
+    //if the inventori is not full
+    if(inventory -> getSize() < 5){
+        //for the list of items on the ground
+        for(int i = 0; i < itemsOnGround -> getSize(); i++){
+            //add the pickup action for the current item
+            result -> push_back(new ActionPickup(currentPlayer, itemsOnGround -> get(i)));
+        }
+        //if the player is wearing an armor
+        if (currentPlayer -> getArmor() != NULL){
+            //TODO: add a unwear action (not implemented yet).
+        }
+    }
     //return the result list
     return result;
 }
@@ -150,8 +204,14 @@ Player* Game::getNextPlayer(){
     Player* nextPlayer = NULL;
     //create and initialize playerList's index to the next player in playerList
     int i = this -> currPlayer + 1;
-    //loop to find the next alive player in playerList, nLoops is used to be sure that every player in playerList is scanned
-    for (int nLoops = 0; nLoops < playerList -> getSize() && nextPlayer == NULL; nLoops++){
+    //number the player checked 
+    int checked = 0;
+    while(checked < playerList -> getSize() && nextPlayer == NULL){
+        //if i went ot of bound
+        if(i > (playerList -> getSize() -1)){
+            //reset to 0 (simulate circularity)
+            i = 0;
+        }
         //if the i-th Player in playerList is alive
         if(playerList -> get(i)-> getHealth() > 0){
             //the return Player pointer is update to the i-th Player alive in playerList
@@ -159,19 +219,13 @@ Player* Game::getNextPlayer(){
             //the index of the current Player is updated
             this -> currPlayer = i;
         }
-        //if the i-th Player in playerList is dead
+        //else (the current is dead)
         else{
-            //if we are at the end of playerList and we need to scan from the beginning of it
-            if((i+1) == playerList -> getSize()){
-                //it re-initialize playerList's index to zero
-                i = 0;
-            }
-            //if we are not at the end of playerList
-            else{
-                //index is increased, so we can refer to the next Player in playerList
-                i++;
-            }
+            //increase the index
+            i++;
         }
+        //increase the checked counter
+        checked++;
     }
     //return the pointer to the next alive Player in playerList, if i'ts NULL, all players are dead
     return nextPlayer;
