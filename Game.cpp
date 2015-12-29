@@ -206,6 +206,7 @@ Player* Game::getNextPlayer(){
     int i = this -> currPlayer + 1;
     //number the player checked 
     int checked = 0;
+    //while the player has not been found and chacked less than the whole list of player
     while(checked < playerList -> getSize() && nextPlayer == NULL){
         //if i went ot of bound
         if(i > (playerList -> getSize() -1)){
