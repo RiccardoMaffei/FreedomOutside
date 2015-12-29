@@ -28,7 +28,7 @@ void ActionPickup::getDescription(char dest[]) {
     strcpy(dest,"Pickup ");
     char itemDescription[256];
     itemToPickup->getDescription(itemDescription);
-    strcpy(dest,itemDescription);
+    strcat(dest,itemDescription);
 }
 
 
