@@ -7,6 +7,7 @@
 
 #include "Map.hpp"
 #include "FedeList.hpp"
+#include "Randomizer.hpp"
 
 //initialize the instance
 Map* Map::instance = NULL;
@@ -59,10 +60,8 @@ int Map::getSideLeft() {
 Room* Map::generateRoom(int x,int y){
     //construct an empty item list
     FedeList<Item*>* itemList = new FedeList<Item*>();
-    
-    //TODO: add item random generation (spawning) logic
     //NOTE: in this implementation we don't check for existence for performace reasons.
-    
+    Randomizer::generateRoomItems(itemList);
     //get the northern room (may be NULL)
     Room* n = findRoomByCoordinates(x, y-1);
     //get the southern room (may be NULL)
