@@ -27,12 +27,7 @@ public:
      * @param currentRoom Room*: the current Player's room.
      */
     Player(char username[], Room* currentRoom);
-    
-    /**
-     * Clone the given Player.
-     * @param orig Player&: player to clone.
-     */
-    Player(const Player& orig);
+   
     
     /**
      * Player destructor

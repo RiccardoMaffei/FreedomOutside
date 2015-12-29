@@ -31,23 +31,6 @@ Player::Player(char username[], Room* currentRoom) {
     this -> agility = 1.00;
 }
 
-Player::Player(const Player& orig) {
-   //copy the username from the other player
-    strcpy(this -> username, orig.username);
-    //set the id and then increase the static id counter
-    this -> id = (Player::idCounter)++;
-    //copy the current room from the other player
-    this->currentRoom = orig.currentRoom;
-    //copy the health from the other player
-    this->health = orig.health;
-    //copy the armor from the other player
-    this->armor = orig.armor;
-    //TODO crate a new inventory e copy from orig
-    this->strength = orig.strength;
-    //copy the agility from the other player
-    this->agility = orig.agility;
-}
-
 Player::~Player() {
     //when a player is destructed also his items in his inventory are being destructed
     //for the list size of the inventory
