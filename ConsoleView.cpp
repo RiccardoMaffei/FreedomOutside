@@ -208,10 +208,6 @@ void ConsoleView::showPlayerInfo(Player* player) {
     //the list of texts to display
     FedeList<char*>* outputList = new FedeList<char*>();
     addPlayerStatsToOutput(outputList,player);
-    //create a for for printing 3 empy lines
-    for (int i=0;i<3;i++) {
-        addEmptyLineToOutput(outputList);
-    }
     addInventoryInfoToOutput(outputList,player);
     addEmptyLineToOutput(outputList);
     addArmorInfoToOutput(outputList,player);
@@ -338,6 +334,8 @@ void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* pla
     strcat(textH, tempConverted);
     //push the health
     outputList -> push_back(textH);
+    //add an empty line to output
+    addEmptyLineToOutput(outputList);
     //the text for the agility
     char* textAgility = new char[60];
     //copy the first part
@@ -348,6 +346,8 @@ void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* pla
     strcat(textAgility, tempConverted);
     //push the agility
     outputList -> push_back(textAgility);
+    //add an empty line to output
+    addEmptyLineToOutput(outputList);
     //the buffer for the strength
     char* textStrength = new char[60];
     //copy the first part
@@ -358,6 +358,8 @@ void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* pla
     strcat(textStrength, tempConverted);
     //push the strength
     outputList -> push_back(textStrength);
+    //add an empty line to output
+    addEmptyLineToOutput(outputList);
 }
 
 void ConsoleView::addInventoryInfoToOutput(FedeList<char*>* outputList, Player* player) {
