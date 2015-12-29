@@ -7,7 +7,7 @@
 
 #include "ItemHealthKit.hpp"
 
-ItemHealthKit::ItemHealthKit(char name[], int healingValue): Item(name){
+ItemHealthKit::ItemHealthKit(const char name[], int healingValue): Item(name){
     //if the healing value is negative
     if(healingValue < 0){
         //set the healing value as 0

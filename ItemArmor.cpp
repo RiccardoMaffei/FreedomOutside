@@ -7,7 +7,7 @@
 
 #include "ItemArmor.hpp"
 
-ItemArmor::ItemArmor(char name[], double protectionFactor): Item(name){
+ItemArmor::ItemArmor(const char name[], double protectionFactor): Item(name){
     //if the protection factor is less than 1
     if(protectionFactor < 1){
         //set the protection factor as 1

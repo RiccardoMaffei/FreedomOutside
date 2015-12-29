@@ -21,7 +21,7 @@ public:
      * @param name char[]: name (max 49 char).
      * @param protectionFactor double: armor protection factor greater than 1.
      */
-    ItemArmor(char name[], double protectionFactor);
+    ItemArmor(const char name[], double protectionFactor);
     
     /**
      * Item destructor.

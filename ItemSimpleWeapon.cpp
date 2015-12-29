@@ -8,7 +8,7 @@
 #include "ItemSimpleWeapon.hpp"
 using namespace std;
 
-ItemSimpleWeapon::ItemSimpleWeapon(char name[], int damageValue): ItemWeapon(name) {
+ItemSimpleWeapon::ItemSimpleWeapon(const char name[], int damageValue): ItemWeapon(name) {
     //if the damage value is not value (damageValue<=0)
     if (damageValue <= 0){
         //set as 1

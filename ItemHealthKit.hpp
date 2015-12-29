@@ -20,7 +20,7 @@ public:
      * @param name char[]: the health kit name (max 49 char).
      * @param healingValue int: the healing power measured in health point (greater than 0).
      */
-    ItemHealthKit(char name[], int healingValue);
+    ItemHealthKit(const char name[], int healingValue);
     
     /**
      * ItemHealthKit destructor.

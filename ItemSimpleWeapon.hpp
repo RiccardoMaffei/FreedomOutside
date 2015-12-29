@@ -21,7 +21,7 @@ public:
      * @param name char[]: name of the wapon (max 49 char).
      * @param damageValue int: base value of damage greater than 0.
      */
-    ItemSimpleWeapon(char name[], int damageValue);
+    ItemSimpleWeapon(const char name[], int damageValue);
     
     /**
      * ItemSimpleWeapon destructor

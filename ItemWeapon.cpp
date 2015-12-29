@@ -7,7 +7,7 @@
 
 #include "ItemWeapon.hpp"
 
-ItemWeapon::ItemWeapon(char name[]): Item(name){
+ItemWeapon::ItemWeapon(const char name[]): Item(name){
     //do nothing just call the super constructor
 }
 

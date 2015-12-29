@@ -9,7 +9,7 @@
 #include <ctime>
 #include "ItemDestructiveWeapon.hpp"
 
-ItemDestructiveWeapon::ItemDestructiveWeapon(char name[], int min, int max): Item(name){
+ItemDestructiveWeapon::ItemDestructiveWeapon(const char name[], int min, int max): Item(name){
     //if min is less than 1
     if(min < 1){
         //set min as 1

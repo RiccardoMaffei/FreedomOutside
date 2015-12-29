@@ -15,7 +15,7 @@
  */
 class ItemWeapon: public Item {
 public:
-    ItemWeapon(char name[]);
+    ItemWeapon(const char name[]);
     virtual ~ItemWeapon();
     
     /**

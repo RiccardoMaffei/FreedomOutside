@@ -8,7 +8,7 @@
 #include <string.h>
 #include "Item.hpp"
 
-Item::Item(char name[]) {
+Item::Item(const char name[]) {
     //copy the given name
     strcpy(this -> name, name);
 }

@@ -22,7 +22,7 @@ public:
      * @param min int: the minimum damage (must be greater than 0).
      * @param max int: the maximum damage (must be greater or equal than the minimum).
      */
-    ItemDestructiveWeapon(char name[], int min, int max);
+    ItemDestructiveWeapon(const char name[], int min, int max);
     
     /**
      * ItemDestructiveWeapon destructor.
