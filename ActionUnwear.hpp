@@ -40,6 +40,7 @@ public:
 private:
     //the player whose armor will be removed.
     Player* player;
+    ItemArmor* itemArmor;
 };
 
 #endif	/* ACTIONUNWEAR_HPP */

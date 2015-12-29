@@ -18,7 +18,7 @@ void ActionWait::execute() {
 }
 
 void ActionWait::getDescription(char dest[]) {
-
+    strcpy(dest,"Hide somewhere.");
 }
 
 
