@@ -192,6 +192,15 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
 void ConsoleView::showMap(Map* map, Player* player) {
     //TODO: implement.
     cout << "THE MAP WILL BE SHOWN HERE, WITH THE PLAYER IN THE CENTER" << endl;
+//    map -> get
+    int plX = player -> getCurrentRoom() -> getX();
+    int plY = player -> getCurrentRoom() -> getY();
+//    bool stop = false;
+//    FedeList<Room*> list = FedeList<Room*>();
+//    int i = 0;
+//    while (i < )
+//    
+    cout <<endl<< plX << ","<<plY<<endl;
 }
 
 void ConsoleView::showPlayerInfo(Player* player) {
