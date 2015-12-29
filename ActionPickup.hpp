@@ -15,7 +15,7 @@
 /**
  * The action of pickup an item from a room and put it in the invenory of a player.
  */
-class ActionPickup : Action{
+class ActionPickup : public Action{
 public:
     /**
      * Construct an action of pickup an item from a room and put it in the invenory of a player.
