@@ -131,8 +131,6 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
     result -> push_back(new ActionRelativeMovement(currentPlayer, TO_WEST, this -> map));
     //get the player inventory
     FedeList<Item*>* inventory = currentPlayer -> getInventory();
-    //get the items on the ground
-    FedeList<Item*>* itemsOnGround = currentPlayer -> getCurrentRoom() -> getItemList();
     //get the room mates
     FedeList<Player*>* roomMates = this -> getRoomMates(currentPlayer);
     //for the inventory list
@@ -171,6 +169,8 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
     }
     //if the inventori is not full
     if(inventory -> getSize() < 5){
+        //get the items on the ground
+        FedeList<Item*>* itemsOnGround = currentPlayer -> getCurrentRoom() -> getItemList();
         //for the list of items on the ground
         for(int i = 0; i < itemsOnGround -> getSize(); i++){
             //add the pickup action for the current item
