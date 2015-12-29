@@ -11,7 +11,7 @@
 #include "Player.hpp"
 
 /**
- *The action of removing an armor from the player ant dropping it on the floor.
+ *The action of removing an armor from the player and put it in the invetory.
  */
 class ActionUnwear : public Action {
 public:
@@ -27,7 +27,7 @@ public:
     virtual ~ActionUnwear();
 
     /**
-     * Unwear an armor and drop it on the floor.
+     * Unwear an armor and put it in the inventory of the player.
      */
     virtual void execute();
     

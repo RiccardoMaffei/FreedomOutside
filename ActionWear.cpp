@@ -21,8 +21,8 @@ ActionWear::~ActionWear() {
 void ActionWear::execute() {
     //wear the armor
     this->player->setArmor(armor);
-    //remove the armor from the floor of the room
-    this->player->getCurrentRoom()->getItemList()->removeByElement(armor);
+    //remove the armor from the inventory.
+    this->player->getInventory()->removeByElement(armor);
 }
 
 void ActionWear::getDescription(char dest[]) {

@@ -21,8 +21,8 @@ ActionUnwear::~ActionUnwear() {
 void ActionUnwear::execute() {
     //remove the armor from the player
     player->setArmor(NULL);
-    //drop the armor on the floor of the room
-    player->getCurrentRoom()->getItemList()->push_back(itemArmor);
+    //put the armor in the inventory of the player
+    player->getInventory()->push_back(itemArmor);
 }
 
 void ActionUnwear::getDescription(char dest[]) {

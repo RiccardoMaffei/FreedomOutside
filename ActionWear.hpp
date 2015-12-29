@@ -30,7 +30,7 @@ public:
     virtual ~ActionWear();
     
     /**
-     * Wear an armor found on the floor of a room.
+     * Wear an armor that is in the player inventory.
      */
     virtual void execute();
     
