@@ -64,7 +64,8 @@ public:
     int getSideLeft();
     
     /**
-     * Return an ordered list of visible rooms from the given one. (visibility +/- 2x +/- 2y) 
+     * Return an ordered list of visible rooms from the given one. (visibility +/- 2x +/- 2y).
+     * The area of visible room is a square not a circle. 
      * @param center Room*: the center room.
      * @param radius int: radius of visibility greater or equal to zero.
      * @return FedeList&lt;Room*&gt;*: the list.
