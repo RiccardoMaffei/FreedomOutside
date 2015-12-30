@@ -122,9 +122,7 @@ void ConsoleView::frameText(FedeList<char*>* list){
     }
     cout << endl;
 }
-/**
- * Show the game intro/prologue.
- */
+
 void ConsoleView::showPrologue(int numberOfPlayer){
     cout << "Democratic Kampuchea (Cambodia), 1977." << endl
          << "Since two years the Red Khmers are in power with a ruthless dictatorship." << endl
