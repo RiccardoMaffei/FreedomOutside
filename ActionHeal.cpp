@@ -43,3 +43,7 @@ void ActionHeal::getDescription(char dest[]) {
     //concatenate the healing value
     strcat(dest, buffer);
 }
+
+void ActionHeal::getOutcome(FedeList<char*>* outcome) {
+    
+}

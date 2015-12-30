@@ -9,6 +9,7 @@
 #define	ACTION_HPP
 
 #include <string.h>
+#include "FedeList.hpp"
 
 /**
  * Executable Action interface.
@@ -31,10 +32,10 @@ public:
     
     //TODO check in every action if it has been executed or not.
     /**
-     * Get the Action outcome.
-     * @return FedeList&lt;char[]*&gt;*: a string list that contains the outcome.
+     * Get the action outcome.
+     * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
      */
-    virtual void getOutcome(FedeList<char[]>* outcome) = 0;
+    virtual void getOutcome(FedeList<char*>* outcome) = 0;
 private:
 
 };

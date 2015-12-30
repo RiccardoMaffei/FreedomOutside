@@ -65,5 +65,10 @@ void ActionMovement::getDescription(char dest[]) {
     //the "absolute" implementation returns the coordinates.
 }
 
+void ActionMovement::getOutcome(FedeList<char*>* outcome) {
+    
+}
+
+
 
 

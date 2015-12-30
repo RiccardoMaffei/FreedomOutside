@@ -48,6 +48,12 @@ public:
      */
     void getDescription(char dest[]);
     
+    /**
+     * Get the action outcome.
+     * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
+     */
+    virtual void getOutcome(FedeList<char*>* outcome);
+    
 protected:
     //the map to update
     Map* map;
