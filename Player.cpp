@@ -19,16 +19,16 @@ Player::Player(char username[], Room* currentRoom) {
     this -> id = (Player::idCounter)++;
     //save the current room
     this -> currentRoom = currentRoom;
-    //set the health at 100
-    this -> health = 100;
+    //set the health at the max
+    this -> health = MAX_HEALTH;
     //set the armor as NULL
     this -> armor = NULL;
     //instance an empty inventory
     this -> inventory = new FedeList<Item*>();
-    //set the strength as 1.00
-    this -> strength = 1.00;
-    //set the agility as 1.00
-    this -> agility = 1.00;
+    //set the strength as the minimum
+    this -> strength = MIN_STRENGTH;
+    //set the agility as the minimum
+    this -> agility = MIN_AGILITY;
 }
 
 Player::~Player() {
@@ -65,10 +65,15 @@ int Player::getId() {
 }
 
 void Player::setStrength(double strength) {
-    //check if is not valid !(strength > 0)
-    if (strength <= 0){
-        //set as 1
-        strength = 1;
+    //check if is not valid (strength < minimum)
+    if (strength < MIN_STRENGTH){
+        //set as the minimum
+        strength = MIN_STRENGTH;
+    }
+    //check if is not valid (strength > maximum)
+    else if (strength > MAX_STRENGTH){
+        //set as the maximum
+        strength = MAX_STRENGTH;
     }
     //set the given strength
     this -> strength = strength;
@@ -80,10 +85,15 @@ double Player::getStrength() {
 }
 
 void Player::setAgility(double agility) {
-    //check if is not valid !(agility > 0)
-    if (agility <= 0){
-        //set as 1
-        agility = 1;
+    //check if is not valid (agility < minimum)
+    if (agility < MIN_AGILITY){
+        //set as the minumum
+        agility = MIN_AGILITY;
+    }
+    //check if is not valid (agility > maximum)
+    else if (agility > MAX_AGILITY){
+        //set as the maximum
+        agility = MAX_AGILITY;
     }
     //set the given agility
     this -> agility = agility;

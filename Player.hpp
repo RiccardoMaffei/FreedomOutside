@@ -21,6 +21,32 @@ using namespace std;
  */
 class Player {
 public:
+    
+    /**
+     * int: the player's max life. (greater than 0)
+     */
+    static int const MAX_HEALTH = 100;
+    
+    /**
+     * double: the player's maximum strength. (greater or equal to than the min)
+     */
+    static double const MAX_STRENGTH = 4.00;
+    
+    /**
+     * double: the player's maximum agility. (greater or equal to than the min)
+     */
+    static double const MAX_AGILITY = 4.00;
+    
+    /**
+     * double: the player's minimum strength. (greater or equal to 1)
+     */
+    static double const MIN_STRENGTH = 1.00;
+    
+    /**
+     * double: the player's minimum agility. (greater or equal to 1)
+     */
+    static double const MIN_AGILITY = 1.00;
+    
     /**
      * Construct a Player with the given username.
      * @param username char[]: the Player's username max 49 char.
@@ -80,7 +106,7 @@ public:
 
     /**
      * Set the given agility to the Player.
-     * @param agility double: the agility (between 1 and 4 inclusive).
+     * @param agility double: the agility (between MIN_AGILITY and MAX_AGILITY).
      */
     void setAgility(double agility);
 
@@ -92,7 +118,7 @@ public:
 
     /**
      * Set the given strength to the player.
-     * @param strength double: the strength (between 1 and 4 inclusive).
+     * @param strength double: the strength (between MIN_STRENGTH and MAX_STRENGTH).
      */
     void setStrength(double strength);
     
