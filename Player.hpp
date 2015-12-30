@@ -37,8 +37,9 @@ public:
     /**
      * Inflicts given damages to the Player.
      * @param damage int: damage to inflict.
+     * @return int: inflicted damages.
      */
-    void damage(int damage);
+    int damage(int damage);
     
     /**
      * Heal the player.

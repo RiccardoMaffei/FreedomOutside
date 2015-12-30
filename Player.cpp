@@ -132,7 +132,7 @@ void Player::heal(int health) {
     }
 }
 
-void Player::damage(int damage) {
+int Player::damage(int damage) {
     //the damage to inflict
     int toInflict;
     //the armor protection factor. default 1 (1 = no further protection)
@@ -146,14 +146,13 @@ void Player::damage(int damage) {
     toInflict = ceil(((double) damage) / (((double) this -> agility) * armorProtFact));
     //if the damage to inflict are greater or equal to the health (will die)
     if(toInflict >= this -> health){
-        //set the health as 0
-        this -> health = 0;
+        //set damage to inflict as the health
+        toInflict = this -> health;
     }
-    //else (will not die)
-    else{
-        //subtract the damage to inflict from the health
-        this -> health -= toInflict;
-    }
+    //subtract the damage to inflict from the health
+    this -> health -= toInflict;
+    //return the damage to inflict
+    return toInflict;
 }
 
 bool Player::isAlive() {
