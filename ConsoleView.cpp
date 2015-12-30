@@ -190,17 +190,51 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
 }
 
 void ConsoleView::showMap(Map* map, Player* player) {
-    //TODO: implement.
-    cout << "THE MAP WILL BE SHOWN HERE, WITH THE PLAYER IN THE CENTER" << endl;
-//    map -> get
-    int plX = player -> getCurrentRoom() -> getX();
-    int plY = player -> getCurrentRoom() -> getY();
-//    bool stop = false;
-//    FedeList<Room*> list = FedeList<Room*>();
-//    int i = 0;
-//    while (i < )
-//    
-    cout <<endl<< plX << ","<<plY<<endl;
+    //the visibility radius
+    int radius = 2;
+    //get the room within the visibility radius
+    FedeList<Room*>* visibleRooms = map -> getVisibleRooms(player -> getCurrentRoom(), radius);
+    //set the column cursor as the top left
+    int cCursor = player -> getCurrentRoom() -> getX() - radius;
+    //the current room
+    Room* curRoom;
+    //the old room
+    Room* oldRoom;
+    //if exist a room (should always exist)
+    if(visibleRooms -> getSize() > 0){
+        //set the first as old
+        oldRoom = visibleRooms -> get(0);
+        //for the list
+        for(int i = 0; i < visibleRooms -> getSize(); i++){
+            //get the current room
+            curRoom = visibleRooms -> get(i);
+            //if the current room is under the old room
+            if(curRoom -> getY() > oldRoom -> getY()){
+                //print an end line
+                cout << endl;
+                //reset the cursor
+                cCursor = player -> getCurrentRoom() -> getX() - radius;
+            }
+            //while the cursor is not on the column to print
+            while (cCursor < curRoom -> getX()){
+                //print an empty space
+                cout << "[X X]";
+                //increase the cursor
+                cCursor++;
+            }
+            //print the room
+            cout << "[" << curRoom ->getX() << " " << curRoom -> getY() << "]";
+            //increase the cursor
+            cCursor++;
+            //set the current as the old
+            oldRoom = curRoom;
+        }
+    }
+    cout << endl;
+    cout << "You are in [" << player -> getCurrentRoom() ->getX() << " " << player -> getCurrentRoom() -> getY() << "] but you dont have a good memory and you always forget what's there "<<radius<<" rooms away from you.";
+    cout << endl;
+    //delete the list
+    delete visibleRooms;
 }
 
 void ConsoleView::showPlayerInfo(Player* player) {

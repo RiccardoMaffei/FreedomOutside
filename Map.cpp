@@ -183,8 +183,11 @@ FedeList<Room*>* Map::getVisibleRooms(Room* center, int radius) {
                 //set the should stop as true
                 reached = true;
             }
-            //increase the position
-            pos++;
+            //else
+            else{
+                //increase the position
+                pos++;
+            }
         }
         //increase the line
         lineFromTop++;
