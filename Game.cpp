@@ -120,10 +120,10 @@ bool Game::shouldRun() {
 }
 
 FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
-    //TODO: complete implementation.
-    
     //the result list
     FedeList<Action*>* result = new FedeList<Action*>();
+    //add the action of doing nothing
+    result -> push_back(new ActionWait());
     //add the north relative movement
     result -> push_back(new ActionRelativeMovement(currentPlayer, TO_NORTH, this -> map));
     //add the south relative movement
@@ -184,8 +184,6 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
             result->push_back(new ActionUnwear(currentPlayer));
         }
     }
-    //add the action of doing nothing
-    result -> push_back(new ActionWait());
     //return the result list
     return result;
 }
