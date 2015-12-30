@@ -108,7 +108,7 @@ bool Game::shouldRun() {
     //while player alive are less than 2 and the list is not finished
     while (pAlive < 2 && i < (this -> playerList -> getSize())){
         //if the health is greater than 0
-        if(this -> playerList -> get(i) -> getHealth() > 0){
+        if(this -> playerList -> get(i) -> isAlive()){
             //increase the alive player counter
             pAlive++;
         }
@@ -219,7 +219,7 @@ Player* Game::getNextPlayer(){
             i = 0;
         }
         //if the i-th Player in playerList is alive
-        if(playerList -> get(i)-> getHealth() > 0){
+        if(playerList -> get(i)->isAlive()){
             //the return Player pointer is update to the i-th Player alive in playerList
             nextPlayer = playerList ->get(i);
             //the index of the current Player is updated

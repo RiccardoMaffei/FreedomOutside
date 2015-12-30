@@ -146,7 +146,7 @@ void Map::insertRoom(Room* toInsert) {
 }
 
 FedeList<Room*>* Map::getVisibleRooms(Room* center, int radius) {
-    //if the radius is less tha zero
+    //if the radius is less than zero
     if(radius < 0){
         //reset as zero
         radius = 0;
@@ -159,17 +159,17 @@ FedeList<Room*>* Map::getVisibleRooms(Room* center, int radius) {
     int centerY = center -> getY();
     //the position in the room list
     int pos = 0;
-    //the current line from the top
-    int lineFromTop = 0;
-    //not reached the lower side of visibility and not reached the end of the list
-    while( lineFromTop < (2*radius)+1 && pos < (this -> roomList -> getSize())){
+    //the current rows from the top of the square.
+    int rowsFromTop = 0;
+    //not reached the lower side of visibility square and not reached the end of the list of rooms
+    while( rowsFromTop < (2*radius)+1 && pos < (this -> roomList -> getSize())){
         //this is a temporary fake room that represent the left limit of the line
-        Room minlineTemp = Room(centerX - radius, centerY - radius + lineFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
+        Room minlineTemp = Room(centerX - radius, centerY - radius + rowsFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
         //this is a temporary fake room that represent the right limit of the line
-        Room maxlineTemp = Room(centerX + radius, centerY - radius + lineFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
-        //have I reached or passed the right side?
+        Room maxlineTemp = Room(centerX + radius, centerY - radius + rowsFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
+        //have I reached or passed the right side of the row?
         bool reached = false;
-        //while I should not stop and I've not reached the end of the list
+        //while i haven't reached the end of the row and I've not reached the end of the list of rooms
         while (pos < (this -> roomList -> getSize()) && !reached){
             //get the room at position pos
             Room* got = this -> roomList -> get(pos);
@@ -190,7 +190,7 @@ FedeList<Room*>* Map::getVisibleRooms(Room* center, int radius) {
             }
         }
         //increase the line
-        lineFromTop++;
+        rowsFromTop++;
     }
     //return the result
     return result;
