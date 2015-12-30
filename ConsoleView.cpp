@@ -11,6 +11,7 @@
 
 #include "ConsoleView.hpp"
 #include "StringUtils.hpp"
+#include <limits>
 
 ConsoleView::ConsoleView() {
 }
@@ -171,18 +172,28 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
     delete list;
     //int selection
     int selection = 0;
-    //get the selected value
-    //TODO check input
-    cin >> selection;
-    //if selection is greater than listsize-1
-    if (selection > (actions -> getSize() - 1)){
-        //set as the last
-        selection = actions -> getSize() - 1;
+    //get the selected value and if fails
+    if (!(cin >> selection)) {
+        //set as -1
+        selection = -1;
     }
-    //if selection is less than 0
-    if (selection < 0){
-        //set as the first
-        selection = 0;
+    //clear
+    cin.clear();
+    //ignore the buffer
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    //while the impot is invalid
+    while(selection > (actions -> getSize() - 1) || selection < 0){
+        //print an error
+        cout << "You liar!! Choose your next move carefully!\n";
+        //get the selected value and if fails
+        if (!(cin >> selection)) {
+            //set as -1
+            selection = -1;
+        }
+        //clear the flag
+        cin.clear();
+        //ignore the buffer
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
     }
     //return the actionn at th selected position
     return actions -> get(selection);
