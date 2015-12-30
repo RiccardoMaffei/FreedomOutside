@@ -21,26 +21,26 @@ Randomizer::~Randomizer() {
 
 void Randomizer::generateRoomItems(FedeList<Item*>* items) {
     //----------------SIMPLE WEAPONS ------------------
-    generateSimpleWeapon("Rotten wooden plank", 1, 50, items);
-    generateSimpleWeapon("Wooden plank",        2, 49, items);
-    generateSimpleWeapon("Sharp wooden plank",  3, 47, items);
-    generateSimpleWeapon("Rotten stick",        4, 48, items);
-    generateSimpleWeapon("stick",               5, 46, items);
-    generateSimpleWeapon("Rusty iron pipe",     6, 43, items);
-    generateSimpleWeapon("Iron pipe",           7, 40, items);
-    generateSimpleWeapon("Hammer",              8, 39, items);
-    generateSimpleWeapon("Knife",               9, 30, items);
-    generateSimpleWeapon("Sword",               10, 2, items);
-    generateSimpleWeapon("Spear",               15, 1, items);
-    generateSimpleWeapon("Axe",                 20, 1, items);
-    generateSimpleWeapon("Iron mace",           30, 7, items);
-    generateSimpleWeapon("Bow",                 25, 8, items);
-    generateSimpleWeapon("Hunting Bow",         35, 5, items);
+    generateSimpleWeapon("Rotten wooden plank", 1, 21, items);
+    generateSimpleWeapon("Wooden plank",        2, 20, items);
+    generateSimpleWeapon("Sharp wooden plank",  3, 19, items);
+    generateSimpleWeapon("Rotten stick",        4, 18, items);
+    generateSimpleWeapon("stick",               5, 17, items);
+    generateSimpleWeapon("Rusty iron pipe",     6, 16, items);
+    generateSimpleWeapon("Iron pipe",           7, 15, items);
+    generateSimpleWeapon("Hammer",              8, 14, items);
+    generateSimpleWeapon("Knife",               9, 13, items);
+    generateSimpleWeapon("Sword",               10, 12, items);
+    generateSimpleWeapon("Spear",               15, 11, items);
+    generateSimpleWeapon("Axe",                 20, 10, items);
+    generateSimpleWeapon("Iron mace",           30, 9, items);
+    generateSimpleWeapon("Blowgun",             29, 8, items);
+    generateSimpleWeapon("Bow",                 25, 7, items);
     generateSimpleWeapon("Slingshot",           30, 6, items);
-    generateSimpleWeapon("Blowgun",             29, 7, items);
-    generateSimpleWeapon("Handgun",             45, 3, items);
-    generateSimpleWeapon("Rifle",               60, 2, items);
-    generateSimpleWeapon("Shotgun",             70, 1, items);
+    generateSimpleWeapon("Hunting Bow",         35, 5, items);
+    generateSimpleWeapon("Handgun",             45, 4, items);
+    generateSimpleWeapon("Rifle",               60, 3, items);
+    generateSimpleWeapon("Shotgun",             70, 2, items);
     generateSimpleWeapon("Ak-47",               90, 1, items);
     //--------------END SIMPLE WEAPONS----------------
     //--------------DESTRUCTIVE WEAPONS----------------
@@ -49,22 +49,22 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
     generateDestructiveWeapon("TNT",        50, 100, 2, items);
     //------------END DESTRUCTIVE WEAPONS--------------
     //--------------------ARMORS----------------------
-    generateArmorItem("Rags armor",     1.1, 50, items);
-    generateArmorItem("Leather armor",  1.2, 35, items);
-    generateArmorItem("Hide armor",     1.3, 27, items);
-    generateArmorItem("Copper armor",   1.4, 20, items);
-    generateArmorItem("Bronze armor",   1.5, 15, items);
-    generateArmorItem("Iron armor",     1.6, 11, items);
-    generateArmorItem("Steel armor",    1.7, 8, items);
-    generateArmorItem("Gold armor",     1.8, 4, items);
+    generateArmorItem("Rags armor",     1.1, 30, items);
+    generateArmorItem("Leather armor",  1.2, 25, items);
+    generateArmorItem("Hide armor",     1.3, 20, items);
+    generateArmorItem("Copper armor",   1.4, 10, items);
+    generateArmorItem("Bronze armor",   1.5, 7, items);
+    generateArmorItem("Iron armor",     1.6, 5, items);
+    generateArmorItem("Steel armor",    1.7, 3, items);
+    generateArmorItem("Gold armor",     1.8, 2, items);
     generateArmorItem("Diamond armor",  1.9, 1, items);
     //------------------END ARMORS--------------------
     //------------------HEALTH KITS--------------------
-    generateHealthKit("Tiny healing potion",    5, 55, items);
-    generateHealthKit("Small healing potion",   10, 45, items);
-    generateHealthKit("Medium healing potion",  30, 30, items);
-    generateHealthKit("Big healing potion",     50, 20, items);
-    generateHealthKit("Huge healing potion",    100, 10, items);
+    generateHealthKit("Tiny healing potion",    5, 20, items);
+    generateHealthKit("Small healing potion",   10, 10, items);
+    generateHealthKit("Medium healing potion",  30, 5, items);
+    generateHealthKit("Big healing potion",     50, 2, items);
+    generateHealthKit("Huge healing potion",    100, 1, items);
     //----------------END HEALTH KITS------------------
 }
 
@@ -106,9 +106,11 @@ bool Randomizer::shouldGenerate(int probability) {
     //the result
     bool res = false;
     //reset the seed at every call for maximium randomness.
-    srand(time(NULL));
-    //generate the number
-    int n = rand() % 100;
+    //also sum to the time a random number, 
+    //in this way if we call rand() two times in the same second the result numbers are different.
+    srand(time(NULL)+rand());
+    //generate the number betwen 1 and 100
+    int n = 1 + (rand() % 100);
     //if the probability is hit
     if (n <= probability){
         //set the result as true
