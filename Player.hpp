@@ -117,6 +117,12 @@ public:
      * @param dest char[]: an array big enough to store the username string.
      */
     void getUsername(char dest[]);
+    
+    /**
+     * if the player is alive.
+     * @return bool: true is the player is alive false otherwise.
+     */
+    bool isAlive();
 private:
 
 protected:

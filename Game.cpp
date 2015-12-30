@@ -245,7 +245,7 @@ FedeList<Player*>* Game::getRoomMates(Player* player) {
         //get the player at i
         Player* p = this -> playerList -> get(i);
         //if is not the given player and they are on the same room
-        if(player != p && (p -> getCurrentRoom() == player -> getCurrentRoom())){
+        if(player != p && (p -> getCurrentRoom() == player -> getCurrentRoom()) && p->isAlive()){
             //add to the list
             result -> push_back(p);
         }

@@ -156,3 +156,8 @@ void Player::damage(int damage) {
     }
 }
 
+bool Player::isAlive() {
+    return (health>0) ? true : false;
+}
+
+
