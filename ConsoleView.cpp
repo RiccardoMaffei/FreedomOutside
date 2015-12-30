@@ -472,8 +472,6 @@ void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* pla
     strcat(textH, tempConverted);
     //push the health
     outputList -> push_back(textH);
-    //add an empty line to output
-    addEmptyLineToOutput(outputList);
     //the text for the agility
     char* textAgility = new char[60];
     //copy the first part
@@ -484,8 +482,6 @@ void ConsoleView::addPlayerStatsToOutput(FedeList<char*>* outputList,Player* pla
     strcat(textAgility, tempConverted);
     //push the agility
     outputList -> push_back(textAgility);
-    //add an empty line to output
-    addEmptyLineToOutput(outputList);
     //the buffer for the strength
     char* textStrength = new char[60];
     //copy the first part
