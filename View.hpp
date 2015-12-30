@@ -61,6 +61,11 @@ public:
      * @param players FedeList&lt;Player*&gt;*: the list of players.
      */
     virtual void showShortInfo(FedeList<Player*>* players) = 0;
+    
+    /**
+     * Clear the view.
+     */
+    virtual void clear() = 0;
 private:
 
 };
