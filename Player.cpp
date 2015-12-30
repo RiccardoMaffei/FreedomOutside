@@ -114,22 +114,24 @@ int Player::getHealth() {
     return this -> health;
 }
 
-void Player::heal(int health) {
+void Player::heal(int toHeal) {
     //check if "overflows"
-    if ((this -> health + health) > 100){
-        //set as 100
-        this -> health = 100;
+    if ((this -> health + toHeal) > 100){
+        //set the points to heal as the difference
+        toHeal = 100 - this -> health;
     }
-    //else if 
-    else if(health >= 0){
-        //increase the health
-        this -> health += health;
-    }
-    //else invalid
-    else{
+    //else if is zero or invalid
+    else if(toHeal <= 0){
         //do not throw an exception.
-        //do nothing
+        //set to heal as zero
+        toHeal = 0;
     }
+    //else (0<toHeal<=max possible earning)
+        //do nothing
+    //heal the player
+    this -> health += toHeal;
+    //return the points to heal
+    return toHeal;
 }
 
 int Player::damage(int damage) {

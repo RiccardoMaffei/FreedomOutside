@@ -44,8 +44,9 @@ public:
     /**
      * Heal the player.
      * @param health int: the health points (greater than 0).
+     * @return int: earned health.
      */
-    void heal(int health);
+    int heal(int toHeal);
     
     /**
      * Get the Player's health.
