@@ -134,7 +134,7 @@ void ConsoleView::showPrologue(int numberOfPlayer){
          << "Here exists an obscure tradition, a deadly game: to the one who will survive from the other prisoners will be donated freedom." << endl
          << "Your captors have just pushed you in a damp cell, with other "<<(numberOfPlayer-1)<<" prisoners who will not scruple to kill you with their bare hands." << endl
          << "You should run away and immediately find a weapon."
-         << "Let the games begin!" << endl;
+         << "Let the games begin!" << endl << endl;
 
 }
 
@@ -195,44 +195,137 @@ void ConsoleView::showMap(Map* map, Player* player) {
     int radius = 2;
     //get the room within the visibility radius
     FedeList<Room*>* visibleRooms = map -> getVisibleRooms(player -> getCurrentRoom(), radius);
+    //the player X
+    int playerX = player -> getCurrentRoom() -> getX();
+    //the player Y
+    int playerY = player -> getCurrentRoom() -> getY();
     //set the column cursor as the top left
-    int cCursor = player -> getCurrentRoom() -> getX() - radius;
-    //the current room
-    Room* curRoom;
-    //the old room
-    Room* oldRoom;
+    //int cCursor = playerX - radius;
+    //set the column cursor as the top left + 3 to avoid printing spaces after the map
+    int cCursor = playerX - radius + 3;
+    //the old room Y
+    int oldRoomY;
+    //the list to be framed
+    FedeList<char*>* listToFrame = new FedeList<char*>();
+    //the buffer
+    char* bufferFirst = new char[512];
+    //the buffer (second line)
+    char* bufferSecond = new char[512];
+    //init the buffer
+    strcpy(bufferFirst, "");
+    //init the buffer (second line)
+    strcpy(bufferSecond, "");
+    //for the radius
+    for (int i = 0; i < radius; i++){
+        //concat an empty space
+        strcat(bufferFirst, "           ");
+    }
+    //concat a title
+    strcat(bufferFirst, "    MAP    ");
+    //for the radius
+    for (int i = 0; i < radius; i++){
+        //concat an empty space
+        strcat(bufferFirst, "           ");
+    }
     //if exist a room (should always exist)
     if(visibleRooms -> getSize() > 0){
-        //set the first as old
-        oldRoom = visibleRooms -> get(0);
+        //set the old y as the first y minus 1
+        oldRoomY = visibleRooms -> get(0) -> getY() - 1;
         //for the list
         for(int i = 0; i < visibleRooms -> getSize(); i++){
-            //get the current room
-            curRoom = visibleRooms -> get(i);
+            //the current x
+            int curRoomX = visibleRooms -> get(i) -> getX();
+            //the current y
+            int curRoomY = visibleRooms -> get(i) -> getY();
             //if the current room is under the old room
-            if(curRoom -> getY() > oldRoom -> getY()){
-                //print an end line
-                cout << endl;
+            if(curRoomY > oldRoomY){
+                //push the buffer in the list to frame
+                listToFrame -> push_back(bufferFirst);
+                //push the buffer (second line) in the list to frame
+                listToFrame -> push_back(bufferSecond);
+                //instance a new buffer
+                bufferFirst = new char[512];
+                //clear the buffer
+                strcpy(bufferFirst, "");
+                //instance a new buffer (second line)
+                bufferSecond = new char[512];
+                //clear the buffer (second line)
+                strcpy(bufferSecond, "");
                 //reset the cursor
-                cCursor = player -> getCurrentRoom() -> getX() - radius;
+                cCursor = playerX - radius;
             }
             //while the cursor is not on the column to print
-            while (cCursor < curRoom -> getX()){
-                //print an empty space
-                cout << "[X X]";
+            while (cCursor < curRoomX){
+                //concat an empty space
+                strcat(bufferFirst, "           ");
+                //concat an empty space
+                strcat(bufferSecond, "           ");
                 //increase the cursor
                 cCursor++;
             }
-            //print the room
-            cout << "[" << curRoom ->getX() << " " << curRoom -> getY() << "]";
+            //the current x string
+            char curSX[20];
+            //the current y string
+            char curSY[20];
+            //convert the x
+            itoa(curRoomX, curSX);
+            //xonvert the y
+            itoa(curRoomY, curSY);
+            //cat the open bracket
+            strcat(bufferFirst, "|");
+            //cat the open bracket
+            strcat(bufferSecond, "|");
+            //fill with spaces
+            for(int i = 0; i < 4 - strlen(curSX); i++){
+                //concat a space
+                strcat(bufferFirst, " ");
+            }
+            //concat the current x string
+            strcat(bufferFirst, curSX);
+            //concat a space
+            strcat(bufferFirst, " ");
+            //concat the current y string
+            strcat(bufferFirst, curSY);
+            //fill with spaces
+            for(int i = 0; i < 4 - strlen(curSY); i++){
+                //concat a space
+                strcat(bufferFirst, " ");
+            }
+            //if the player is here
+            if(curRoomX == playerX && curRoomY == playerY){
+                //concat a cross
+                strcat(bufferSecond, "    X    ");
+            }
+            //otherwise
+            else{
+                //concat spaces
+                strcat(bufferSecond, "         ");
+            }
+            //cat the close bracket
+            strcat(bufferFirst, "|");
+            //cat the close bracket
+            strcat(bufferSecond, "|");
             //increase the cursor
             cCursor++;
             //set the current as the old
-            oldRoom = curRoom;
+            oldRoomY = curRoomY;
         }
+        //push the buffer
+        listToFrame -> push_back(bufferFirst);
+        //push the buffer (second line)
+        listToFrame -> push_back(bufferSecond);
+        //print framed
+        frameText(listToFrame);
     }
+    //for the list
+    for(int i = 0; i < listToFrame -> getSize(); i++){
+        //delete the string at i
+        delete (listToFrame -> get(i));
+    }
+    //delete the list itself
+    delete listToFrame;
     cout << endl;
-    cout << "You are in [" << player -> getCurrentRoom() ->getX() << " " << player -> getCurrentRoom() -> getY() << "] but you dont have a good memory and you always forget what's there "<<radius<<" rooms away from you.";
+    cout << "You are in [ " << playerX << " " << playerY << " ] (where there is the X)\n but it's very dark and you can't see the cells more than "<<radius<<" steps away from you.";
     cout << endl;
     //delete the list
     delete visibleRooms;
