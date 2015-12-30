@@ -119,8 +119,8 @@ public:
     void getUsername(char dest[]);
     
     /**
-     * if the player is alive.
-     * @return bool: true is the player is alive false otherwise.
+     * Check if the player is alive.
+     * @return bool: true if the player is alive false otherwise.
      */
     bool isAlive();
 private:
