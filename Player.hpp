@@ -80,7 +80,7 @@ public:
 
     /**
      * Set the given agility to the Player.
-     * @param agility double: the agility.
+     * @param agility double: the agility (between 1 and 4 inclusive).
      */
     void setAgility(double agility);
 
@@ -92,7 +92,7 @@ public:
 
     /**
      * Set the given strength to the player.
-     * @param strength double: the strength. Greater than zero (if not will be set as 1).
+     * @param strength double: the strength (between 1 and 4 inclusive).
      */
     void setStrength(double strength);
     
