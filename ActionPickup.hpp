@@ -39,6 +39,12 @@ public:
      * @param dest char[]: destination array. Must be big enough (max string length 255).
      */
     virtual void getDescription(char dest[]);
+    
+    /**
+     * Get the action outcome.
+     * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
+     */
+    virtual void getOutcome(FedeList<char*>* outcome);
 
 
 protected:

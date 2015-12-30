@@ -62,3 +62,8 @@ void ActionCombat::getDescription(char dest[]) {
     }
     
 }
+
+void ActionCombat::getOutcome(FedeList<char*>* outcome) {
+    
+}
+

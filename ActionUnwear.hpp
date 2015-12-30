@@ -36,6 +36,12 @@ public:
      * @param dest[] char: the string that will be filled with the description. <br> must be 255 long. 
      */
     virtual void getDescription(char dest[]);
+    
+    /**
+     * Get the action outcome.
+     * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
+     */
+    virtual void getOutcome(FedeList<char*>* outcome);
 
 private:
     //the player whose armor will be removed.

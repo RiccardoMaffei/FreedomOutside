@@ -36,5 +36,10 @@ void ActionWear::getDescription(char dest[]) {
     strcat(dest,armorDescription);
 }
 
+void ActionWear::getOutcome(FedeList<char*>* outcome) {
+    
+}
+
+
 
 
