@@ -114,7 +114,7 @@ int Player::getHealth() {
     return this -> health;
 }
 
-void Player::heal(int toHeal) {
+int Player::heal(int toHeal) {
     //check if "overflows"
     if ((this -> health + toHeal) > 100){
         //set the points to heal as the difference
