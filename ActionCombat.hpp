@@ -47,11 +47,13 @@ public:
      * Get the action outcome.
      * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
      */
-    virtual void getOutcome(FedeList<char*>* outcome);
+    virtual FedeList<char*>* getOutcome();
 
 private:
     //the list of attacked players
     FedeList<Player*>* attackedPlayers;
+    //the damages inflicted to players
+    FedeList<int>* inflictedDamages;
     //the attacker
     Player* attacker;
     //the weapon

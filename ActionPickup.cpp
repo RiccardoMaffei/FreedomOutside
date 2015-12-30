@@ -31,7 +31,7 @@ void ActionPickup::getDescription(char dest[]) {
     strcat(dest,itemDescription);
 }
 
-void ActionPickup::getOutcome(FedeList<char*>* outcome) {
+FedeList<char*>* ActionPickup::getOutcome() {
     
 }
 

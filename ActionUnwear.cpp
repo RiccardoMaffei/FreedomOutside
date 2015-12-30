@@ -36,7 +36,7 @@ void ActionUnwear::getDescription(char dest[]) {
     strcat(dest,armorDescription);
 }
 
-void ActionUnwear::getOutcome(FedeList<char*>* outcome) {
+FedeList<char*>* ActionUnwear::getOutcome() {
     
 }
 

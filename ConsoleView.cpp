@@ -174,6 +174,7 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
     //int selection
     int selection = 0;
     //get the selected value
+    //TODO check input
     cin >> selection;
     //if selection is greater than listsize-1
     if (selection > (actions -> getSize() - 1)){
@@ -240,6 +241,7 @@ void ConsoleView::showMap(Map* map, Player* player) {
 void ConsoleView::showPlayerInfo(Player* player) {
     showPromptForTurn(player);
     //the list of texts to display
+    //TODO remove empyLines
     FedeList<char*>* outputList = new FedeList<char*>();
     addPlayerStatsToOutput(outputList,player);
     addInventoryInfoToOutput(outputList,player);

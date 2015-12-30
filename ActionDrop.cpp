@@ -31,7 +31,7 @@ void ActionDrop::getDescription(char dest[]) {
     strcat(dest, itemDescription);
 }
 
-void ActionDrop::getOutcome(FedeList<char*>* outcome) {
+FedeList<char*>* ActionDrop::getOutcome() {
     
 }
 

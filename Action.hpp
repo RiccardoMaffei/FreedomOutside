@@ -33,9 +33,10 @@ public:
     //TODO check in every action if it has been executed or not.
     /**
      * Get the action outcome.
+     * Remeber to deallocate every pointer of the list.
      * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
      */
-    virtual void getOutcome(FedeList<char*>* outcome) = 0;
+    virtual FedeList<char*>* getOutcome() = 0;
 private:
 
 };

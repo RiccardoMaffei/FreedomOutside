@@ -44,6 +44,6 @@ void ActionHeal::getDescription(char dest[]) {
     strcat(dest, buffer);
 }
 
-void ActionHeal::getOutcome(FedeList<char*>* outcome) {
+FedeList<char*>* ActionHeal::getOutcome() {
     
 }

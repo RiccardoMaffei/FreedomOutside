@@ -107,6 +107,6 @@ void ActionRelativeMovement::getDescription(char dest[]) {
     }
 }
 
-void ActionRelativeMovement::getOutcome(FedeList<char*>* outcome) {
+FedeList<char*>* ActionRelativeMovement::getOutcome() {
     
 }

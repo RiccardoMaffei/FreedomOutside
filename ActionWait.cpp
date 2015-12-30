@@ -21,7 +21,7 @@ void ActionWait::getDescription(char dest[]) {
     strcpy(dest,"Hide somewhere.");
 }
 
-void ActionWait::getOutcome(FedeList<char*>* outcome) {
+FedeList<char*>* ActionWait::getOutcome() {
     
 }
 

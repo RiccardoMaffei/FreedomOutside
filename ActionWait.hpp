@@ -40,7 +40,7 @@ public:
      * Get the action outcome.
      * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
      */
-    virtual void getOutcome(FedeList<char*>* outcome);
+    virtual FedeList<char*>* getOutcome();
 
 
 private:
