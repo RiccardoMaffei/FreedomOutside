@@ -62,8 +62,8 @@ void ConsoleView::showSplash() {
       << "M-   +-   +/   yMMMMMMMMMMMMMMMMM/    s/   /M" << endl
       << "M-   +-   +/  `NMMMMMMM NMMMMMMMM/    s/   /M" << endl
       << "M.   +:   +/  :MMMMMMMM  MMMMMMMM/    s/   /M" << endl
-    //print an empty line
-      << endl;
+    //print two empty line
+      << endl << endl;
 }
 
 void ConsoleView::frameText(FedeList<char*>* list){
