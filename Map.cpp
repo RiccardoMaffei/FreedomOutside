@@ -145,9 +145,50 @@ void Map::insertRoom(Room* toInsert) {
     }
 }
 
-FedeList<Room*>* Map::getVisibleRooms(Room* center) {
+FedeList<Room*>* Map::getVisibleRooms(Room* center, int radius) {
+    //if the radius is less tha zero
+    if(radius < 0){
+        //reset as zero
+        radius = 0;
+    }
+    //the result list
+    FedeList<Room*>* result = new FedeList<Room*>();
     //get the center x
     int centerX = center -> getX();
     //get the center y
     int centerY = center -> getY();
+    //the position in the room list
+    int pos = 0;
+    //the current line from the top
+    int lineFromTop = 0;
+    //not reached the lower side of visibility and not reached the end of the list
+    while( lineFromTop < (2*radius)+1 && pos < (this -> roomList -> getSize())){
+        //this is a temporary fake room that represent the left limit of the line
+        Room minlineTemp = Room(centerX - radius, centerY - radius + lineFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
+        //this is a temporary fake room that represent the right limit of the line
+        Room maxlineTemp = Room(centerX + radius, centerY - radius + lineFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
+        //have I reached or passed the right side?
+        bool reached = false;
+        //while I should not stop and I've not reached the end of the list
+        while (pos < (this -> roomList -> getSize()) && !reached){
+            //get the room at position pos
+            Room* got = this -> roomList -> get(pos);
+            //if the room is between (inclusive) max and min line
+            if(*got >= minlineTemp && *got <= maxlineTemp){
+                //add to the result list
+                result -> push_back(got);
+            }
+            //if the got room is higher or equal to the max line
+            if(*got >= maxlineTemp){
+                //set the should stop as true
+                reached = true;
+            }
+            //increase the position
+            pos++;
+        }
+        //increase the line
+        lineFromTop++;
+    }
+    //return the result
+    return result;
 }

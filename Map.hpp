@@ -66,9 +66,10 @@ public:
     /**
      * Return an ordered list of visible rooms from the given one. (visibility +/- 2x +/- 2y) 
      * @param center Room*: the center room.
-     * @return FedeList&lt;Room*&gt;*: the list
+     * @param radius int: radius of visibility greater or equal to zero.
+     * @return FedeList&lt;Room*&gt;*: the list.
      */
-    FedeList<Room*>* getVisibleRooms(Room* center);
+    FedeList<Room*>* getVisibleRooms(Room* center, int radius);
 
 protected:
     /**
