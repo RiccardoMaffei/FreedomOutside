@@ -96,7 +96,7 @@ FedeList<char*>* ActionMovement::getOutcome() {
         const char* third = "Walking, you have increased your agility to ";
         char agilityString[5];
         //converting the double agility in a string (with int casting, but non problem 'cause i call this when agility is int)
-        itoa(agility,agilityString);
+        dtoaTwo(agility,agilityString);
         line = new char[strlen(third)+strlen(agilityString)];
         strcpy(line,third);
         strcat(line,agilityString);

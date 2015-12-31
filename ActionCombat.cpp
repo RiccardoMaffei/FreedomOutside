@@ -112,7 +112,7 @@ FedeList<char*>* ActionCombat::getOutcome() {
         const char* third = "Fighting, you have increased your strenght to ";
         char strengthString[5];
         //converting the double strength in a string (with int casting, but non problem 'cause i call this when strength is int)
-        itoa(strength,strengthString);
+        dtoaTwo(strength,strengthString);
         char* line = new char[strlen(third)+strlen(strengthString)];
         strcpy(line,third);
         strcat(line,strengthString);
