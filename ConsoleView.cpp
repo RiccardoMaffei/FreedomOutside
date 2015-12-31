@@ -177,11 +177,11 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
         //set as -1
         selection = -1;
     }
-    //clear
+    //clear the cin error flag so the next inputs will work correctly
     cin.clear();
-    //ignore the buffer
+    //ignore all the others invalid character on the same line
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
-    //while the impot is invalid
+    //while the imput is invalid
     while(selection > (actions -> getSize() - 1) || selection < 0){
         //print an error
         cout << "You liar!! Choose your next move carefully!\n";
@@ -198,6 +198,11 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
     //return the actionn at th selected position
     return actions -> get(selection);
 }
+
+void ConsoleView::showActionOutcome(Action* action) {
+    
+}
+
 
 void ConsoleView::showMap(Map* map, Player* player) {
     //the visibility radius
