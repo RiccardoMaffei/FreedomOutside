@@ -181,8 +181,8 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
             }
         }
     }
-    //if the inventori is not full
-    if(inventory -> getSize() < 5){
+    //if the inventory is not full
+    if(inventory -> getSize() < Player::MAX_INVENTORY){
         //get the items on the ground
         FedeList<Item*>* itemsOnGround = currentPlayer -> getCurrentRoom() -> getItemList();
         //for the list of items on the ground
