@@ -28,6 +28,11 @@ public:
     static int const MAX_HEALTH = 100;
     
     /**
+     * int: the player's max inventory size. (greater than 0)
+     */
+    static int const MAX_INVENTORY = 5;
+    
+    /**
      * double: the player's maximum strength. (greater or equal to than the min)
      */
     static double const MAX_STRENGTH = 4.00;
