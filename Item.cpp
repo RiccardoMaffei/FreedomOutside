@@ -18,5 +18,5 @@ Item::~Item() {
 
 void Item::getName(char dest[]) {
     //copy the name in the destination array
-    strcpy (this -> name, name);
+    strcpy (dest, name);
 }
