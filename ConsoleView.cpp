@@ -621,7 +621,7 @@ void ConsoleView::showWinner(Player* p) {
         //concat ")"
         strcat(completeName, ")");
         //print the message (it was a lie...)
-        cout << "Congratulation prisoner "<< completeName <<"!\nYou have been told that the winner will be set free right?\nWell... it was a lie!";
+        cout << "Congratulation prisoner "<< completeName <<"!\nYou have been told that the winner will be set free right?\nWell... it was a lie.";
     }
     //otherwise (everybody died)
     else{
