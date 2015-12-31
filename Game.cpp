@@ -176,6 +176,7 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
         else if (dynamic_cast<ItemArmor*>(curItem)){
             //if the player is not wearing an armor
             if (currentPlayer -> getArmor() == NULL){
+                //add the wear action for the current item
                 result->push_back(new ActionWear(currentPlayer,(ItemArmor*)curItem));
             }
         }
@@ -191,6 +192,7 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
         }
         //if the player is wearing an armor
         if (currentPlayer -> getArmor() != NULL){
+            //add the unwear action for the current item
             result->push_back(new ActionUnwear(currentPlayer));
         }
     }
