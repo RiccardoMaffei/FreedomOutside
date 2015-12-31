@@ -39,7 +39,7 @@ FedeList<char*>* ActionPickup::getOutcome() {
     itemToPickup->getName(itemName);
     const char* secondPart = " from the floor.";
     //create dinamically a buffer of the right size
-    char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)];
+    char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)+1];
     //concat all the parts
     strcpy(line,firstPart);
     strcat(line,itemName);

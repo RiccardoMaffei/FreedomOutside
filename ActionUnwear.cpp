@@ -42,7 +42,7 @@ FedeList<char*>* ActionUnwear::getOutcome() {
     char armorName[50];
     itemArmor->getName(armorName);
     const char* secondPart = " anymore";
-    char* line = new char[strlen(firstPart)+strlen(armorName)+strlen(secondPart)];
+    char* line = new char[strlen(firstPart)+strlen(armorName)+strlen(secondPart)+1];
     strcpy(line,firstPart);
     strcat(line,armorName);
     strcat(line,secondPart);

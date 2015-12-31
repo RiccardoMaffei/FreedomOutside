@@ -102,7 +102,7 @@ FedeList<char*>* ActionCombat::getOutcome() {
         //TODO say yourself if the attacked player is yourself
         this -> attackedPlayers -> get(i) -> getUsername(username);
         //dynamically create a buffer of the right size
-        char* line = new char[strlen(firstPart) + strlen(inflictedDamage) + strlen(secondPart) + strlen(username)];
+        char* line = new char[strlen(firstPart) + strlen(inflictedDamage) + strlen(secondPart) + strlen(username)+1];
         strcpy(line, firstPart);
         strcat(line, inflictedDamage);
         strcat(line, secondPart);

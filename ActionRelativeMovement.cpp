@@ -90,7 +90,7 @@ FedeList<char*>* ActionRelativeMovement::getOutcome() {
     const char* firstPart = "You moved to ";
     //create dinamically a buffer of the right size, i used 7 for the direction
     //cause i don't want to create a buffer only for the direction
-    char* line = new char[strlen(firstPart)+7];
+    char* line = new char[strlen(firstPart)+8];
     strcpy(line,firstPart);
     concatDirection(line);
     result -> push_back(line);

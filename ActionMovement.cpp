@@ -89,7 +89,7 @@ FedeList<char*>* ActionMovement::getOutcome() {
     itoa(targetRoom->getY(),yCoordinate);
     const char* secondPart = " ";
     //create dinamically a buffer of the right size
-    int lineLenght = strlen(firstPart)+strlen(xCoordinate)+strlen(secondPart)+strlen(yCoordinate);
+    int lineLenght = strlen(firstPart)+strlen(xCoordinate)+strlen(secondPart)+strlen(yCoordinate)+1;
     char* line = new char[lineLenght];
     //concat all the part for forming the final string
     strcpy(line,firstPart);

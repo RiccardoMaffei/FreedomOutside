@@ -39,7 +39,7 @@ FedeList<char*>* ActionDrop::getOutcome() {
     itemToDrop->getName(itemName);
     const char* secondPart = " on the floor.";
     //create dinamically a buffer of the right size
-    char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)];
+    char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)+1];
     strcpy(line,firstPart);
     strcat(line,itemName);
     strcat(line,secondPart);

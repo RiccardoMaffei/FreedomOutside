@@ -42,7 +42,7 @@ FedeList<char*>* ActionWear::getOutcome() {
     //concat the armor name
     char armorName[50];
     armor->getName(armorName);
-    char* line = new char[strlen(firstPart)+strlen(armorName)];
+    char* line = new char[strlen(firstPart)+strlen(armorName)+1];
     strcpy(line,firstPart);
     strcat(line,armorName);
     result->push_back(line);
