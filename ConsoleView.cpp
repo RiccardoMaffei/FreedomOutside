@@ -595,3 +595,38 @@ void ConsoleView::clear() {
     }
 }
 
+void ConsoleView::showWinner(Player* p) {
+    //clear the screen
+    this -> clear();
+    //if the player is not null
+    if (p!= NULL){
+        //the complete player name
+        char completeName[256];
+        //concat the first part
+        strcpy(completeName, "#");
+        //the buffer for the number of the prisoner
+        char number[10];
+        //add 15687 for fiction and trasform it to string
+        itoa((15687 + p -> getId()), number);
+        //concat the number of the prisoner
+        strcat(completeName, number);
+        //concat "("
+        strcat(completeName, "(");
+        //the buffer for the name of the prisoner
+        char name[50];
+        //get the description
+        p -> getUsername(name);
+        //concat the name
+        strcat(completeName, name);
+        //concat ")"
+        strcat(completeName, ")");
+        //print the message (it was a lie...)
+        cout << "Congratulation prisoner "<< completeName <<"!\nYou have been told that the winner will be set free right?\nWell... it was a lie!";
+    }
+    //otherwise (everybody died)
+    else{
+        //print the message (losers...)
+        cout << "You all died... losers!\n";
+    }
+}
+

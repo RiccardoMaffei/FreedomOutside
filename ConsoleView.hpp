@@ -122,7 +122,13 @@ private:
      * Clear the console printing 100 empty lines.
      */
     virtual void clear();
-
+      
+    /**
+     * Show the given player as the winner on the console.
+     * If NULL show a message saying that there's no winner.
+     * @param p Player*: the player who won or NULL.
+     */
+    virtual void showWinner(Player* p);
 };
 
 #endif /* CONSOLEVIEW_HPP */
