@@ -542,8 +542,11 @@ void ConsoleView::addInventoryInfoToOutput(FedeList<char*>* outputList, Player* 
     //if the inventory is not empty
     if(inventory -> getSize() > 0){
         //copy the text
-        //TODO say the maximium inventory size
-        strcpy(textI, "In your inventory there is:");
+        strcpy(textI, "In your inventory there is (max ");
+        char maxInventorybuffer[5];
+        itoa(Player::MAX_INVENTORY,maxInventorybuffer);
+        strcat(textI,maxInventorybuffer);
+        strcat(textI," elements):");
     }
     //else (the inventory is empty)
     else{
