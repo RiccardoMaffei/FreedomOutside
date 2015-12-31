@@ -334,7 +334,7 @@ void ConsoleView::showMap(Map* map, Player* player) {
     //delete the list itself
     delete listToFrame;
     cout << endl;
-    cout << "You are in [ " << playerX << " " << playerY << " ] (where there is the X)\n but it's very dark and you can't see the cells more than "<<radius<<" steps away from you.";
+    cout << "You are in [ " << playerX << " " << playerY << " ] (where there is the X)\nbut it's very dark and you can't see the cells more than "<<radius<<" steps away from you.\n";
     cout << endl;
     //delete the list
     delete visibleRooms;
@@ -343,7 +343,6 @@ void ConsoleView::showMap(Map* map, Player* player) {
 void ConsoleView::showPlayerInfo(Player* player) {
     showPromptForTurn(player);
     //the list of texts to display
-    //TODO remove empyLines
     FedeList<char*>* outputList = new FedeList<char*>();
     addPlayerStatsToOutput(outputList,player);
     addInventoryInfoToOutput(outputList,player);
