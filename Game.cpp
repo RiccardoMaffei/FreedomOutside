@@ -74,6 +74,8 @@ void Game::play() {
     Player* curP = NULL;
     //while should run
     while(shouldRun()){
+        //clear the view
+        this -> view -> clear();
         //get the next player
         curP = getNextPlayer();
         //show the map
