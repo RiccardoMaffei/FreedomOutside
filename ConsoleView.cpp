@@ -131,7 +131,7 @@ void ConsoleView::showPrologue(int numberOfPlayer){
          << "In the basement of the Soun palace, the party headquarters, the prisoners are detained. " << endl
          << "Not everyone knows that the building is built above the old prisons of the Khmer empire. " << endl
          << "Here exists an obscure tradition, a deadly game: to the one who will survive from the other prisoners will be donated freedom." << endl
-         << "Your captors have just pushed you in a damp cell, with other "<<(numberOfPlayer-1)<<" prisoners who will not scruple to kill you with their bare hands." << endl
+         << "Your captors have just pushed you in a damp cell, with other "<<(numberOfPlayer-1)<<" prisoners who will not scruple to kill you." << endl
          << "You should run away and immediately find a weapon."
          << "Let the games begin!" << endl << endl;
 
