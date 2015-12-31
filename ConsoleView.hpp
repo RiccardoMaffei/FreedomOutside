@@ -110,6 +110,12 @@ private:
      * @param player Player*: the player to display the armor.
      */
     void addArmorInfoToOutput(FedeList<char*>* outputList,Player* player);
+    
+    /**
+     * Clear the console printing 100 empty lines.
+     */
+    virtual void clear();
+
 };
 
 #endif /* CONSOLEVIEW_HPP */

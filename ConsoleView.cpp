@@ -547,3 +547,12 @@ void ConsoleView::addArmorInfoToOutput(FedeList<char*>* outputList, Player* play
     //insert the armor text in the list
     outputList -> push_back(armorText);
 }
+
+void ConsoleView::clear() {
+    //for 100 times
+    for(int i = 0; i < 100; i++){
+        //print an empty line
+        cout << endl;
+    }
+}
+
