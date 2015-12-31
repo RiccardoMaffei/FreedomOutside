@@ -104,6 +104,10 @@ void Game::play() {
         //delete the list of roommates
         delete roomMates;
     }
+    //get the next alive player (may be null)
+    Player* winner = this -> getNextPlayer();
+    //show the winner
+    this -> view -> showWinner(winner);
 }
 
 bool Game::shouldRun() {
