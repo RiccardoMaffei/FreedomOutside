@@ -72,11 +72,11 @@ void ActionRelativeMovement::execute() {
         targetRoom = this -> map -> generateRoom(destX, destY);
     }
     //generate the action movement
-    ActionMovement* actionToExecute = new ActionMovement(this -> playerToMove, targetRoom);
+    actionMovement = new ActionMovement(this -> playerToMove, targetRoom);
     //execute the action
-    actionToExecute -> execute();
+    actionMovement -> execute();
     //delete the action
-    delete actionToExecute;
+    delete actionMovement;
 }
 
 void ActionRelativeMovement::getDescription(char dest[]) {
@@ -108,5 +108,5 @@ void ActionRelativeMovement::getDescription(char dest[]) {
 }
 
 FedeList<char*>* ActionRelativeMovement::getOutcome() {
-    
+    return actionMovement -> getOutcome();
 }

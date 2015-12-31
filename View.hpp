@@ -44,6 +44,13 @@ public:
     virtual Action* selectAction(FedeList<Action*>* actions) = 0;
     
     /**
+     * Show the outcome of a given action.
+     * The action have to been executed.
+     * @param action Action*: the action to show the outcome.
+     */
+    virtual void showActionOutcome(Action* action) = 0;
+    
+    /**
      * Show the map from the perspective of the given player.
      * @param map Map*: the map.
      * @param player Player*: the player.

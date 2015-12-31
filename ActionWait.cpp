@@ -22,7 +22,12 @@ void ActionWait::getDescription(char dest[]) {
 }
 
 FedeList<char*>* ActionWait::getOutcome() {
-    
+    FedeList<char*>* result = new FedeList<char*>;
+    const char* firstPart = "You hid yourself in the room";
+    char* line = new char[strlen(firstPart)];
+    strcpy(line,firstPart);
+    result->push_back(line);
+    return result;   
 }
 
 

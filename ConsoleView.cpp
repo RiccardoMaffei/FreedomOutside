@@ -200,7 +200,7 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
 }
 
 void ConsoleView::showActionOutcome(Action* action) {
-    
+    frameText(action->getOutcome());
 }
 
 

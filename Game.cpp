@@ -88,8 +88,12 @@ void Game::play() {
         this -> view -> showShortInfo(roomMates);
         //copute player actions
         FedeList<Action*>* actions = this -> computePlayerActions(curP);
-        //get user selection and execute
-        this -> view -> selectAction(actions) -> execute();
+        //get the action selected by the user
+        Action* actionToExecute = this -> view -> selectAction(actions);
+        //execute the action
+        actionToExecute->execute();
+        //show action outcome
+        this -> view -> showActionOutcome(actionToExecute);
         //for the list of actions
         for(int i = 0; i < actions -> getSize(); i++){
             //delete the action at i

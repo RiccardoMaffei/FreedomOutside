@@ -12,6 +12,7 @@
 #include "Room.hpp"
 #include "Map.hpp"
 #include "Player.hpp"
+#include "ActionMovement.hpp"
 
 /**
  * The movement direction relative to the position of the pleyer.
@@ -61,6 +62,8 @@ protected:
     Player* playerToMove;
     //the direction
     movementDirection_t direction;
+    //the action movement
+    ActionMovement* actionMovement;
 };
 
 #endif /* ACTIONRELATIVEMOVEMENT_HPP */

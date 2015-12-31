@@ -37,7 +37,15 @@ void ActionWear::getDescription(char dest[]) {
 }
 
 FedeList<char*>* ActionWear::getOutcome() {
-    
+    FedeList<char*>* result = new FedeList<char*>;
+    const char* firstPart = "You now wear a ";
+    char armorName[50];
+    armor->getName(armorName);
+    char* line = new char[strlen(firstPart)+strlen(armorName)];
+    strcpy(line,firstPart);
+    strcat(line,armorName);
+    result->push_back(line);
+    return result;    
 }
 
 

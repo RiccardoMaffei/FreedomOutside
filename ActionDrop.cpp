@@ -32,7 +32,17 @@ void ActionDrop::getDescription(char dest[]) {
 }
 
 FedeList<char*>* ActionDrop::getOutcome() {
-    
+    FedeList<char*>* result = new FedeList<char*>;
+    const char* firstPart = "You dropped ";
+    char itemName[50];
+    itemToDrop->getName(itemName);
+    const char* secondPart = " on the floor.";
+    char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)];
+    strcpy(line,firstPart);
+    strcat(line,itemName);
+    strcat(line,secondPart);
+    result->push_back(line);
+    return result;
 }
 
 

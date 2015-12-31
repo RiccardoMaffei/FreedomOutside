@@ -32,7 +32,17 @@ void ActionPickup::getDescription(char dest[]) {
 }
 
 FedeList<char*>* ActionPickup::getOutcome() {
-    
+    FedeList<char*>* result = new FedeList<char*>;
+    const char* firstPart = "You picked up ";
+    char itemName[50];
+    itemToPickup->getName(itemName);
+    const char* secondPart = " from the floor.";
+    char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)];
+    strcpy(line,firstPart);
+    strcat(line,itemName);
+    strcat(line,secondPart);
+    result->push_back(line);
+    return result;
 }
 
 

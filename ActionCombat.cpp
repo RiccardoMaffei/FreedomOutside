@@ -82,7 +82,7 @@ FedeList<char*>* ActionCombat::getOutcome() {
         const char* secondPart = " damage points to ";
         char inflictedDamage[5];
         itoa(this -> inflictedDamages -> get(i), inflictedDamage);
-        char username[255];
+        char username[50];
         //TODO say yourself if the attacked player is yourself
         this -> attackedPlayers -> get(i) -> getUsername(username);
         //TODO better lenght calc
