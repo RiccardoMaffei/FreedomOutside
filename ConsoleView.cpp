@@ -221,25 +221,27 @@ void ConsoleView::showMap(Map* map, Player* player) {
     int oldRoomY;
     //the list to be framed
     FedeList<char*>* listToFrame = new FedeList<char*>();
-    //the buffer
-    char* bufferFirst = new char[512];
-    //the buffer (second line)
-    char* bufferSecond = new char[512];
-    //init the buffer
-    strcpy(bufferFirst, "");
-    //init the buffer (second line)
-    strcpy(bufferSecond, "");
+    //the zero line
+    char* zeroLine = NULL;
+    //the first line
+    char* firstLine = NULL;
+    //the second line
+    char* secondLine = new char[512];
+    //the third line
+    char* thirdLine = NULL;
+    //init the second line
+    strcpy(secondLine, "");
     //for the radius
     for (int i = 0; i < radius; i++){
         //concat an empty space
-        strcat(bufferFirst, "           ");
+        strcat(secondLine, "           ");
     }
     //concat a title
-    strcat(bufferFirst, "    MAP    ");
+    strcat(secondLine, "    MAP    ");
     //for the radius
     for (int i = 0; i < radius; i++){
         //concat an empty space
-        strcat(bufferFirst, "           ");
+        strcat(secondLine, "           ");
     }
     //if exist a room (should always exist)
     if(visibleRooms -> getSize() > 0){
@@ -253,27 +255,55 @@ void ConsoleView::showMap(Map* map, Player* player) {
             int curRoomY = visibleRooms -> get(i) -> getY();
             //if the current room is under the old room
             if(curRoomY > oldRoomY){
-                //push the buffer in the list to frame
-                listToFrame -> push_back(bufferFirst);
-                //push the buffer (second line) in the list to frame
-                listToFrame -> push_back(bufferSecond);
-                //instance a new buffer
-                bufferFirst = new char[512];
-                //clear the buffer
-                strcpy(bufferFirst, "");
-                //instance a new buffer (second line)
-                bufferSecond = new char[512];
-                //clear the buffer (second line)
-                strcpy(bufferSecond, "");
+                //if not null
+                if (zeroLine != NULL) {
+                    //push the zero line in the list to frame
+                    listToFrame -> push_back(zeroLine);
+                }
+                //if not null
+                if (firstLine != NULL) {
+                    //push the first line in the list to frame
+                    listToFrame -> push_back(firstLine);
+                }
+                //if not null
+                if (secondLine != NULL) {
+                    //push the second line in the list to frame
+                    listToFrame -> push_back(secondLine);
+                }
+                //if not null
+                if (thirdLine != NULL) {
+                    //push the third line in the list to frame
+                    listToFrame -> push_back(thirdLine);
+                }
+                //instance a new line
+                zeroLine = new char[512];
+                //clear the zero line
+                strcpy(zeroLine, "");
+                //instance a new line
+                firstLine = new char[512];
+                //clear the second line
+                strcpy(firstLine, "");
+                //instance a new line
+                secondLine = new char[512];
+                //clear the second line
+                strcpy(secondLine, "");
+                //instance a new line
+                thirdLine = new char[512];
+                //clear the third line
+                strcpy(thirdLine, "");
                 //reset the cursor
                 cCursor = playerX - radius;
             }
             //while the cursor is not on the column to print
             while (cCursor < curRoomX){
                 //concat an empty space
-                strcat(bufferFirst, "           ");
+                strcat(zeroLine, "           ");
                 //concat an empty space
-                strcat(bufferSecond, "           ");
+                strcat(firstLine, "           ");
+                //concat an empty space
+                strcat(secondLine, "           ");
+                //concat an empty space
+                strcat(thirdLine, "           ");
                 //increase the cursor
                 cCursor++;
             }
@@ -285,49 +315,53 @@ void ConsoleView::showMap(Map* map, Player* player) {
             itoa(curRoomX, curSX);
             //xonvert the y
             itoa(curRoomY, curSY);
-            //cat the open bracket
-            strcat(bufferFirst, "|");
-            //cat the open bracket
-            strcat(bufferSecond, "|");
+            //concat the open bracket
+            strcat(thirdLine, "|");
             //fill with spaces
-            for(int i = 0; i < 4 - strlen(curSX); i++){
+            for(int i = 0; i < 4 - strlen(curSX) +1; i++){
                 //concat a space
-                strcat(bufferFirst, " ");
+                strcat(secondLine, " ");
             }
             //concat the current x string
-            strcat(bufferFirst, curSX);
+            strcat(secondLine, curSX);
             //concat a space
-            strcat(bufferFirst, " ");
+            strcat(secondLine, " ");
             //concat the current y string
-            strcat(bufferFirst, curSY);
+            strcat(secondLine, curSY);
             //fill with spaces
-            for(int i = 0; i < 4 - strlen(curSY); i++){
+            for(int i = 0; i < 4 - strlen(curSY) +1; i++){
                 //concat a space
-                strcat(bufferFirst, " ");
+                strcat(secondLine, " ");
             }
             //if the player is here
             if(curRoomX == playerX && curRoomY == playerY){
                 //concat a cross
-                strcat(bufferSecond, "    X    ");
+                strcat(thirdLine, "___ X ___");
             }
             //otherwise
             else{
-                //concat spaces
-                strcat(bufferSecond, "         ");
+                //concat _ and spaces
+                strcat(thirdLine, "___   ___");
             }
-            //cat the close bracket
-            strcat(bufferFirst, "|");
-            //cat the close bracket
-            strcat(bufferSecond, "|");
+            //concat _ and spaces
+            strcat(zeroLine, " ___   ___ ");
+            //concat spaces
+            strcat(firstLine, "|         |");
+            //concat the close bracket
+            strcat(thirdLine, "|");
             //increase the cursor
             cCursor++;
             //set the current as the old
             oldRoomY = curRoomY;
         }
-        //push the buffer
-        listToFrame -> push_back(bufferFirst);
-        //push the buffer (second line)
-        listToFrame -> push_back(bufferSecond);
+        //push the zero line
+        listToFrame -> push_back(zeroLine);
+        //push the first line
+        listToFrame -> push_back(firstLine);
+        //push the second line
+        listToFrame -> push_back(secondLine);
+        //push the third line
+        listToFrame -> push_back(thirdLine);
         //print framed
         frameText(listToFrame);
     }
