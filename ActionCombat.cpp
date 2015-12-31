@@ -8,6 +8,7 @@
 #include <math.h>
 
 #include "ActionCombat.hpp"
+#include "ItemDestructiveWeapon.hpp"
 
 ActionCombat::ActionCombat(Player* attacker, ItemWeapon* weapon, FedeList<Player*>* listOfPlayers) {
     //save the attacker
@@ -55,6 +56,11 @@ void ActionCombat::execute() {
         attacker -> setStrength(strength); 
         //set that the strenght has increased
         strengthIncreased = true;
+    }
+    //if the weapon was a destruptive weapon
+    if (dynamic_cast<ItemDestructiveWeapon*>(this -> weapon)){
+        //remove the weapon from the attacker inventory
+        this -> attacker -> getInventory() -> removeByElement(this -> weapon);
     }
 }
 
