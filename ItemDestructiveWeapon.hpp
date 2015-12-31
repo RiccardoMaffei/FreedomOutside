@@ -8,12 +8,13 @@
 #ifndef ITEMDESTRUCTIVEWEAPON_HPP
 #define ITEMDESTRUCTIVEWEAPON_HPP
 #include "Item.hpp"
+#include "ItemWeapon.hpp"
 
 /**
  * A destructive weapon that should be applied to every near player.
  * This weapon has a random damage value between a range. Extension of Item.
  */
-class ItemDestructiveWeapon: public Item{
+class ItemDestructiveWeapon: public ItemWeapon{
 public:
     
     /**

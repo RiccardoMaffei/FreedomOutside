@@ -165,7 +165,7 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
             //get another list with room mates and add myself
             FedeList<Player*>* fullList = this -> getRoomMates(currentPlayer) -> push_front(currentPlayer);
             //add the combat action for the current item
-            result -> push_back(new ActionCombat(currentPlayer, (ItemSimpleWeapon*) curItem, fullList));
+            result -> push_back(new ActionCombat(currentPlayer, (ItemDestructiveWeapon*) curItem, fullList));
         }
         //else if the item is an health kit
         else if (dynamic_cast<ItemHealthKit*>(curItem)){
