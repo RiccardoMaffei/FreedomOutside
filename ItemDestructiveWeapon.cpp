@@ -30,8 +30,8 @@ ItemDestructiveWeapon::~ItemDestructiveWeapon() {
 }
 
 int ItemDestructiveWeapon::getDamageValue() {
-    //set random seed with current time
-    srand(time(NULL));
+    //set random seed with current time + random: for calling this methods more times in the same seconds
+    srand(time(NULL)+rand());
     //compute the random damage between min and max
     int randDamage = rand()%((this -> maxDamage) - (this -> minDamage) + 1) + (this -> minDamage);
     //return the computed value
