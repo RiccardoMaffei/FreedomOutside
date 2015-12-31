@@ -39,6 +39,7 @@ void ActionWear::getDescription(char dest[]) {
 FedeList<char*>* ActionWear::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
     const char* firstPart = "You now wear a ";
+    //concat the armor name
     char armorName[50];
     armor->getName(armorName);
     char* line = new char[strlen(firstPart)+strlen(armorName)];

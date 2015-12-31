@@ -34,9 +34,11 @@ void ActionDrop::getDescription(char dest[]) {
 FedeList<char*>* ActionDrop::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
     const char* firstPart = "You dropped ";
+    //concat the item name
     char itemName[50];
     itemToDrop->getName(itemName);
     const char* secondPart = " on the floor.";
+    //create dinamically a buffer of the right size
     char* line = new char[strlen(firstPart)+strlen(itemName)+strlen(secondPart)];
     strcpy(line,firstPart);
     strcat(line,itemName);

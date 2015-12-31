@@ -79,27 +79,36 @@ void ActionMovement::getDescription(char dest[]) {
 FedeList<char*>* ActionMovement::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
     const char* firstPart = "You moved to room ";
+    //get the x coordinate
     char xCoordinate[10];
+    //trasfor it to string
     itoa(targetRoom->getX(),xCoordinate);
+    //get the y coordinate
     char yCoordinate[10];
+    //trasform it to string
     itoa(targetRoom->getY(),yCoordinate);
     const char* secondPart = " ";
+    //create dinamically a buffer of the right size
     int lineLenght = strlen(firstPart)+strlen(xCoordinate)+strlen(secondPart)+strlen(yCoordinate);
     char* line = new char[lineLenght];
+    //concat all the part for forming the final string
     strcpy(line,firstPart);
     strcat(line,xCoordinate);
     strcat(line,secondPart);
     strcat(line,yCoordinate);
     result->push_back(line);
+    //get the player agility
     double agility = this -> playerToMove -> getAgility();
+    //if the agility is a integer number and if the agility has incresed(not reached tha max value)
     if (((int)(agility*10) % 10) == 0 && this -> agilityIncreased) {
         const char* third = "Walking, you have increased your agility to ";
         char agilityString[5];
-        //converting the double agility in a string (with int casting, but non problem 'cause i call this when agility is int)
+        //converting the double to string
         dtoaTwo(agility,agilityString);
         line = new char[strlen(third)+strlen(agilityString)];
         strcpy(line,third);
         strcat(line,agilityString);
+        //adding this as new line
         result->push_back(line);
     }
     return result;

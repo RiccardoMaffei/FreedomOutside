@@ -56,6 +56,11 @@ public:
     virtual FedeList<char*>* getOutcome();
     
 protected:
+    
+    /**
+     * Concat the direction of the action to the string given.
+     * @param dest char[]: a string to concat the direction.Must be big enough (>8)
+     */
     void concatDirection(char dest[]);
     //the map to update
     Map* map;

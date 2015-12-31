@@ -38,9 +38,14 @@ void ActionUnwear::getDescription(char dest[]) {
 
 FedeList<char*>* ActionUnwear::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
-    const char* firstPart = "Now you are not wearing any armor";
-    char* line = new char[strlen(firstPart)];
+    const char* firstPart = "Now you are not wearing ";
+    char armorName[50];
+    itemArmor->getName(armorName);
+    const char* secondPart = " anymore";
+    char* line = new char[strlen(firstPart)+strlen(armorName)+strlen(secondPart)];
     strcpy(line,firstPart);
+    strcat(line,armorName);
+    strcat(line,secondPart);
     result->push_back(line);
     return result;      
 }

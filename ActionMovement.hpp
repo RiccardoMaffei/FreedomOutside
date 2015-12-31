@@ -15,6 +15,7 @@
 
 /**
  * The action of a player movement between rooms.
+ * Moving increase the agility of the player.
  */
 class ActionMovement: public Action {
 public:
@@ -34,11 +35,13 @@ public:
     
     /**
      * Move the player to the target room.
+     * Moving increase agility of 0.2 points.
      */
     void execute();
     
     /**
      * Get the Action description. 
+     * Say also if the agility has increased over a certain level (every 1 point).
      * @param dest char[]: destination array. Must be big enough (max string length 255).
      */
     void getDescription(char dest[]);

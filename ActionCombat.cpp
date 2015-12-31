@@ -91,15 +91,17 @@ void ActionCombat::getDescription(char dest[]) {
 
 FedeList<char*>* ActionCombat::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
+    //for every attacked player i create a line of output describing the damage done.
     for (int i = 0; i < (this -> attackedPlayers -> getSize()); i++) {
         const char* firstPart = "You inflicted ";
         const char* secondPart = " damage points to ";
+        //declare a buffer for contain the string rapresenting the inflictedDamage
         char inflictedDamage[5];
         itoa(this -> inflictedDamages -> get(i), inflictedDamage);
         char username[50];
         //TODO say yourself if the attacked player is yourself
         this -> attackedPlayers -> get(i) -> getUsername(username);
-        //TODO better lenght calc
+        //dynamically create a buffer of the right size
         char* line = new char[strlen(firstPart) + strlen(inflictedDamage) + strlen(secondPart) + strlen(username)];
         strcpy(line, firstPart);
         strcat(line, inflictedDamage);
@@ -107,12 +109,15 @@ FedeList<char*>* ActionCombat::getOutcome() {
         strcat(line, username);
         result->push_back(line);
     }
+    //get te attacker strenght
     double strength = this -> attacker -> getStrength();
+    //if the strenght is integer number and the strenght has incresed(not reached max)
     if (((int)(strength*10) % 10) == 0 && this -> strengthIncreased) {
         const char* third = "Fighting, you have increased your strenght to ";
         char strengthString[5];
-        //converting the double strength in a string (with int casting, but non problem 'cause i call this when strength is int)
+        //converting the double to string.
         dtoaTwo(strength,strengthString);
+        //dynamically create a buffer of the right size
         char* line = new char[strlen(third)+strlen(strengthString)];
         strcpy(line,third);
         strcat(line,strengthString);

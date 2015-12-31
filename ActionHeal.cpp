@@ -47,9 +47,11 @@ void ActionHeal::getDescription(char dest[]) {
 FedeList<char*>* ActionHeal::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
     const char* firstPart = "You increased your health by ";
+    //concat the healing point
     char healingValue[5];
     itoa(kit->getHealingValue(),healingValue);
     const char* secondPart = " points.";
+    //create dinamically a buffer of the right size
     char* line = new char[strlen(firstPart)+strlen(healingValue)+strlen(secondPart)];
     strcpy(line,firstPart);
     strcat(line,healingValue);

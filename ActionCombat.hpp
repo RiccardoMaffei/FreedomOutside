@@ -14,7 +14,8 @@
 #include "Player.hpp"
 
 /**
- * A combat action. This action applies damage to a list player with a given weapon using attacker statistics.
+ * A combat action. This action applies damage to a list player with a given weapon using attacker statistics.<br>
+ * Fighting increase the strenght of the player.
  */
 class ActionCombat: public Action{
 public:
@@ -33,7 +34,8 @@ public:
     virtual ~ActionCombat();
     
     /**
-     * Execute the action.
+     * Execute the action of fighting with others player.
+     * Fighting increase strength of 0.2 points.
      */
     virtual void execute();
     
@@ -45,6 +47,7 @@ public:
     
     /**
      * Get the action outcome.
+     * Say also if the strenght has increased over a certain level (every 1 point).
      * @return FedeList&lt;char**&gt;*: a string list that contains the outcome of the action.
      */
     virtual FedeList<char*>* getOutcome();
