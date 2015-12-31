@@ -56,14 +56,13 @@ public:
     virtual FedeList<char*>* getOutcome();
     
 protected:
+    void concatDirection(char dest[]);
     //the map to update
     Map* map;
     //the player to move
     Player* playerToMove;
     //the direction
     movementDirection_t direction;
-    //the action movement
-    ActionMovement* actionMovement;
 };
 
 #endif /* ACTIONRELATIVEMOVEMENT_HPP */

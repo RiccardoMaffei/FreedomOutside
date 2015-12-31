@@ -79,9 +79,9 @@ void ActionMovement::getDescription(char dest[]) {
 FedeList<char*>* ActionMovement::getOutcome() {
     FedeList<char*>* result = new FedeList<char*>;
     const char* firstPart = "You moved to room ";
-    char xCoordinate[5];
+    char xCoordinate[10];
     itoa(targetRoom->getX(),xCoordinate);
-    char yCoordinate[5];
+    char yCoordinate[10];
     itoa(targetRoom->getY(),yCoordinate);
     const char* secondPart = " ";
     int lineLenght = strlen(firstPart)+strlen(xCoordinate)+strlen(secondPart)+strlen(yCoordinate);

@@ -72,14 +72,29 @@ void ActionRelativeMovement::execute() {
         targetRoom = this -> map -> generateRoom(destX, destY);
     }
     //generate the action movement
-    actionMovement = new ActionMovement(this -> playerToMove, targetRoom);
+    ActionMovement* actionMovement = new ActionMovement(this -> playerToMove, targetRoom);
     //execute the action
     actionMovement -> execute();
+    //delete the action
+    delete actionMovement;
 }
 
 void ActionRelativeMovement::getDescription(char dest[]) {
     //copy the description and then concat the direction
     strcpy(dest, "Go to ");
+    concatDirection(dest);
+}
+
+FedeList<char*>* ActionRelativeMovement::getOutcome() {
+    FedeList<char*>* result = new FedeList<char*>();
+    const char* firstPart = "You moved to ";
+    char* line = new char[strlen(firstPart)+7];
+    strcpy(line,firstPart);
+    concatDirection(line);
+    result -> push_back(line);
+}
+
+void ActionRelativeMovement::concatDirection(char* dest) {
     //switch directions
     switch(this -> direction){
         //case direction is nord
@@ -105,8 +120,3 @@ void ActionRelativeMovement::getDescription(char dest[]) {
     }
 }
 
-FedeList<char*>* ActionRelativeMovement::getOutcome() {
-    return (actionMovement -> getOutcome());
-    //delete the action
-    delete actionMovement;
-}
