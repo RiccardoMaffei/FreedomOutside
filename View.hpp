@@ -73,6 +73,13 @@ public:
      * Clear the view.
      */
     virtual void clear() = 0;
+    
+    /**
+     * Show the given player as the winner.
+     * If NULL show a message saying that there's no winner.
+     * @param p Player*: the player who won or NULL.
+     */
+    virtual void showWinner(Player* p) = 0;
 private:
 
 };
