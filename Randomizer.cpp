@@ -49,10 +49,10 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
     generateDestructiveWeapon("TNT",        50, 100, 2, items);
     //------------END DESTRUCTIVE WEAPONS--------------
     //--------------------ARMORS----------------------
-    generateArmorItem("Rags armor",     1.1, 30, items);
-    generateArmorItem("Leather armor",  1.2, 25, items);
-    generateArmorItem("Hide armor",     1.3, 20, items);
-    generateArmorItem("Copper armor",   1.4, 10, items);
+    generateArmorItem("Rags armor",     1.1, 20, items);
+    generateArmorItem("Leather armor",  1.2, 18, items);
+    generateArmorItem("Hide armor",     1.3, 15, items);
+    generateArmorItem("Copper armor",   1.4, 9, items);
     generateArmorItem("Bronze armor",   1.5, 7, items);
     generateArmorItem("Iron armor",     1.6, 5, items);
     generateArmorItem("Steel armor",    1.7, 3, items);
@@ -60,8 +60,8 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
     generateArmorItem("Diamond armor",  1.9, 1, items);
     //------------------END ARMORS--------------------
     //------------------HEALTH KITS--------------------
-    generateHealthKit("Tiny healing potion",    5, 20, items);
-    generateHealthKit("Small healing potion",   10, 10, items);
+    generateHealthKit("Tiny healing potion",    5, 25, items);
+    generateHealthKit("Small healing potion",   10, 15, items);
     generateHealthKit("Medium healing potion",  30, 5, items);
     generateHealthKit("Big healing potion",     50, 2, items);
     generateHealthKit("Huge healing potion",    100, 1, items);
