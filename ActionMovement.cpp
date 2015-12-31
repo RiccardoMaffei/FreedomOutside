@@ -20,7 +20,8 @@ ActionMovement::ActionMovement(Player* playerToMove, Room* targetRoom) {
         //throw an invalid argument exception
         throw(std::invalid_argument("player and target room must be not NULL"));
     }
-
+    //set to dafault that the agility has not increased (for now)
+    agilityIncreased = false;
 }
 
 
@@ -31,6 +32,16 @@ ActionMovement::~ActionMovement() {
 void ActionMovement::execute() {
     //set the target room as the player's current room
     this -> playerToMove -> setCurrentRoom(this -> targetRoom);
+    //get the player agility
+    double agility = this -> playerToMove -> getAgility();
+    //if the agility is below max level
+    if (agility < Player::MAX_AGILITY) {
+        //increase it
+        agility += 0.1;
+        //and set the new agility to the player
+        this -> playerToMove -> setAgility(agility);
+        agilityIncreased = true;
+    }
 }
 
 void ActionMovement::getDescription(char dest[]) {
@@ -73,12 +84,24 @@ FedeList<char*>* ActionMovement::getOutcome() {
     char yCoordinate[5];
     itoa(targetRoom->getY(),yCoordinate);
     const char* secondPart = " ";
-    char* line = new char[strlen(firstPart)+strlen(xCoordinate)+strlen(secondPart)+strlen(yCoordinate)];
+    int lineLenght = strlen(firstPart)+strlen(xCoordinate)+strlen(secondPart)+strlen(yCoordinate);
+    char* line = new char[lineLenght];
     strcpy(line,firstPart);
     strcat(line,xCoordinate);
     strcat(line,secondPart);
     strcat(line,yCoordinate);
     result->push_back(line);
+    double agility = this -> playerToMove -> getAgility();
+    if (((int)(agility*10) % 10) == 0 && this -> agilityIncreased) {
+        const char* third = "Walking, you have increased your agility to ";
+        char agilityString[5];
+        //converting the double agility in a string (with int casting, but non problem 'cause i call this when agility is int)
+        itoa(agility,agilityString);
+        line = new char[strlen(third)+strlen(agilityString)];
+        strcpy(line,third);
+        strcat(line,agilityString);
+        result->push_back(line);
+    }
     return result;
 }
 

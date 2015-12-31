@@ -58,6 +58,8 @@ private:
     Player* attacker;
     //the weapon
     ItemWeapon* weapon;
+    //flag if the strenght has been increased
+    bool strengthIncreased;
 };
 
 #endif /* ACTIONCOMBAT_HPP */

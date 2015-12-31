@@ -18,6 +18,8 @@ ActionCombat::ActionCombat(Player* attacker, ItemWeapon* weapon, FedeList<Player
     this -> attackedPlayers = listOfPlayers;
     //create a list for damages
     this -> inflictedDamages = new FedeList<int>();
+    //set to default that the strenght has not increased (for now)
+    strengthIncreased = false;
 }
 
 ActionCombat::~ActionCombat() {
@@ -43,11 +45,17 @@ void ActionCombat::execute() {
         //save the damage inflicted
         this -> inflictedDamages -> push_back(inflictedDamage);
     }
-    //increase the strenght
-    //TODO check that the strenght is below the max Strenght
-    double strenght = attacker -> getStrength();
-    strenght += 0.2;
-    attacker -> setStrength(strenght);
+    //get the player strength
+    double strength = this -> attacker -> getStrength();
+    //check if the player strength is below max level
+    if (strength < Player::MAX_STRENGTH) {
+        //increase it
+        strength += 0.2;
+        //set the new strength to the player
+        attacker -> setStrength(strength); 
+        //set that the strenght has increased
+        strengthIncreased = true;
+    }
 }
 
 void ActionCombat::getDescription(char dest[]) {
@@ -93,7 +101,17 @@ FedeList<char*>* ActionCombat::getOutcome() {
         strcat(line, username);
         result->push_back(line);
     }
-    //TODO say if the strenght has increased of a level.
+    double strength = this -> attacker -> getStrength();
+    if (((int)(strength*10) % 10) == 0 && this -> strengthIncreased) {
+        const char* third = "Fighting, you have increased your strenght to ";
+        char strengthString[5];
+        //converting the double strength in a string (with int casting, but non problem 'cause i call this when strength is int)
+        itoa(strength,strengthString);
+        char* line = new char[strlen(third)+strlen(strengthString)];
+        strcpy(line,third);
+        strcat(line,strengthString);
+        result->push_back(line);
+    }
     return result;
 }
 

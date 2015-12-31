@@ -54,6 +54,8 @@ protected:
     Player* playerToMove;
     //the target room
     Room* targetRoom;
+    //flag if the agility has been increased
+    bool agilityIncreased;
 };
 
 #endif /* ACTIONMOVEMENT_HPP */
