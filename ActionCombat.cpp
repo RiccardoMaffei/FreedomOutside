@@ -61,6 +61,8 @@ void ActionCombat::execute() {
     if (dynamic_cast<ItemDestructiveWeapon*>(this -> weapon)){
         //remove the weapon from the attacker inventory
         this -> attacker -> getInventory() -> removeByElement(this -> weapon);
+        //delete the weapon
+        delete (this -> weapon);
     }
 }
 

@@ -196,6 +196,8 @@ FedeList<Action*>* Game::computePlayerActions(Player* currentPlayer) {
             result->push_back(new ActionUnwear(currentPlayer));
         }
     }
+    //delete the room mate list
+    delete roomMates;
     //return the result list
     return result;
 }

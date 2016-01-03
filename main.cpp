@@ -50,6 +50,8 @@ int main(int argc, char* argv[]) {
         Game* g = new Game(nPlayer);
         //play the game
         g->play();
+        //when here the game is ended so delete game
+        delete g;
     }
     //if user made some mistakes during invocation
     else{

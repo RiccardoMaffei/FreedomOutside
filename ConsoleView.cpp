@@ -200,7 +200,17 @@ Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
 }
 
 void ConsoleView::showActionOutcome(Action* action) {
-    frameText(action->getOutcome());
+    //get the outcome list
+    FedeList<char*>* messages = action->getOutcome();
+    //show in frame
+    frameText(messages);
+    //for the list
+    for(int i = 0; i < messages -> getSize(); i++){
+        //delete the string at i
+        delete (messages -> get(i));
+    }
+    //delete the list itself
+    delete messages;
 }
 
 
