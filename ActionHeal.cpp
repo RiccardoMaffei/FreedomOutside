@@ -36,12 +36,6 @@ void ActionHeal::getDescription(char dest[]) {
     this -> kit -> getDescription(buffer);
     //concatenate the description
     strcat(dest, buffer);
-    //concat. the 2nd part of the message
-    strcat(dest, " healing value:");
-    //convert the healing value to string
-    itoa(this -> kit -> getHealingValue(), buffer);
-    //concatenate the healing value
-    strcat(dest, buffer);
 }
 
 FedeList<char*>* ActionHeal::getOutcome() {
