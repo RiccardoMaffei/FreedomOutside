@@ -126,13 +126,13 @@ void ConsoleView::frameText(FedeList<char*>* list){
 
 void ConsoleView::showPrologue(int numberOfPlayer){
     cout << "Democratic Kampuchea (Cambodia), 1977." << endl
-         << "Since two years the Red Khmers are in power with a ruthless dictatorship." << endl
-         << "The police have eyes everywhere and every careless action is considered against the regime." << endl
-         << "In the basement of the Soun palace, the party headquarters, the prisoners are detained. " << endl
-         << "Not everyone knows that the building is built above the old prisons of the Khmer empire. " << endl
-         << "Here exists an obscure tradition, a deadly game: to the one who will survive from the other prisoners will be donated freedom." << endl
-         << "Your captors have just pushed you in a damp cell, with other "<<(numberOfPlayer-1)<<" prisoners who will not scruple to kill you." << endl
-         << "You should run away and immediately find a weapon."
+         << "Red Khmers have been in power for 2 years." << endl
+         << "The police have eyes everywhere and every careless action is considered against the party." << endl
+         << "Prisoners are detaind in the basement of Party's palace. " << endl
+         << "Not everyone knows that the palace was built on the old Khmer empire's prison" << endl
+         << "where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners." << endl
+         << "Your captors have just pushed you in a damp cell with other " << (numberOfPlayer-1) << " unscrupulous prisoners who will try to kill you." << endl
+         << "You should run away and immediately find a weapon." << endl
          << "Let the games begin!" << endl << endl;
 
 }
