@@ -116,7 +116,7 @@ class FedeList {
      * Return the size of the list.
      * @return int: the size of the list.
      */
-    int getSize();
+    int getSize() const;
     
     //define Node<ListType>* as NodePointer
     typedef Node<ListType>* NodePointer; 

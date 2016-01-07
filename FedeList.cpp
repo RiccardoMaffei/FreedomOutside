@@ -37,7 +37,7 @@ FedeList<ListType>::FedeList(const FedeList& orig) {
     tmpCopy.listSize = orig.listSize;
     int originSize = orig.getSize();
     for (int i = 0; i < originSize; i++) {
-        this->push_back(*(tmpCopy.get(i)));
+        this->push_back((tmpCopy.get(i)));
     }
 }
 
@@ -354,7 +354,7 @@ FedeList<ListType>* FedeList<ListType>::removeByElement(ListType element){
 
 
 template <class ListType>
-int FedeList<ListType>::getSize(){
+int FedeList<ListType>::getSize() const{
     //return the list size
     return listSize;
 };
