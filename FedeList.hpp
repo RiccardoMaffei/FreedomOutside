@@ -34,6 +34,12 @@ class FedeList {
     FedeList(ListType element);
     
     /**
+     * Create a FedeList copying it from an another FedeList.
+     * @param orig FedeList&lt;ListType*&gt;*: the fedelist to copy.
+     */
+    FedeList(const FedeList<ListType>& orig);
+    
+    /**
      * Destroy a Fedelist.
      */
     virtual ~FedeList();
