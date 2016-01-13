@@ -41,7 +41,9 @@ public:
     virtual void getDescription(char dest[]) = 0;
 
 protected:
-    //the name of the item
+    /**
+     * char[50]: the name of the item
+     */
     char name[50];
 };
 

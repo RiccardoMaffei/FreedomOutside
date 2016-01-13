@@ -1,6 +1,6 @@
 /* 
  * File:   ActionWait.cpp
- * Author: fede
+ * Author: Federico Bertani
  * 
  * Created on 29 dicembre 2015, 19.03
  */

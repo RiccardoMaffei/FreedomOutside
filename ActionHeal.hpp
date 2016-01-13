@@ -12,7 +12,9 @@
 #include "ItemHealthKit.hpp"
 #include "Player.hpp"
 
-
+/**
+ * The healing action. Used to heal a player.
+ */
 class ActionHeal: public Action {
 public:
     /**
@@ -45,9 +47,14 @@ public:
     virtual FedeList<char*>* getOutcome();
 
 protected:
-    //the player to heal
+    /**
+     * Player*: the player to heal.
+     */
     Player* playerToHeal;
-    //the health kit
+    
+    /**
+     * ItemHealthKit*: the health kit.
+     */
     ItemHealthKit* kit;
 };
 

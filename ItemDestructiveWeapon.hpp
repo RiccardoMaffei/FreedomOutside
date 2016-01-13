@@ -43,9 +43,14 @@ public:
     void getDescription(char dest[]);
     
 protected:
-    //minimum damage
+    /**
+     * int: minimum damage
+     */
     int minDamage;
-    //maximum damage
+    
+    /**
+     * int: maximum damage
+     */
     int maxDamage;
 };
 

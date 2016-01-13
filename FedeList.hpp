@@ -16,7 +16,7 @@ using namespace std;
 
 /**
  * FedeList in a multipurpouse list implemented with a template class.
- * It's offers static adding time and linear searching time.
+ * It offers static adding time and linear searching time.
  * @tparam the type of element of the list.
  */
 template <class ListType> 
@@ -122,15 +122,29 @@ class FedeList {
     typedef Node<ListType>* NodePointer; 
     
 protected:
-    //a pointer that always point to the head of the list
+    /**
+     * NodePointer: a pointer that always point to the head of the list
+     */
     NodePointer headCursor;
-    //a pointer that always point to the tail of the list
+    
+    /**
+     * NodePointer: a pointer that always point to the tail of the list
+     */
     NodePointer tailCursor;
-    //a sliding cursor
+    
+    /**
+     * NodePointer: a sliding cursor
+     */
     NodePointer cursor;
-    //the position of the cursor inside of the list, 0 based (-1 in case of empty list)
+    
+    /**
+     * int: the position of the cursor inside of the list, 0 based (-1 in case of empty list)
+     */
     int cursorPosition;
-    //the lenght of the list
+    
+    /**
+     * int: the lenght of the list
+     */
     int listSize;
     
     /**

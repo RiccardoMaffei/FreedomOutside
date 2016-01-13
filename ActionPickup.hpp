@@ -13,7 +13,7 @@
 #include "Item.hpp"
 
 /**
- * The action of pickup an item from a room and put it in the invenory of a player.
+ * The action of picking up an item from a room and putting it in the invenory of a player.
  */
 class ActionPickup : public Action{
 public:
@@ -30,7 +30,7 @@ public:
     virtual ~ActionPickup();
     
     /**
-     * Pickup an item 
+     * Pickup an item.
      */
     virtual void execute();
     
@@ -48,7 +48,15 @@ public:
 
 
 protected:
+    
+    /**
+     * Player*: the player who is going to pickup something.
+     */
     Player* player;
+    
+    /**
+     * Item*: the item to pickup.
+     */
     Item* itemToPickup;
 };
 

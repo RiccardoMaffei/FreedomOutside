@@ -69,11 +69,19 @@ public:
     virtual ~Node();
 
 private:
-    //the value
+    /**
+     * ListType: the value
+     */
     ListType value;
-    //pointer to the next node
+    
+    /**
+     * Node*: pointer to the next node
+     */
     Node* next;
-    //pointer to the previous node
+    
+    /**
+     * Node*: pointer to the previous node
+     */
     Node* prev;
 };
 

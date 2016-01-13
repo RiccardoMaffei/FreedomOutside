@@ -47,10 +47,14 @@ public:
     virtual FedeList<char*>* getOutcome();
 private:
     
-    //the player that wear the armor.
+    /**
+     * Player*: the player that is going to wear the armor.
+     */
     Player* player;
     
-    //the armor to wear.
+    /**
+     * ItemArmor*: the armor to wear.
+     */
     ItemArmor* armor;
 };
 

@@ -44,9 +44,14 @@ public:
     virtual FedeList<char*>* getOutcome();
 
 private:
-    //the player whose armor will be removed.
+    /**
+     * Player*: the player whose armor will be removed.
+     */
     Player* player;
-    //the armor to wear
+    
+    /**
+     * ItemArmor* the armor to unwear.
+     */
     ItemArmor* itemArmor;
 };
 

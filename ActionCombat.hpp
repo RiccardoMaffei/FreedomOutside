@@ -53,15 +53,29 @@ public:
     virtual FedeList<char*>* getOutcome();
 
 private:
-    //the list of attacked players
+    /**
+     * FedeList&lt;Player*&gt;*: the list of attacked players.
+     */
     FedeList<Player*>* attackedPlayers;
-    //the damages inflicted to players
+    
+    /**
+     * FedeList&lt;int&gt;*: the damages inflicted to players.
+     */
     FedeList<int>* inflictedDamages;
-    //the attacker
+    
+    /**
+     * Player*: the attacker.
+     */
     Player* attacker;
-    //the weapon
+    
+    /**
+     * ItemWeapon*: the weapon.
+     */
     ItemWeapon* weapon;
-    //flag if the strenght has been increased
+    
+    /**
+     * bool: flag if the strenght has been increased.
+     */
     bool strengthIncreased;
 };
 

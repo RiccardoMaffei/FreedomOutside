@@ -147,19 +147,39 @@ public:
 private:
 
 protected:
-    //the x coordinate of the room
+    /**
+     * int: the x coordinate of the room
+     */
     int x;
-    //the y coordinate of the room
+    
+    /**
+     * int: the y coordinate of the room
+     */
     int y;
-    //north room pointer (aka north door)
+    
+    /**
+     * Room*: north room pointer (aka north door)
+     */
     Room* north;
-    //south room pointer (aka south door)
+    
+    /**
+     * Room*: south room pointer (aka south door)
+     */
     Room* south;
-    //east room pointer (aka east door)
+    
+    /**
+     * Room*: east room pointer (aka east door)
+     */
     Room* east;
-    //west room pointer (aka west door)
+    
+    /**
+     * Room*: west room pointer (aka west door)
+     */
     Room* west;
-    //the list of items in the room (E.g.: on the ground)
+    
+    /**
+     * FedeList&lt;Item*&gt;*: the list of items in the room (E.g.: on the ground)
+     */
     FedeList<Item*>* items;
 };
 

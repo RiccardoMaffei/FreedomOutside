@@ -40,7 +40,9 @@ public:
     void getDescription(char dest[]);
     
 protected:
-    //healing power (not a factor but measured in health point).
+    /**
+     * int: healing power (not a factor but measured in health point).
+     */
     int healingValue;
 };
 

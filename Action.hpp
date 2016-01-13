@@ -30,7 +30,7 @@ public:
      */
     virtual void getDescription(char dest[]) = 0;
     
-    //TODO check in every action if it has been executed or not.
+    //TODO: check in every action if it has been executed or not.
     /**
      * Get the action outcome.
      * Remeber to deallocate every pointer of the list.

@@ -1,6 +1,6 @@
 /* 
  * File:   ActionWear.cpp
- * Author: fede
+ * Author: Federico Bertani
  * 
  * Created on 29 dicembre 2015, 18.36
  */

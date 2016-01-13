@@ -43,15 +43,29 @@ public:
     
     
 protected:
-    //the number of player
+    /**
+     * int: the number of player
+     */
     int nPlayer;
-    //the game map
+    
+    /**
+     * Map*: the game map
+     */
     Map* map;
-    //the list of players
+    
+    /**
+     * FedeList&lt;Player*&gt;*: the list of players
+     */
     FedeList<Player*>* playerList;
-    //the view
+    
+    /**
+     * View*: the view
+     */
     View* view;
-    //index of the current Player
+    
+    /**
+     * int: index of the current Player
+     */
     int currPlayer;
     
 private:

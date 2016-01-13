@@ -64,7 +64,7 @@ public:
     int getSideLeft();
     
     /**
-     * Return an ordered list of visible rooms from the given one. (visibility +/- 2x +/- 2y).
+     * Return an ordered list of visible rooms from the given one. (e.g. visibility +/- 2x +/- 2y).
      * The area of visible room is a square not a circle. 
      * @param center Room*: the center room.
      * @param radius int: radius of visibility greater or equal to zero.
@@ -89,13 +89,25 @@ protected:
      * @param r Room*. the room to insert
      */
     void insertRoom(Room* r);
-    //the singleton instance
+    
+    /**
+     * Map*: the singleton instance
+     */
     static Map* instance;
-    //the room where the map starts (coordinates 0,0)
+    
+    /**
+     * Room*: the room where the map starts (coordinates 0,0)
+     */
     Room* entryPoint;
-    //the list of room of a Map
+    
+    /**
+     * FedeList&lt;Room*&gt;*: the list of room of a Map useful for better search by coordinate
+     */
     FedeList<Room*>* roomList;
-    //the left side of the list
+    
+    /**
+     * int: the left side of the list
+     */
     int sideLeft;
 };
 

@@ -53,11 +53,19 @@ public:
     virtual FedeList<char*>* getOutcome();
 
 protected:
-    //the player
+    /**
+     * Player*: the player.
+     */
     Player* playerToMove;
-    //the target room
+    
+    /**
+     * Room*: the target room.
+     */
     Room* targetRoom;
-    //flag if the agility has been increased
+    
+    /**
+     * bool: flag if the agility has been increased.
+     */
     bool agilityIncreased;
 };
 

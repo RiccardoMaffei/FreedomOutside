@@ -62,11 +62,20 @@ protected:
      * @param dest char[]: a string to concat the direction.Must be big enough (>8)
      */
     void concatDirection(char dest[]);
-    //the map to update
+    
+    /**
+     * Map*: the map to update.
+     */
     Map* map;
-    //the player to move
+    
+    /**
+     * Player*: the player to move.
+     */
     Player* playerToMove;
-    //the direction
+    
+    /**
+     * movementDirection_t: the direction.
+     */
     movementDirection_t direction;
 };
 

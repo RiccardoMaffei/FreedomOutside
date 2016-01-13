@@ -41,7 +41,9 @@ public:
     void getDescription(char dest[]);
     
 protected:
-    //armor protection factor
+    /**
+     * double: armor protection factor
+     */
     double protectionFactor;
 };
 

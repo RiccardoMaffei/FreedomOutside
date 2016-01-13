@@ -41,7 +41,9 @@ public:
     void getDescription(char dest[]);
     
 protected:
-    //the damage base value
+    /**
+     * int: the base damage value
+     */
     int damageValue;
 };
 

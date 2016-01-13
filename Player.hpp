@@ -159,23 +159,49 @@ public:
 private:
 
 protected:
-    //the static idCounter
+    /**
+     * int: the static idCounter
+     */
     static int idCounter;
-    //the player id
+    
+    /**
+     * int: the player id
+     */
     int id;
-    //the player username
+    
+    /**
+     * char[50]: the player username
+     */
     char username[50];
-    //the current player room
+    
+    /**
+     * Room*: the current player room
+     */
     Room* currentRoom;
-    //the player health
+    
+    /**
+     * int: the player health
+     */
     int health;
-    //the player inventory
+    
+    /**
+     * FedeList&lt;Item*&gt;*: the player inventory
+     */
     FedeList<Item*>* inventory;
-    //the player armor
+    
+    /**
+     * ItemArmor*: the player armor
+     */
     ItemArmor* armor;
-    //player strength
+    
+    /**
+     * double: player strength
+     */
     double strength;
-    //player agility
+    
+    /**
+     * double: player agility
+     */
     double agility;
 };
 
