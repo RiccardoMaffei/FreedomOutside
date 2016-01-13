@@ -378,7 +378,7 @@ void ConsoleView::showMap(Map* map, Player* player) {
     //for the list
     for(int i = 0; i < listToFrame -> getSize(); i++){
         //delete the string at i
-        delete (listToFrame -> get(i));
+        delete[] (listToFrame -> get(i));
     }
     //delete the list itself
     delete listToFrame;
