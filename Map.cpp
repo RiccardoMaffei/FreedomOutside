@@ -30,8 +30,13 @@ Map::Map(const Map& orig) {
 }
 
 Map::~Map() {
-    //destroy the whole room map recursively
-    delete (this -> entryPoint);
+//    //destroy the whole room map recursively
+//    delete (this -> entryPoint);
+    //for the list of rooms
+    for(int i = 0; i < this -> roomList -> getSize(); i++){
+        //delete the room at i
+        delete (this -> roomList -> get(i));
+    }
     //delete the room list
     delete (this -> roomList);
     //set the static instance pointer as NULL
