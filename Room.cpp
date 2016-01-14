@@ -81,26 +81,26 @@ Room::~Room() {
     }
     //delete the list
     delete (this -> items);
-    //if the northern room is not null
-    if(this -> north != NULL){
-        //recursively delete northern room
-        delete(this -> north);
-    }
-    //if the southern room is not null
-    if(this -> south != NULL){
-        //recursively delete southern room
-        delete(this -> south);
-    }
-    //if the eastern room is not null
-    if(this -> east != NULL){
-        //recursively delete eastern room
-        delete(this -> east);
-    }
-    //if the western room is not null
-    if(this -> west != NULL){
-        //recursively delete western room
-        delete(this -> west);
-    }
+//    //if the northern room is not null
+//    if(this -> north != NULL){
+//        //recursively delete northern room
+//        delete(this -> north);
+//    }
+//    //if the southern room is not null
+//    if(this -> south != NULL){
+//        //recursively delete southern room
+//        delete(this -> south);
+//    }
+//    //if the eastern room is not null
+//    if(this -> east != NULL){
+//        //recursively delete eastern room
+//        delete(this -> east);
+//    }
+//    //if the western room is not null
+//    if(this -> west != NULL){
+//        //recursively delete western room
+//        delete(this -> west);
+//    }
     //x, y and pointers memory will be automatically deleted
 }
 
