@@ -7,7 +7,7 @@
 
 #include "../model/Randomizer.hpp"
 #include "../model/ItemSimpleWeapon.hpp"
-#include "../model/ItemDestructiveWeapon.hpp""
+#include "../model/ItemDestructiveWeapon.hpp"
 #include "../model/ItemArmor.hpp"
 #include "../model/ItemHealthKit.hpp"
 #include <time.h>

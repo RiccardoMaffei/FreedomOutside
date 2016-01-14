@@ -10,7 +10,7 @@
 #include "../model/ActionRelativeMovement.hpp"
 #include "../model/ActionDrop.hpp"
 #include "../model/ItemSimpleWeapon.hpp"
-#include "../model/ItemDestructiveWeapon.hpp""
+#include "../model/ItemDestructiveWeapon.hpp"
 #include "../model/ItemHealthKit.hpp"
 #include "../model/ActionCombat.hpp"
 #include "../model/ActionHeal.hpp"

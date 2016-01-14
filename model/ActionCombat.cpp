@@ -8,7 +8,7 @@
 #include <math.h>
 
 #include "../model/ActionCombat.hpp"
-#include "../model/ItemDestructiveWeapon.hpp""
+#include "../model/ItemDestructiveWeapon.hpp"
 
 ActionCombat::ActionCombat(Player* attacker, ItemWeapon* weapon, FedeList<Player*>* listOfPlayers) {
     //save the attacker

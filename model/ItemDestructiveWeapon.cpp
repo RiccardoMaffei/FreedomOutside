@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <ctime>
-#include "../model/ItemDestructiveWeapon.hpp""
+#include "../model/ItemDestructiveWeapon.hpp"
 
 ItemDestructiveWeapon::ItemDestructiveWeapon(const char name[], int min, int max): ItemWeapon(name) {
     //if min is less than 1
