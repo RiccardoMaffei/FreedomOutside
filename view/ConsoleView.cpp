@@ -146,7 +146,7 @@ void ConsoleView::showPrologue(int numberOfPlayer){
 //         << "where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners." << endl
 //         << "Your captors have just pushed you in a damp cell with other " << (numberOfPlayer-1) << " unscrupulous prisoners who will try to kill you." << endl
 //         << "You should run away and immediately find a weapon." << endl
-//         << "Let the games begin!" << endl << endl;
+//         << "Let the game begin!" << endl << endl;
     //the numer of player as string
     char nPlayer[20];
     //convert the number of player
@@ -164,7 +164,7 @@ void ConsoleView::showPrologue(int numberOfPlayer){
     //concat the last part of the prologue
     strcat(prologue, " unscrupulous prisoners who will try to kill you.\n"
                         "You should run away and immediately find a weapon.\n"
-                        "Let the games begin!\n\n");
+                        "Let the game begin!\n\n");
     //print slowly
     slow_print(prologue, 70000);
 }
