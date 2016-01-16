@@ -24,7 +24,7 @@ void ConsoleView::getUsername(char dest[],int playerNumber) {
     //calculate the prisoner number
     int prisonerNumber = Player::STARTING_PRISONER_NUMBER + playerNumber + 1;
     //print the prompt
-    cout << "Prisoner " << prisonerNumber << "! What's your name?\n";
+    cout << "Prisoner #" << prisonerNumber << "! What's your name?\n";
     //get the destination
     cin >> dest;
 }
