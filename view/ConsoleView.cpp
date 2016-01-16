@@ -653,8 +653,8 @@ void ConsoleView::showWinner(Player* p) {
         strcpy(completeName, "#");
         //the buffer for the number of the prisoner
         char number[10];
-        //add 15687 for fiction and trasform it to string
-        itoa((15687 + p -> getId()), number);
+        //add numbers for fiction and trasform it to string
+        itoa((Player::STARTING_PRISONER_NUMBER + p -> getId()), number);
         //concat the number of the prisoner
         strcat(completeName, number);
         //concat "("
