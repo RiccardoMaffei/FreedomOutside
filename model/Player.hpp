@@ -53,6 +53,11 @@ public:
     static double const MIN_AGILITY = 1.00;
     
     /**
+     * int: the starting number for prisoners numbering
+     */
+    static int const STARTING_PRISONER_NUMBER = 15687;
+    
+    /**
      * Construct a Player with the given username.
      * @param username char[]: the Player's username max 49 char.
      * @param currentRoom Room*: the current Player's room.

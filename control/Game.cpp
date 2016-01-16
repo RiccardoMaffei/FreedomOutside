@@ -213,7 +213,7 @@ void Game::populatePlayers() {
         //the username
         char username[50];
         //get the username
-        this -> view -> getUsername(username);
+        this -> view -> getUsername(username,i);
         //instance a new player
         Player* player = new Player(username, this -> map -> getEntryPoint());
         //add the player to the player list

@@ -20,9 +20,11 @@ ConsoleView::ConsoleView() {
 ConsoleView::~ConsoleView() {
 }
 
-void ConsoleView::getUsername(char dest[]) {
+void ConsoleView::getUsername(char dest[],int playerNumber) {
+    //calculate the prisoner number
+    int prisonerNumber = Player::STARTING_PRISONER_NUMBER + playerNumber + 1;
     //print the prompt
-    cout << "Prisoner! What's your name?\n";
+    cout << "Prisoner " << prisonerNumber << "! What's your name?\n";
     //get the destination
     cin >> dest;
 }
@@ -466,7 +468,7 @@ void ConsoleView::showShortInfo(FedeList<Player*>* players) {
         //the number
         char number[10];
         //save the number in buffer
-        itoa((15687 + p -> getId()), number);
+        itoa((Player::STARTING_PRISONER_NUMBER + p -> getId()), number);
         //concat the number
         strcat(buffer, number);
         //concat "("

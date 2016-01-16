@@ -33,8 +33,9 @@ public:
     /**
      * Ask the username and copies it in dest.
      * @param dest char[]: an array big enough to hold the username.
+     * @param playerNumber int: a number to identify the player to get the username.
      */
-    void getUsername(char dest[]);
+    void getUsername(char dest[],int playerNumber);
     
     /**
      * Show the game splash screen as ascii art.
