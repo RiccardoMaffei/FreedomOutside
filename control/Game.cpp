@@ -5,6 +5,7 @@
  * Created on 16 dicembre 2015, 14.59
  */
 
+#include <unistd.h>
 #include "../control/Game.hpp"
 #include "../view/ConsoleView.hpp"
 #include "../model/ActionRelativeMovement.hpp"
@@ -18,6 +19,7 @@
 #include "../model/ActionWear.hpp"
 #include "../model/ActionUnwear.hpp"
 #include "../model/ActionWait.hpp"
+using namespace std;
 
 Game::Game() {
     //call the init with number of player = 4
@@ -103,6 +105,9 @@ void Game::play() {
         delete actions;
         //delete the list of roommates
         delete roomMates;
+        //wait 1.5 seconds ())
+        //usleep(1500000);
+        //NOTE: removed from here and added dynamic wait in show action outcome
     }
     //get the next alive player (may be null)
     Player* winner = this -> getNextPlayer();

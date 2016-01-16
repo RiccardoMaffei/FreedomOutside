@@ -12,6 +12,7 @@
 #include "../view/ConsoleView.hpp"
 #include "../model/StringUtils.hpp"
 #include <limits>
+#include <unistd.h>
 
 ConsoleView::ConsoleView() {
 }
@@ -124,17 +125,46 @@ void ConsoleView::frameText(FedeList<char*>* list){
     cout << endl;
 }
 
-void ConsoleView::showPrologue(int numberOfPlayer){
-    cout << "Democratic Kampuchea (Cambodia), 1977." << endl
-         << "Red Khmers have been in power for 2 years." << endl
-         << "The police have eyes everywhere and every careless action is considered against the party." << endl
-         << "Prisoners are detaind in the basement of Party's palace. " << endl
-         << "Not everyone knows that the palace was built on the old Khmer empire's prison" << endl
-         << "where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners." << endl
-         << "Your captors have just pushed you in a damp cell with other " << (numberOfPlayer-1) << " unscrupulous prisoners who will try to kill you." << endl
-         << "You should run away and immediately find a weapon." << endl
-         << "Let the games begin!" << endl << endl;
+void ConsoleView::slow_print(const char string[], int delay){
+    //for the length of the string
+    for (int i = 0; i < strlen(string); i++) { 
+        //print the char at i and flush
+        cout << string[i] << flush;
+        //sleep for the given delay
+        usleep(delay);
+    }
+}
 
+void ConsoleView::showPrologue(int numberOfPlayer){
+//    cout << "Democratic Kampuchea (Cambodia), 1977." << endl
+//         << "Red Khmers have been in power for 2 years." << endl
+//         << "The police have eyes everywhere and every careless action is considered against the party." << endl
+//         << "Prisoners are detaind in the basement of Party's palace. " << endl
+//         << "Not everyone knows that the palace was built on the old Khmer empire's prison" << endl
+//         << "where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners." << endl
+//         << "Your captors have just pushed you in a damp cell with other " << (numberOfPlayer-1) << " unscrupulous prisoners who will try to kill you." << endl
+//         << "You should run away and immediately find a weapon." << endl
+//         << "Let the games begin!" << endl << endl;
+    //the numer of player as string
+    char nPlayer[20];
+    //convert the number of player
+    itoa((numberOfPlayer-1), nPlayer);
+    //the prologue
+    char prologue[1024] = "Democratic Kampuchea (Cambodia), 1977.\n"
+                "Red Khmers have been in power for 2 years.\n"
+                "The police have eyes everywhere and every careless action is considered against the party.\n"
+                "Prisoners are detaind in the basement of Party's palace. \n"
+                "Not everyone knows that the palace was built on the old Khmer empire's prison\n"
+                "where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners.\n"
+                "Your captors have just pushed you in a damp cell with other ";
+    //concat the number of player
+    strcat(prologue, nPlayer);
+    //concat the last part of the prologue
+    strcat(prologue, " unscrupulous prisoners who will try to kill you.\n"
+                        "You should run away and immediately find a weapon.\n"
+                        "Let the games begin!\n\n");
+    //print slowly
+    slow_print(prologue, 70000);
 }
 
 Action* ConsoleView::selectAction(FedeList<Action*>* actions) {
@@ -204,6 +234,8 @@ void ConsoleView::showActionOutcome(Action* action) {
     FedeList<char*>* messages = action->getOutcome();
     //show in frame
     frameText(messages);
+    //wait a bit to let the user read
+    usleep(strlen(messages -> get(0)) * 50000);
     //for the list
     for(int i = 0; i < messages -> getSize(); i++){
         //delete the string at i

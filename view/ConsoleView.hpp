@@ -54,8 +54,8 @@ public:
     virtual Action* selectAction(FedeList<Action*>* actions);
     
     /**
-     * Show the outcome of a given action.
-     * The action have to been executed.
+     * Show the outcome of a given action. This method introduces a delay dynamically according to the length of the message.
+     * The action should have been already executed.
      * @param action Action*: the action to show the outcome.
      */
     virtual void showActionOutcome(Action* action);
@@ -84,6 +84,13 @@ private:
      * @param FedeList&lt;char*&gt;: a list that contain strings.
      */
     void frameText(FedeList<char*>* list);
+    
+    /**
+     * Print the given string slowly using the given delay time.
+     * @param string char[]: the string.
+     * @param delay int: delay in microseconds.
+     */
+    void slow_print(const char string[], int delay);
     
     /**
      * Show a prompt tha inform the player that is his turn.
