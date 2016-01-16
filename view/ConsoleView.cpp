@@ -154,7 +154,7 @@ void ConsoleView::showPrologue(int numberOfPlayer){
     //the prologue
     char prologue[1024] = "Democratic Kampuchea (Cambodia), 1977.\n"
                 "Red Khmers have been in power for 2 years.\n"
-                "The police have eyes everywhere and every careless action is considered against the party.\n"
+                "The police has eyes everywhere and every careless action is considered against the party.\n"
                 "Prisoners are detaind in the basement of Party's palace. \n"
                 "Not everyone knows that the palace was built on the old Khmer empire's prison\n"
                 "where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners.\n"
