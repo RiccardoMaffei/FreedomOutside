@@ -1,10 +1,12 @@
 Freedom Outside
 ===============
 Freedom Outside is a simple console game for the Programming course written by:  
-* Riccardo Maffei
-* Federico Bertani
-* Danilo Branca
+* Riccardo Maffei (GH: @RiccardoMaffei TW:@Riccardo_Maffei)
+* Federico Bertani (GH: @federicoB)
+* Danilo Branca (GH: tepiddust)
 
+We have been asked to set the repository as private by the teachers.  
+**The repository will be set as public at the end of the course.**
 
 Download
 ---------
@@ -127,6 +129,7 @@ Actions can be summarized as follows:
 * Heal yourself using potions.
 
 ###Items
+Items are everything that can be picked up or dropped. They spawn around the map according to some probability rules.  
 Items are divided as follows:
 
 * Weapons
@@ -136,7 +139,74 @@ Items are divided as follows:
 * Armors
 
 #####Weapons
+Weapons are special items which can be used to combat against other player.  
+Simple weapons are weapons with a standard damage value and are used against one prisoner only while destructive weapons are used against every prisoner in the room and they have a random damage value in a range.
+
+The simple weapons are:  
+
+Weapon name | Damage value | Probability %
+----------- | ------------ | -------------
+Rotten wooden plank | 1 | 21
+Wooden plank | 2 | 20
+Sharp wooden plank | 3 | 19
+Rotten stick | 4 | 18
+Stick | 5 | 17
+Rusty iron pipe | 6 | 16
+Iron pipe | 7 | 15
+Hammer | 8 | 14
+Knife | 9 | 13
+Sword | 10 | 12
+Spear | 15 | 11
+Axe | 20 | 10
+Iron mace | 30 | 9
+Blowgun | 29 | 8
+Bow | 25 | 7
+Slingshot | 30 | 6
+Hunting Bow | 35 | 5
+Handgun | 45 | 4
+Rifle | 60 | 3
+Shotgun | 70 | 2
+Ak-47 | 90 | 1
+
+The destructive weapons are:  
+
+
+Weapon name | Min damage value | Min damage value | Probability %
+----------- | ---------------- | ---------------- | -------------
+Molotov | 30 | 80 | 6
+Granade | 35 | 85 | 5
+TNT | 50 | 100 | 2
 
 #####Health kits
+Health kits are special items which can be used to heal yourself.
+
+They are:  
+
+Kit name | Heal value | Probability %
+-------- | ---------- | -------------
+Tiny healing potion | 5 | 25
+Small healing potion | 10 | 15
+Medium healing potion | 30 | 5
+Big healing potion | 50 | 2
+Huge healing potion | 100 | 1
 
 #####Armors
+Armors are special items which can be worn and used to protect yourself against damages.
+
+They are:  
+
+Armor name | Protection factor | Probability %
+---------- | ----------------- | -------------
+Rags armor | 1.1 | 2
+Leather armor | 1.2 | 1
+Hide armor | 1.3 | 1
+Copper armor | 1.4 | 9
+Bronze armor | 1.5 | 7
+Iron armor | 1.6 | 5
+Steel armor | 1.7 | 3
+Gold armor | 1.8 | 2
+Diamond armor | 1.9 | 1
+
+License
+-------
+We haven't chosen a license yet.
