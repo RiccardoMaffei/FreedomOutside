@@ -41,6 +41,8 @@ Map::~Map() {
     delete (this -> roomList);
     //set the static instance pointer as NULL
     Map::instance = NULL;
+    //delete the singleton randomizer (if already done, this construct and destroy)
+    delete (Randomizer::getInstance());
 }
 
 Map* Map::getInstance() {
@@ -67,7 +69,8 @@ Room* Map::generateRoom(int x,int y){
     //construct an empty item list
     FedeList<Item*>* itemList = new FedeList<Item*>();
     //NOTE: in this implementation we don't check for existence for performace reasons.
-    Randomizer::generateRoomItems(itemList);
+    //generate the room items
+    Randomizer::getInstance() -> generateRoomItems(itemList);
     //get the northern room (may be NULL)
     Room* n = findRoomByCoordinates(x, y-1);
     //get the southern room (may be NULL)

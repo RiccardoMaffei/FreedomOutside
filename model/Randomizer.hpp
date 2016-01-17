@@ -13,26 +13,35 @@
 /**
  * This class contains Game randomization core. Every random generation in the game should be handled here.
  * This class may use game difficulty to edit statistics.
+ * This class is singletone.
  */
 class Randomizer {
 public:
+    
+    /**
+     * Get the singleton instance of the randomizer.
+     * @return Randomizer*: the randomizer instance
+     */
+    static Randomizer* getInstance();
+    
+    /**
+     * Destroy a randomizer object.
+     */
+    virtual ~Randomizer();
     
     /**
      * Generate a random list of items and save it to the given list.
      * This is used for room generation.
      * @param items FedeList&lt;Item*&gt;*: the list where add the items to.
      */
-    static void generateRoomItems(FedeList<Item*>* items);
-private:
+    void generateRoomItems(FedeList<Item*>* items);
+
+protected:
     /**
-     * Create a randomizer object. Useless because Ranzomizer has only static method so far.
+     * Create a randomizer object.
      */
     Randomizer();
     
-    /**
-     * Destroy a randomizer object. Useless because Randomizer has only static mehtods so far.
-     */
-    virtual ~Randomizer();
     
     /**
      * Generate a simple weapong with given name and damage if the given probability is hit.
@@ -41,7 +50,7 @@ private:
      * @param probability int: the probability that the weapon have to appear.
      * @param items FedeList&lt;Item*&gt;*: the list where add the items to.
      */
-    static void generateSimpleWeapon(const char name[],int damage,int probability,FedeList<Item*>* items);
+    void generateSimpleWeapon(const char name[],int damage,int probability,FedeList<Item*>* items);
     
     /**
      * Generate a destructive weapon with the given name and damage range if the given probability is hit.
@@ -51,7 +60,7 @@ private:
      * @param probability int: the probability that the weapon have to appear.
      * @param items FedeList&lt;Item*&gt;*: the list where add the items to.
      */
-    static void generateDestructiveWeapon(const char name[],int damageMin,int damageMax,int probability,FedeList<Item*>* items);
+    void generateDestructiveWeapon(const char name[],int damageMin,int damageMax,int probability,FedeList<Item*>* items);
     
     /**
      * Generate an armor item with the given name and protection factor if the given probability is hit.
@@ -60,7 +69,7 @@ private:
      * @param probability int: the probability that the armor have to appear.
      * @param items FedeList&lt;Item*&gt;*: the list where add the items to.
      */
-    static void generateArmorItem(const char name[],double protectionFactor,int probability,FedeList<Item*>* items);
+    void generateArmorItem(const char name[],double protectionFactor,int probability,FedeList<Item*>* items);
     
     /**
      * Generate a health kit with the given name and healing value if the given probability is hit.
@@ -69,14 +78,19 @@ private:
      * @param probability int: the probability that the healith kit have to appear.
      * @param items FedeList&lt;Item*&gt;*: the list where add the items to.
      */
-    static void generateHealthKit(const char name[],int healingValue,int probability,FedeList<Item*>* items);
+    void generateHealthKit(const char name[],int healingValue,int probability,FedeList<Item*>* items);
     
     /**
      * This function say if a given probability is hit or not.
      * @param probability int: the probability that the function return true in %.
      * @return bool: true if the probability is hit, false otherwise.
      */
-    static bool shouldGenerate(int probability);
+    bool shouldGenerate(int probability);
+    
+    /**
+     * Randomizer*: the singleton instance
+     */
+    static Randomizer* instance;
 };
 
 #endif /* RANDOMIZER_HPP */

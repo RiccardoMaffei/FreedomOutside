@@ -13,10 +13,25 @@
 #include <time.h>
 #include <stdlib.h>
 
+//initialize the instance
+Randomizer* Randomizer::instance = NULL;
+
+Randomizer* Randomizer::getInstance() {
+    //if the instance pointer is null
+    if (Randomizer::instance == NULL){
+        //construct a new randomizer and save it to the static instance
+        Randomizer::instance = new Randomizer();
+    }
+    //return the instance pointer
+    return Randomizer::instance;
+}
+
 Randomizer::Randomizer() {
 }
 
 Randomizer::~Randomizer() {
+    //set the static instance pointer as NULL
+    Randomizer::instance = NULL;
 }
 
 void Randomizer::generateRoomItems(FedeList<Item*>* items) {
