@@ -42,7 +42,7 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
     generateSimpleWeapon("Wooden plank",        2, 20, items);
     generateSimpleWeapon("Sharp wooden plank",  3, 19, items);
     generateSimpleWeapon("Rotten stick",        4, 18, items);
-    generateSimpleWeapon("stick",               5, 17, items);
+    generateSimpleWeapon("Stick",               5, 17, items);
     generateSimpleWeapon("Rusty iron pipe",     6, 16, items);
     generateSimpleWeapon("Iron pipe",           7, 15, items);
     generateSimpleWeapon("Hammer",              8, 14, items);
