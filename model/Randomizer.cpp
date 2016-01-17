@@ -27,6 +27,8 @@ Randomizer* Randomizer::getInstance() {
 }
 
 Randomizer::Randomizer() {
+    //initialize the random seed
+    srand(time(NULL));
 }
 
 Randomizer::~Randomizer() {
@@ -120,10 +122,11 @@ void Randomizer::generateSimpleWeapon(const char name[], int damage, int probabi
 bool Randomizer::shouldGenerate(int probability) {
     //the result
     bool res = false;
-    //reset the seed at every call for maximium randomness.
+/*    //reset the seed at every call for maximium randomness.
     //also sum to the time a random number, 
     //in this way if we call rand() two times in the same second the result numbers are different.
     srand(time(NULL)+rand());
+ */
     //generate the number betwen 1 and 100
     int n = 1 + (rand() % 100);
     //if the probability is hit
