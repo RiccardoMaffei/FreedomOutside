@@ -197,9 +197,9 @@ They are:
 
 Armor name | Protection factor | Probability %
 ---------- | ----------------- | -------------
-Rags armor | 1.1 | 2
-Leather armor | 1.2 | 1
-Hide armor | 1.3 | 1
+Rags armor | 1.1 | 20
+Leather armor | 1.2 | 18
+Hide armor | 1.3 | 15
 Copper armor | 1.4 | 9
 Bronze armor | 1.5 | 7
 Iron armor | 1.6 | 5
