@@ -43,7 +43,7 @@ About the game
 >Democratic Kampuchea (Cambodia), 1977.  
 >Red Khmers have been in power for 2 years.  
 >The police has eyes everywhere and every careless action is considered against the party.  
->Prisoners are detaind in the basement of Party's palace.  
+>Prisoners are detained in the basement of Party's palace.  
 >Not everyone knows that the palace was built on the old Khmer empire's prison where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners.  
 >Your captors have just pushed you in a damp cell with other unscrupulous prisoners who will try to kill you. You should run away and immediately find a weapon.  
 >Let the game begin!
@@ -51,7 +51,7 @@ About the game
 ###The UI
 In every turn a basic interface is shown to the player.  
 The interface is composed by:    
-* a map
+* A map
 * The current prisoner's name
 * The prisoner's info
 * The prisoners in the room
@@ -60,7 +60,7 @@ The interface is composed by:
 
 #####The map
 The map section shows the explored part of the map from the perspective of the current prisoner.
-Every prisoner can view only up to 2 rooms away from his position in every direction but can't see if and where are other prisoners because the lighting system is not working propely in the old prison and the other prisoners are hidden.  
+Every prisoner can view only up to 2 rooms away from his position in every direction but can't see if and where are other prisoners because the lighting system is not working properly in the old prison and the other prisoners are hidden.  
 Every prisoner can see other prisoners if they are in the same room.
 
 #####The current prisoner's name
@@ -112,7 +112,7 @@ Given damages are computed with the following formula:
 ````
 given_damages = strength * weapon_damage_value
 ````
-In case of destructive weapon the damage value is random (between a range) and when the attacker and the attacked player are the same, the given damages are divided by the attacker agility simulating his/her agility to run away (E.g.: when throwing a granade).
+In case of destructive weapon the damage value is random (between a range) and when the attacker and the attacked player are the same, the given damages are divided by the attacker agility simulating his/her agility to run away (E.g.: when throwing a grenade).
 
 #####Received damages
 Received damages are computed with the following formula:  
@@ -139,7 +139,7 @@ Items are divided as follows:
 * Armors
 
 #####Weapons
-Weapons are special items which can be used to combat against other player.  
+Weapons are special items which can be used to combat against other players.  
 Simple weapons are weapons with a standard damage value and are used against one prisoner only while destructive weapons are used against every prisoner in the room and they have a random damage value in a range.
 
 The simple weapons are:  
@@ -174,7 +174,7 @@ The destructive weapons are:
 Weapon name | Min damage value | Min damage value | Probability %
 ----------- | ---------------- | ---------------- | -------------
 Molotov | 30 | 80 | 6
-Granade | 35 | 85 | 5
+Grenade | 35 | 85 | 5
 TNT | 50 | 100 | 2
 
 #####Health kits
