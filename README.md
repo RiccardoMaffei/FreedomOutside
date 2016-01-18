@@ -3,7 +3,7 @@ Freedom Outside
 Freedom Outside is a simple console game for the Programming course written by:  
 * Riccardo Maffei (GH: @RiccardoMaffei TW:@Riccardo_Maffei)
 * Federico Bertani (GH: @federicoB)
-* Danilo Branca (GH: tepiddust)
+* Danilo Branca (GH: @tepiddust)
 
 We have been asked to set the repository as private by the professors.  
 **The repository will be set as public at the end of the course.**
