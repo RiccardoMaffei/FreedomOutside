@@ -80,7 +80,7 @@ void Randomizer::generateRoomItems(FedeList<Item*>* items) {
     //--------------END SIMPLE WEAPONS----------------
     //--------------DESTRUCTIVE WEAPONS----------------
     generateDestructiveWeapon("Molotov",    30, 80, 6, items);
-    generateDestructiveWeapon("Granade",    35, 85, 5, items);
+    generateDestructiveWeapon("Grenade",    35, 85, 5, items);
     generateDestructiveWeapon("TNT",        50, 100, 2, items);
     //------------END DESTRUCTIVE WEAPONS--------------
     //--------------------ARMORS----------------------
