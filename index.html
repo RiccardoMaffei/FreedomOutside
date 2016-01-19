@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Freedom Outside by RiccardoMaffei</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Freedom Outside</h1>
+        <h2>A simple game for the Programming course.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/RiccardoMaffei/FreedomOutside/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/RiccardoMaffei/FreedomOutside/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/RiccardoMaffei/FreedomOutside" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="freedom-outside" class="anchor" href="#freedom-outside" aria-hidden="true"><span class="octicon octicon-link"></span></a>Freedom Outside</h1>
+
+<p>Freedom Outside is a simple console game for the Programming course written by:  </p>
+
+<ul>
+<li>Riccardo Maffei (GH: <a href="https://github.com/RiccardoMaffei" class="user-mention">@RiccardoMaffei</a> TW:@Riccardo_Maffei)</li>
+<li>Federico Bertani (GH: <a href="https://github.com/federicoB" class="user-mention">@federicoB</a>)</li>
+<li>Danilo Branca (GH: <a href="https://github.com/tepiddust" class="user-mention">@tepiddust</a>)</li>
+</ul>
+
+<p>We have been asked to set the repository as private by the professors.<br>
+<strong>The repository will be set as public at the end of the course.</strong></p>
+
+<h2>
+<a id="table-of-content" class="anchor" href="#table-of-content" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of content</h2>
+
+<ul>
+<li><a href="#download">Download</a></li>
+<li><a href="#how-to-compile">How to compile</a></li>
+<li><a href="#how-to-play">How to play</a></li>
+<li>
+<a href="#about-the-game">About the game</a>
+
+<ul>
+<li><a href="#prologue">Prologue</a></li>
+<li>
+<a href="#the-UI">The UI</a>
+
+<ul>
+<li><a href="#the-map">The map</a></li>
+<li><a href="#the-current-prisoners-name">The current prisoner's name</a></li>
+<li><a href="#the-prisoners-info">The prisoner's info</a></li>
+<li><a href="#the-prisoners-in-the-room">The prisoners in the room</a></li>
+<li><a href="#the-list-of-action">The list of action</a></li>
+<li><a href="#the-action-result">The action result</a></li>
+</ul>
+</li>
+<li><a href="#the-game-flow">The game flow</a></li>
+<li>
+<a href="#prisoners-statistics-and-damage-logic">Prisoner's statistics and damage logic</a>
+
+<ul>
+<li><a href="#given-damages">Given damages</a></li>
+<li><a href="#received-damages">Received damages</a></li>
+</ul>
+</li>
+<li><a href="#actions">Actions</a></li>
+<li>
+<a href="#items">Items</a>
+
+<ul>
+<li><a href="#weapons">Weapons</a></li>
+<li><a href="#health-kits">Health kits</a></li>
+<li><a href="#armors">Armors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>The latest source of Freedom Outside can be downloaded from:</p>
+
+<ul>
+<li><a href="https://github.com/RiccardoMaffei/FreedomOutside/">https://github.com/RiccardoMaffei/FreedomOutside/</a></li>
+<li><a href="https://github.com/RiccardoMaffei/FreedomOutside/archive/master.zip">https://github.com/RiccardoMaffei/FreedomOutside/archive/master.zip</a></li>
+</ul>
+
+<p>Or you can clone the git repository:<br>
+<code>git clone https://github.com/RiccardoMaffei/FreedomOutside.git</code></p>
+
+<h2>
+<a id="how-to-compile" class="anchor" href="#how-to-compile" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to compile</h2>
+
+<p>A makefile is provided with the source code.<br>
+Running <code>make</code> in the same directory will automatically build the binary using <code>g++</code>.<br>
+The object files are stored in ./build/ to permit incremental builds but if you don't need it you can safely delete the entire build directory.</p>
+
+<p>The binary <code>FreedomOutside</code> will be generated in the current working directory.</p>
+
+<p>Note that the current version of Freedom Outside is compatible with Mac and Unix-like systems.<br>
+The compatibility with other systems has not been tested.</p>
+
+<h2>
+<a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to play</h2>
+
+<p>To run the game you can simply use <code>./FreedomOutside</code> and the game will start with 4 player as default.<br>
+If you want to customize the number of player you can use<br>
+<code>./FreedomOutside --number-of-players X</code> or <code>./FreedomOutside -n X</code><br>
+putting the number of player (&gt;1) instead of the 'X'.<br>
+<strong>The console width must be at least 130 character.</strong><br>
+<strong>An height of 80 character is recommended to avoid continuous scrolling.</strong></p>
+
+<h2>
+<a id="about-the-game" class="anchor" href="#about-the-game" aria-hidden="true"><span class="octicon octicon-link"></span></a>About the game</h2>
+
+<h3>
+<a id="prologue" class="anchor" href="#prologue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prologue</h3>
+
+<blockquote>
+<p>Democratic Kampuchea (Cambodia), 1977.<br>
+Red Khmers have been in power for 2 years.<br>
+The police has eyes everywhere and every careless action is considered against the party.<br>
+Prisoners are detained in the basement of Party's palace.<br>
+Not everyone knows that the palace was built on the old Khmer empire's prison where there's an inhuman tradition: freedom will be given to the one who will survive to the other prisoners.<br>
+Your captors have just pushed you in a damp cell with other unscrupulous prisoners who will try to kill you. You should run away and immediately find a weapon.<br>
+Let the game begin!</p>
+</blockquote>
+
+<h3>
+<a id="the-ui" class="anchor" href="#the-ui" aria-hidden="true"><span class="octicon octicon-link"></span></a>The UI</h3>
+
+<p>In every turn a basic interface is shown to the player.<br>
+The interface is composed by:    </p>
+
+<ul>
+<li>A map</li>
+<li>The current prisoner's name</li>
+<li>The prisoner's info</li>
+<li>The prisoners in the room</li>
+<li>A list of actions</li>
+<li>The action result</li>
+</ul>
+
+<h5>
+<a id="the-map" class="anchor" href="#the-map" aria-hidden="true"><span class="octicon octicon-link"></span></a>The map</h5>
+
+<p>The map section shows the explored part of the map from the perspective of the current prisoner.
+Every prisoner can view only up to 2 rooms away from his position in every direction but can't see if and where are other prisoners because the lighting system is not working properly in the old prison and the other prisoners are hidden.<br>
+Every prisoner can see other prisoners if they are in the same room.</p>
+
+<h5>
+<a id="the-current-prisoners-name" class="anchor" href="#the-current-prisoners-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>The current prisoner's name</h5>
+
+<p>The current prisoner number and his/her name is shown to recognize the player who should play the current turn.</p>
+
+<h5>
+<a id="the-prisoners-info" class="anchor" href="#the-prisoners-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>The prisoner's info</h5>
+
+<p>In this section there are the basic prisoner's info such as:</p>
+
+<ul>
+<li>The health</li>
+<li>The agility</li>
+<li>The strength</li>
+<li>The inventory list</li>
+<li>The armor</li>
+</ul>
+
+<h5>
+<a id="the-prisoners-in-the-room" class="anchor" href="#the-prisoners-in-the-room" aria-hidden="true"><span class="octicon octicon-link"></span></a>The prisoners in the room</h5>
+
+<p>While prisoners in other rooms are hidden, you can still see prisoners in your same room. You can see their number, name and health.</p>
+
+<h5>
+<a id="the-list-of-action" class="anchor" href="#the-list-of-action" aria-hidden="true"><span class="octicon octicon-link"></span></a>The list of action</h5>
+
+<p>The list of action is the central part of the game. Everything you can do is shown in this section. You are asked to write your choice (the number of action) and press enter to execute it.</p>
+
+<h5>
+<a id="the-action-result" class="anchor" href="#the-action-result" aria-hidden="true"><span class="octicon octicon-link"></span></a>The action result</h5>
+
+<p>The action result is shown for a bit and then starts the turn of the following player.</p>
+
+<h3>
+<a id="the-game-flow" class="anchor" href="#the-game-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>The game flow</h3>
+
+<p>Freedom Outside is a turn-based game.<br>
+The game flow is very simple:</p>
+
+<ol>
+<li>The title and the prologue is shown.</li>
+<li>Every player is asked for its name.</li>
+<li>While there is more than one player alive
+
+<ol>
+<li>The interface is shown.</li>
+<li>The player is asked to choose his/her action choice.</li>
+<li>The action is executed.</li>
+<li>The action result is shown.</li>
+</ol>
+</li>
+<li>The winner (if there is one) is shown.</li>
+</ol>
+
+<h3>
+<a id="prisoners-statistics-and-damage-logic" class="anchor" href="#prisoners-statistics-and-damage-logic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prisoner's statistics and damage logic</h3>
+
+<p>Every player has:</p>
+
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Default value</th>
+<th>Min value</th>
+<th>Max value</th>
+<th>How to increase</th>
+<th>How to decrease</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Health</td>
+<td>100</td>
+<td>0</td>
+<td>100</td>
+<td>heal yourself</td>
+<td>s.b. damage you</td>
+</tr>
+<tr>
+<td>Agility</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>4.00</td>
+<td>move around</td>
+<td>not implemented yet</td>
+</tr>
+<tr>
+<td>Strength</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>4.00</td>
+<td>combat</td>
+<td>not implemented yet</td>
+</tr>
+<tr>
+<td>Armor protection</td>
+<td>no armor (1.00)</td>
+<td>1.00</td>
+<td>4.00</td>
+<td>change armor</td>
+<td>change armor</td>
+</tr>
+</tbody>
+</table>
+
+<p>Damages are divided in given and received:</p>
+
+<h5>
+<a id="given-damages" class="anchor" href="#given-damages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Given damages</h5>
+
+<p>Given damages are computed with the following formula:  </p>
+
+<pre><code>given_damages = strength * weapon_damage_value
+</code></pre>
+
+<p>In case of destructive weapon the damage value is random (between a range) and when the attacker and the attacked player are the same, the given damages are divided by the attacker agility simulating his/her agility to run away (E.g.: when throwing a grenade).</p>
+
+<h5>
+<a id="received-damages" class="anchor" href="#received-damages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Received damages</h5>
+
+<p>Received damages are computed with the following formula:  </p>
+
+<pre><code>received_damages = inbound_damage / (agility * armor_protection)
+</code></pre>
+
+<h3>
+<a id="actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h3>
+
+<p>Actions can be summarized as follows:</p>
+
+<ul>
+<li>Hide yourself (wait).</li>
+<li>Move to north/south/east/west.</li>
+<li>Pickup/drop any item (according to the inventory size).</li>
+<li>Wear/unwear an armor.</li>
+<li>Combat against other prisoners using weapons.</li>
+<li>Heal yourself using potions.</li>
+</ul>
+
+<h3>
+<a id="items" class="anchor" href="#items" aria-hidden="true"><span class="octicon octicon-link"></span></a>Items</h3>
+
+<p>Items are everything that can be picked up or dropped. They spawn around the map according to some probability rules.<br>
+Items are divided as follows:</p>
+
+<ul>
+<li>Weapons
+
+<ul>
+<li>Simple weapons</li>
+<li>Destructive weapons</li>
+</ul>
+</li>
+<li>Health kits</li>
+<li>Armors</li>
+</ul>
+
+<h5>
+<a id="weapons" class="anchor" href="#weapons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Weapons</h5>
+
+<p>Weapons are special items which can be used to combat against other players.<br>
+Simple weapons are weapons with a standard damage value and are used against one prisoner only while destructive weapons are used against every prisoner in the room and they have a random damage value in a range.</p>
+
+<p>The simple weapons are:  </p>
+
+<table>
+<thead>
+<tr>
+<th>Weapon name</th>
+<th>Damage value</th>
+<th>Probability %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotten wooden plank</td>
+<td>1</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Wooden plank</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Sharp wooden plank</td>
+<td>3</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Rotten stick</td>
+<td>4</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Stick</td>
+<td>5</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Rusty iron pipe</td>
+<td>6</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Iron pipe</td>
+<td>7</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Hammer</td>
+<td>8</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Knife</td>
+<td>9</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Sword</td>
+<td>10</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Spear</td>
+<td>15</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Axe</td>
+<td>20</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Iron mace</td>
+<td>30</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Blowgun</td>
+<td>29</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Bow</td>
+<td>25</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Slingshot</td>
+<td>30</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Hunting Bow</td>
+<td>35</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Handgun</td>
+<td>45</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Rifle</td>
+<td>60</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Shotgun</td>
+<td>70</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Ak-47</td>
+<td>90</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>The destructive weapons are:  </p>
+
+<table>
+<thead>
+<tr>
+<th>Weapon name</th>
+<th>Min damage value</th>
+<th>Min damage value</th>
+<th>Probability %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Molotov</td>
+<td>30</td>
+<td>80</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Grenade</td>
+<td>35</td>
+<td>85</td>
+<td>5</td>
+</tr>
+<tr>
+<td>TNT</td>
+<td>50</td>
+<td>100</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+<h5>
+<a id="health-kits" class="anchor" href="#health-kits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Health kits</h5>
+
+<p>Health kits are special items which can be used to heal yourself.</p>
+
+<p>They are:  </p>
+
+<table>
+<thead>
+<tr>
+<th>Kit name</th>
+<th>Heal value</th>
+<th>Probability %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tiny healing potion</td>
+<td>5</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Small healing potion</td>
+<td>10</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Medium healing potion</td>
+<td>30</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Big healing potion</td>
+<td>50</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Huge healing potion</td>
+<td>100</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<h5>
+<a id="armors" class="anchor" href="#armors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Armors</h5>
+
+<p>Armors are special items which can be worn and used to protect yourself against damages.</p>
+
+<p>They are:  </p>
+
+<table>
+<thead>
+<tr>
+<th>Armor name</th>
+<th>Protection factor</th>
+<th>Probability %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rags armor</td>
+<td>1.1</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Leather armor</td>
+<td>1.2</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Hide armor</td>
+<td>1.3</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Copper armor</td>
+<td>1.4</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Bronze armor</td>
+<td>1.5</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Iron armor</td>
+<td>1.6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Steel armor</td>
+<td>1.7</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Gold armor</td>
+<td>1.8</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Diamond armor</td>
+<td>1.9</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This software is released under the GNU GPL v3.0 license.<br>
+A copy of the license is provided in the LICENSE file.</p>
+
+<blockquote>
+<p>Copyright (C) 2016  Riccardo Maffei, Federico Bertani, Danilo Branca.</p>
+
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+</blockquote>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
