@@ -8,6 +8,31 @@ Freedom Outside is a simple console game for the Programming course written by:
 We have been asked to set the repository as private by the professors.  
 **The repository will be set as public at the end of the course.**
 
+Table of content
+----------------
+- [Download](#download)
+- [How to compile](#how-to-compile)
+- [How to play](#how-to-play)
+- [About the game](#about-the-game)
+	- [Prologue](#prologue)
+	- [The UI](#the-UI)
+		- [The map](#the-map)
+		- [The current prisoner's name](#the-current-prisoners-name)
+		- [The prisoner's info](#the-prisoners-info)
+		- [The prisoners in the room](#the-prisoners-in-the-room)
+		- [The list of action](#the-list-of-action)
+		- [The action result](#the-action-result)
+	- [The game flow](#the-game-flow)
+	- [Prisoner's statistics and damage logic](#prisoners-statistics-and-damage-logic)
+		- [Given damages](#given-damages)
+		- [Received damages](#received-damages)
+	- [Actions](#actions)
+	- [Items](#items)
+		- [Weapons](#weapons)
+		- [Health kits](#health-kits)
+		- [Armors](#armors)
+- [License](#license)
+
 Download
 ---------
 The latest source of Freedom Outside can be downloaded from:
@@ -38,8 +63,8 @@ putting the number of player (>1) instead of the 'X'.
 **An height of 80 character is recommended to avoid continuous scrolling.**
 
 About the game
-----------------------------
-###Prologue
+---------------
+### Prologue
 >Democratic Kampuchea (Cambodia), 1977.  
 >Red Khmers have been in power for 2 years.  
 >The police has eyes everywhere and every careless action is considered against the party.  
@@ -48,7 +73,7 @@ About the game
 >Your captors have just pushed you in a damp cell with other unscrupulous prisoners who will try to kill you. You should run away and immediately find a weapon.  
 >Let the game begin!
 
-###The UI
+### The UI
 In every turn a basic interface is shown to the player.  
 The interface is composed by:    
 * A map
@@ -58,15 +83,15 @@ The interface is composed by:
 * A list of actions
 * The action result
 
-#####The map
+##### The map
 The map section shows the explored part of the map from the perspective of the current prisoner.
 Every prisoner can view only up to 2 rooms away from his position in every direction but can't see if and where are other prisoners because the lighting system is not working properly in the old prison and the other prisoners are hidden.  
 Every prisoner can see other prisoners if they are in the same room.
 
-#####The current prisoner's name
+##### The current prisoner's name
 The current prisoner number and his/her name is shown to recognize the player who should play the current turn.
 
-#####The prisoner's info
+##### The prisoner's info
 In this section there are the basic prisoner's info such as:
 * The health
 * The agility
@@ -74,16 +99,16 @@ In this section there are the basic prisoner's info such as:
 * The inventory list
 * The armor
 
-#####The prisoners in the room
+##### The prisoners in the room
 While prisoners in other rooms are hidden, you can still see prisoners in your same room. You can see their number, name and health.
 
-#####The list of action
+##### The list of action
 The list of action is the central part of the game. Everything you can do is shown in this section. You are asked to write your choice (the number of action) and press enter to execute it.
 
-#####The action result
+##### The action result
 The action result is shown for a bit and then starts the turn of the following player.
 
-###The game flow
+### The game flow
 Freedom Outside is a turn-based game.  
 The game flow is very simple:
 
@@ -96,7 +121,7 @@ The game flow is very simple:
   4. The action result is shown.
 4. The winner (if there is one) is shown.
 
-###Prisoner's statistics and damage logic
+### Prisoner's statistics and damage logic
 Every player has:
 
 Property name | Default value | Min value | Max value | How to increase | How to decrease
@@ -107,19 +132,19 @@ Strength | 1.00 | 1.00 | 4.00 | combat | not implemented yet
 Armor protection | no armor (1.00) | 1.00 | 4.00 | change armor | change armor
 
 Damages are divided in given and received:
-#####Given damages
+##### Given damages
 Given damages are computed with the following formula:  
 ````
 given_damages = strength * weapon_damage_value
 ````
 In case of destructive weapon the damage value is random (between a range) and when the attacker and the attacked player are the same, the given damages are divided by the attacker agility simulating his/her agility to run away (E.g.: when throwing a grenade).
 
-#####Received damages
+##### Received damages
 Received damages are computed with the following formula:  
 ````
 received_damages = inbound_damage / (agility * armor_protection)
 ````
-###Actions
+### Actions
 Actions can be summarized as follows:
 * Hide yourself (wait).
 * Move to north/south/east/west.
@@ -128,7 +153,7 @@ Actions can be summarized as follows:
 * Combat against other prisoners using weapons.
 * Heal yourself using potions.
 
-###Items
+### Items
 Items are everything that can be picked up or dropped. They spawn around the map according to some probability rules.  
 Items are divided as follows:
 
@@ -138,7 +163,7 @@ Items are divided as follows:
 * Health kits
 * Armors
 
-#####Weapons
+##### Weapons
 Weapons are special items which can be used to combat against other players.  
 Simple weapons are weapons with a standard damage value and are used against one prisoner only while destructive weapons are used against every prisoner in the room and they have a random damage value in a range.
 
@@ -176,7 +201,7 @@ Molotov | 30 | 80 | 6
 Grenade | 35 | 85 | 5
 TNT | 50 | 100 | 2
 
-#####Health kits
+##### Health kits
 Health kits are special items which can be used to heal yourself.
 
 They are:  
@@ -189,7 +214,7 @@ Medium healing potion | 30 | 5
 Big healing potion | 50 | 2
 Huge healing potion | 100 | 1
 
-#####Armors
+##### Armors
 Armors are special items which can be worn and used to protect yourself against damages.
 
 They are:  
