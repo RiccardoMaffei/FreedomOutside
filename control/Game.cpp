@@ -19,6 +19,7 @@
  /* 
  * File:   Game.cpp
  * Author: Riccardo Maffei
+ * Author: Danilo Branca
  * 
  * Created on 16 dicembre 2015, 14.59
  */
