@@ -50,7 +50,7 @@ The object files are stored in ./build/ to permit incremental builds but if you 
 
 The binary `FreedomOutside` will be generated in the current working directory.
 
-Note that the current version of Freedom Outside is compatible with Mac and Unix-like systems.  
+Note that the current version of Freedom Outside is compatible only with Unix-like systems.  
 The compatibility with other systems has not been tested.
 
 How to play
