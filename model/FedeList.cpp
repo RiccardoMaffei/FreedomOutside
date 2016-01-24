@@ -46,17 +46,35 @@ FedeList<ListType>::FedeList(ListType element){
 
 template <class ListType>
 FedeList<ListType>::FedeList(const FedeList& orig) {
+    //init this list
     this -> init();
-    //i can't access orig nodes 'cause it would change orig and it's const for c++ standard.
-    //so i create a tmpCopy that point to same nodes but i can modify it.
+    //we need to use a temp copy because orig is const.
+    //The temp copy actually is a container that uses the same nodes of orig.
+    //create a copy
     FedeList<ListType> tmpCopy = FedeList<ListType>();
+    //clone the head cursor
     tmpCopy.headCursor = orig.headCursor;
-    tmpCopy.cursor = orig.headCursor;
+    //clone the tail cursor
+    tmpCopy.tailCursor = orig.tailCursor;
+    //clone the cursor
+    tmpCopy.cursor = orig.cursor;
+    //clone the size
     tmpCopy.listSize = orig.listSize;
-    int originSize = orig.getSize();
-    for (int i = 0; i < originSize; i++) {
+    //clone the cursor position
+    tmpCopy.cursorPosition = orig.cursorPosition;
+    //for the temp list
+    for (int i = 0; i < tmpCopy.getSize(); i++) {
+        //get the element at i and push it in this list
         this->push_back((tmpCopy.get(i)));
     }
+    //we need to unset the cursors to avoid deletions and side effects on the original list
+    //unset the head cursor
+    tmpCopy.headCursor = NULL;
+    //unset the tail cursor
+    tmpCopy.tailCursor = NULL;
+    //unset the cursor
+    tmpCopy.cursor = NULL;
+    //the temp list is automatically deleted
 }
 
 template <class ListType>
