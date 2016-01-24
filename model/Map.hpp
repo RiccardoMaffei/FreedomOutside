@@ -85,7 +85,7 @@ public:
      * Return an ordered list of visible rooms from the given one. (e.g. visibility +/- 2x +/- 2y).
      * The area of visible room is a square not a circle. 
      * @param center Room*: the center room.
-     * @param radius int: radius of visibility greater or equal to zero.
+     * @param radius int: radius of visibility greater or equal to zero. In case of negative radius, the whole map is returned.
      * @return FedeList&lt;Room*&gt;*: the list.
      */
     FedeList<Room*>* getVisibleRooms(Room* center, int radius);

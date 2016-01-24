@@ -172,51 +172,55 @@ void Map::insertRoom(Room* toInsert) {
 }
 
 FedeList<Room*>* Map::getVisibleRooms(Room* center, int radius) {
-    //if the radius is less than zero
-    if(radius < 0){
-        //reset as zero
-        radius = 0;
-    }
     //the result list
-    FedeList<Room*>* result = new FedeList<Room*>();
-    //get the center x
-    int centerX = center -> getX();
-    //get the center y
-    int centerY = center -> getY();
-    //the position in the room list
-    int pos = 0;
-    //the current rows from the top of the square.
-    int rowsFromTop = 0;
-    //not reached the lower side of visibility square and not reached the end of the list of rooms
-    while( rowsFromTop < (2*radius)+1 && pos < (this -> roomList -> getSize())){
-        //this is a temporary fake room that represent the left limit of the line
-        Room minlineTemp = Room(centerX - radius, centerY - radius + rowsFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
-        //this is a temporary fake room that represent the right limit of the line
-        Room maxlineTemp = Room(centerX + radius, centerY - radius + rowsFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
-        //have I reached or passed the right side of the row?
-        bool reached = false;
-        //while i haven't reached the end of the row and I've not reached the end of the list of rooms
-        while (pos < (this -> roomList -> getSize()) && !reached){
-            //get the room at position pos
-            Room* got = this -> roomList -> get(pos);
-            //if the room is between (inclusive) max and min line
-            if(*got >= minlineTemp && *got <= maxlineTemp){
-                //add to the result list
-                result -> push_back(got);
+    FedeList<Room*>* result = NULL;
+    //if the radius is less than zero (infinity mode)
+    if(radius < 0){
+        //clone the list
+        result = new FedeList<Room*>(*(this -> roomList));
+    }
+    else{
+        //instance the result list
+        result = new FedeList<Room*>();
+        //get the center x
+        int centerX = center -> getX();
+        //get the center y
+        int centerY = center -> getY();
+        //the position in the room list
+        int pos = 0;
+        //the current rows from the top of the square.
+        int rowsFromTop = 0;
+        //not reached the lower side of visibility square and not reached the end of the list of rooms
+        while( rowsFromTop < (2*radius)+1 && pos < (this -> roomList -> getSize())){
+            //this is a temporary fake room that represent the left limit of the line
+            Room minlineTemp = Room(centerX - radius, centerY - radius + rowsFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
+            //this is a temporary fake room that represent the right limit of the line
+            Room maxlineTemp = Room(centerX + radius, centerY - radius + rowsFromTop,NULL,NULL,NULL,NULL,new FedeList<Item*>());
+            //have I reached or passed the right side of the row?
+            bool reached = false;
+            //while i haven't reached the end of the row and I've not reached the end of the list of rooms
+            while (pos < (this -> roomList -> getSize()) && !reached){
+                //get the room at position pos
+                Room* got = this -> roomList -> get(pos);
+                //if the room is between (inclusive) max and min line
+                if(*got >= minlineTemp && *got <= maxlineTemp){
+                    //add to the result list
+                    result -> push_back(got);
+                }
+                //if the got room is higher or equal to the max line
+                if(*got >= maxlineTemp){
+                    //set the should stop as true
+                    reached = true;
+                }
+                //else
+                else{
+                    //increase the position
+                    pos++;
+                }
             }
-            //if the got room is higher or equal to the max line
-            if(*got >= maxlineTemp){
-                //set the should stop as true
-                reached = true;
-            }
-            //else
-            else{
-                //increase the position
-                pos++;
-            }
+            //increase the line
+            rowsFromTop++;
         }
-        //increase the line
-        rowsFromTop++;
     }
     //return the result
     return result;
