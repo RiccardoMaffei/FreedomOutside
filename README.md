@@ -15,7 +15,7 @@ Table of content
 - [How to play](#how-to-play)
 - [About the game](#about-the-game)
 	- [Prologue](#prologue)
-	- [The UI](#the-UI)
+	- [The UI](#the-ui)
 		- [The map](#the-map)
 		- [The current prisoner's name](#the-current-prisoners-name)
 		- [The prisoner's info](#the-prisoners-info)
